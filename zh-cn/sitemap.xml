@@ -2,8 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://SJTdreams.github.io/post/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
+  </url><url>
+    <loc>https://SJTdreams.github.io/p/%E8%B5%B7%E7%82%B9/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
+  </url><url>
+    <loc>https://SJTdreams.github.io/page/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
+  </url><url>
+    <loc>https://SJTdreams.github.io/archives/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
+  </url><url>
+    <loc>https://SJTdreams.github.io/%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
+  </url><url>
     <loc>https://SJTdreams.github.io/</loc>
-    <lastmod>2024-12-29T12:41:22+08:00</lastmod>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -20,22 +35,8 @@
                 href="https://SJTdreams.github.io/"
                 />
   </url><url>
-    <loc>https://SJTdreams.github.io/post/</loc>
-    <lastmod>2024-12-29T12:41:22+08:00</lastmod>
-  </url><url>
-    <loc>https://SJTdreams.github.io/p/%E8%B5%B7%E7%82%B9/</loc>
-    <lastmod>2024-12-29T12:41:22+08:00</lastmod>
-  </url><url>
-    <loc>https://SJTdreams.github.io/page/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SJTdreams.github.io/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://SJTdreams.github.io/%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://SJTdreams.github.io/categories/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -70,9 +71,12 @@
                 />
   </url><url>
     <loc>https://SJTdreams.github.io/categories/test/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
   </url><url>
     <loc>https://SJTdreams.github.io/search/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
   </url><url>
     <loc>https://SJTdreams.github.io/%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5/</loc>
+    <lastmod>2025-01-01T15:45:48+08:00</lastmod>
   </url>
 </urlset>
