@@ -1,11 +1,382 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Test on 疏间徒泍の旅途</title>
+        <title>编程 on 疏间徒泍の旅途</title>
         <link>https://SJTdreams.github.io/categories/%E7%BC%96%E7%A8%8B/</link>
-        <description>Recent content in Test on 疏间徒泍の旅途</description>
+        <description>Recent content in 编程 on 疏间徒泍の旅途</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>疏间徒泍</copyright><atom:link href="https://SJTdreams.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>疏间徒泍</copyright><atom:link href="https://SJTdreams.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Github使用日志</title>
+        <link>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</link>
+        <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</guid>
+        <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;github使用日志&#34;&gt;Github使用日志
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;github和git的具体概念&#34;&gt;Github和Git的具体概念
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;首先，github和git是两个不同的概念。GitHub 本身是一个基于web的服务平台，其通过提供git仓库的托管进行服务。而git则是开源的&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e5%88%86%e5%b8%83%e5%bc%8f/19276232?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;分布式&lt;/a&gt;版本控制系统，两者绝对不能混为一谈。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git并不是github独有的。包括&lt;strong&gt;Bitbucket&lt;/strong&gt;、&lt;strong&gt;SourceForge&lt;/strong&gt;、&lt;strong&gt;Gogs&lt;/strong&gt;、&lt;strong&gt;Gitbucket&lt;/strong&gt;、&lt;strong&gt;GitLab&lt;/strong&gt;、&lt;strong&gt;Gitee&lt;/strong&gt;、&lt;strong&gt;Azure DevOps&lt;/strong&gt;、&lt;strong&gt;Gitea&lt;/strong&gt;在内的多个平台使用的都是git。&lt;/p&gt;
+&lt;h3 id=&#34;git的具体概念&#34;&gt;git的具体概念
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。&lt;/p&gt;
+&lt;p&gt;Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。&lt;/p&gt;
+&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;对象存储&lt;/strong&gt;：Git使用内容寻址文件系统来存储内容。每个文件和目录都以对象的形式存储，并通过SHA-1哈希值进行索引。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;分支管理&lt;/strong&gt;：在Git中，分支是一个引用（轻量级的分支）或是一个分支对象（重量级的分支）。分支切换实际上是改变当前HEAD指针的位置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;索引（Index）&lt;/strong&gt;：Git的索引是一个准备区，用于暂存即将提交的文件变更。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;冲突解决&lt;/strong&gt;：当两个分支有冲突时，Git会标记出冲突的文件，需要手动解决冲突后才能进行合并。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;标签（Tag）&lt;/strong&gt;：用于标记特定的提交，通常用于版本发布。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;仓库（Repository）&lt;/strong&gt;：Git用来保存项目文件和版本历史的数据库。每个项目都有一个Git仓库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;提交（Commit）&lt;/strong&gt;：项目文件的一个快照，包括文件的内容和元数据（如作者、日期、提交信息）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;分支（Branch）&lt;/strong&gt;：指向特定提交的可移动的指针，用于隔离开发流程的不同部分。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;合并（Merge）&lt;/strong&gt;：将两个或多个不同的开发历史合并在一起。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;克隆（Clone）&lt;/strong&gt;：创建一个仓库的副本，包括所有文件和提交历史。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;远程仓库（Remote Repository）&lt;/strong&gt;：托管在服务器上的仓库，可以是GitHub、GitLab等。&lt;/p&gt;
+&lt;h3 id=&#34;github的具体概念&#34;&gt;github的具体概念
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;GitHub是一个面向&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e5%bc%80%e6%ba%90/20720669?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;开源&lt;/a&gt;及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;代码托管&lt;/strong&gt;：GitHub允许用户托管Git仓库，并提供了一个图形界面来浏览代码、提交历史、分支和标签。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;协作工具&lt;/strong&gt;：GitHub提供了issues（问题跟踪系统）、pull requests（代码审查和合并请求）、wikis（项目文档）和项目看板等工具，以支持团队协作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;社交功能&lt;/strong&gt;：GitHub有关注（following）、星标（starring）、观察（watching）等社交功能，允许用户跟踪项目和开发者的活动。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;集成和自动化&lt;/strong&gt;：GitHub提供了API和Webhooks，允许开发者集成外部服务和自动化工作流程。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代码审查和合并&lt;/strong&gt;：通过pull requests，GitHub支持代码审查和讨论，确保代码质量，并简化合并流程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github的具体使用&#34;&gt;Github的具体使用
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;GitHub允许你创建一个远程库。需要通过git来将本地的库同步到github中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github允许你提交一个&lt;strong&gt;SSH&lt;/strong&gt;密钥到账号。SSH允许你无需账号密码来同步文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github包含一个&lt;strong&gt;Issues&lt;/strong&gt;，用于追踪项目中的错误和功能请求。可以在仓库的页面上找到New issue，填写相关信息后提交。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github允许你通过&lt;strong&gt;Pull Requests&lt;/strong&gt;来请求将某个分支的变更合并到主分支，便于代码审查。在仓库页面，点击&amp;quot;Pull requests&amp;quot;，然后点击&amp;quot;New pull request&amp;quot;，选择要合并的分支，添加更改说明后提交。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github包含一个&lt;strong&gt;Wikis&lt;/strong&gt;，可以在仓库中托管项目文档。在仓库页面，点击&amp;quot;Wiki&amp;quot;标签，然后点击&amp;quot;Add or edit pages&amp;quot;，创建或编辑文档页面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github包含&lt;strong&gt;GitHub Actions&lt;/strong&gt;可以实现自动化部署和持续集成（CI/CD）。例如在同步仓库时自动更新readme等操作。若要使用，则需在仓库的&lt;code&gt;.github/workflows&lt;/code&gt;目录下创建一个YAML文件，定义工作流程和触发条件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github还包含&lt;strong&gt;Stars&lt;/strong&gt;（点赞/关注）、&lt;strong&gt;Forks&lt;/strong&gt;（克隆）、&lt;strong&gt;Watching&lt;/strong&gt;（订阅）等内容。这是一种用户间的互动。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github可以创建组织，方便同步文件。登录GitHub账户，点击右上角的&amp;quot;+&amp;ldquo;号，选择&amp;quot;New organization&amp;rdquo;，填写组织信息后创建。在组织的页面，点击&amp;quot;Teams&amp;quot;，然后点击&amp;quot;New team&amp;quot;，设置团队名称和成员。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;git的具体使用&#34;&gt;Git的具体使用
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;git的本地仓库包含三个部分：其一是工作目录，其保存着实际的文件。其二是暂存区，类似于缓存，保存临时改动。其三是HEAD区，指向最后一次提交的结果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git init&lt;/code&gt;：初始化一个git仓库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git clone path&lt;/code&gt;：克隆一个本地仓库。把&lt;strong&gt;path&lt;/strong&gt;换成具体路径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git clone [url]&lt;/code&gt;：克隆一个远程仓库。包含https克隆和SSH克隆。https的链接通常类似于这样：&lt;u&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/username/repository.git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/username/repository.git&lt;/a&gt;&lt;/u&gt;。SSH的链接通常类似于这样：&lt;u&gt;git clone &lt;a class=&#34;link&#34; href=&#34;mailto:git@github.com&#34; &gt;git@github.com&lt;/a&gt;:username/repository.git&lt;/u&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git add &amp;lt;filename&amp;gt;&lt;/code&gt;：添加文件到暂存区。如果filename为**&lt;code&gt;.&lt;/code&gt;**（就是一个点）就是指当前目录下的所有文件。文件名不添加路径则是当前目录下的文件。当选择的是文件夹会递归的添加其下的所有文件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git add -u&lt;/code&gt;：这个命令只添加已经跟踪的文件（即之前已经添加到Git仓库的文件），不包括新文件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git add -A&lt;/code&gt; / &lt;code&gt;git add --all&lt;/code&gt;：这些命令添加所有变化的文件和新文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git commit -m &amp;quot;代码提交信息&amp;quot;&lt;/code&gt;：将改动提交到HEAD。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git push origin master&lt;/code&gt;：将这些改动推送到远端仓库。其中，&lt;strong&gt;origin&lt;/strong&gt;是远程仓库的默认名称，当你克隆一个远程仓库时，Git 自动将远程仓库的引用设置为 &lt;code&gt;origin&lt;/code&gt;。这个名称是可替的。master是提交分支名，可以自行更改。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git remote -v&lt;/code&gt;：查看远程仓库的URL，&lt;code&gt;origin&lt;/code&gt; 会显示在列表中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git remote add new_origin &amp;lt;repository_url&amp;gt;&lt;/code&gt;：添加一个新的远程仓库，命名为&lt;strong&gt;new_origin&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;master&lt;/strong&gt;是git的默认分支。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git checkout feature_x&lt;/code&gt;：切换到某个分支。&lt;strong&gt;feature_x&lt;/strong&gt;是该分支的名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git checkout -b feature_x&lt;/code&gt;：创建并切换到某个分支，&lt;strong&gt;feature_x&lt;/strong&gt;是该分支的名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git branch -d feature_x&lt;/code&gt;：删除某个分支，&lt;strong&gt;feature_x&lt;/strong&gt;是该分支的名称。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git push origin &amp;lt;branch&amp;gt;&lt;/code&gt;：推送这个分支。没有推送的分支在远程上是不可见的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git pull [remote] [branch]&lt;/code&gt;:从远程仓库拉取代码变更，并尝试将这些变更自动合并到当前本地分支。&lt;code&gt;[remote]&lt;/code&gt;：这是远程仓库的名称，默认是 &lt;code&gt;origin&lt;/code&gt;。&lt;code&gt;branch&lt;/code&gt;：这是远程仓库中你想要拉取的分支名称。如果你不指定 &lt;code&gt;[remote]&lt;/code&gt; 和 &lt;code&gt;branch&lt;/code&gt;，Git 会默认拉取 &lt;code&gt;origin&lt;/code&gt; 远程仓库中与当前本地分支关联的分支的变更。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git merge &amp;lt;branch&amp;gt;&lt;/code&gt;：合并一个分支到当前分支。&lt;strong&gt;branch&lt;/strong&gt;是该分支的名称（&amp;lt;&amp;gt;是不要的）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git diff &amp;lt;source_branch&amp;gt; &amp;lt;target_branch&amp;gt;&lt;/code&gt;：预览两个分支的差异。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git log&lt;/code&gt;：获得提交ID。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git tag 1.0.0 id&lt;/code&gt;：创建一个叫做 &lt;em&gt;1.0.0&lt;/em&gt; 的标签。id指提交 ID 的前 10 位字符。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git checkout -- &amp;lt;filename&amp;gt;&lt;/code&gt;：使用 HEAD 中的最新内容替换掉你的工作目录中的文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git fetch [remote]&lt;/code&gt;：从远程仓库获取数据，并下载远程分支的更新和提交，但不会自动合并这些更改到你的本地分支。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git reset [--hard] [&amp;lt;commit&amp;gt;]&lt;/code&gt;：重置当前HEAD和索引（暂存区）。&lt;code&gt;[--hard]&lt;/code&gt;：这是一个可选的选项，表示重置时连同工作目录一起重置，即放弃所有本地未提交的更改。&lt;code&gt;[&amp;lt;commit&amp;gt;]&lt;/code&gt;：这是一个占位符，表示你想要重置到的特定的提交（commit）。可以是一个分支名、标签或者提交的哈希值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;gitk&lt;/code&gt;：图形化git。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git config color.ui true/false&lt;/code&gt;开启/关闭彩色输出。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git config format.pretty oneline&lt;/code&gt;：显示历史记录时，每个提交的信息只显示一行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git add -i&lt;/code&gt;：交互式添加文件到暂存区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;h3 id=&#34;具体语法实例&#34;&gt;具体语法实例：
+&lt;/h3&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;60
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;61
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;62
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;63
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;64
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;65
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;66
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;67
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;68
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 初始化一个Git仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 克隆一个远程仓库到本地
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/username/repository.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 添加文件到暂存区
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add index.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 添加所有变化的文件和新文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add -A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 添加已经跟踪的文件（不包括新文件）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add -u
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 提交暂存区的更改到本地仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &amp;#34;Add index.md with Github usage log&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 查看远程仓库的URL
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote -v
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 添加一个新的远程仓库引用
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin https://github.com/username/repository.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 推送本地仓库的更改到远程仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 从远程仓库拉取代码变更，并合并到当前本地分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull origin master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 合并远程分支的更改到当前分支
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git merge origin/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 显示两个分支的差异
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git diff master feature_x
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 查看提交历史
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git log
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 创建一个标签
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git tag 1.0.0 &amp;lt;commit_id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 检出标签对应的提交
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout 1.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 检出HEAD中的最新内容替换工作目录中的文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout -- index.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 从远程仓库获取数据，但不自动合并
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git fetch origin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 重置当前HEAD和索引（暂存区）到指定的提交
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --hard &amp;lt;commit_id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 重置当前HEAD和索引（暂存区）到远程分支的状态
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --hard origin/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 打开图形化Git工具
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gitk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 开启/关闭彩色输出
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global color.ui true
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 显示历史记录时，每个提交的信息只显示一行
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global format.pretty oneline
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 交互式添加文件到暂存区
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add -i
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Git 作为一个开源的分布式版本控制系统，以其高效和灵活性被广泛应用于各种项目中。而 GitHub，作为一个基于 Web 的服务平台，提供了 Git 仓库托管和丰富的协作工具，极大地方便了开发者之间的代码共享和项目管理。&lt;/li&gt;
+&lt;li&gt;本篇涉及了了 Git 的核心特性，和基础语法，大概阐释了涉及到的概念。可以作为我自身的查档用，也有一定的参考价值。&lt;/li&gt;
+&lt;li&gt;GitHub 的主要语法和操作实际上基于 Git，而 GitHub 则作为远程仓库的角色，使得代码的远程托管和管理变得更加便捷。希望本文能帮助您更好地理解和使用 Git 和 GitHub，提高您的工作效率，并在开源社区中发挥更大的作用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;相关资料&#34;&gt;相关资料
+&lt;/h2&gt;&lt;p&gt;* &lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/manual/git-guide/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;git - 简明指南&lt;/a&gt;
+* &lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/git/git-tutorial.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git 教程|菜鸟编程&lt;/a&gt;
+* &lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/github/10145341&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github-百度百科&lt;/a&gt;
+* &lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/GIT/12647237&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git-百度百科&lt;/a&gt;
+* &lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git官方文档&lt;/a&gt;
+* &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/Git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git维基百科&lt;/a&gt;
+* &lt;a class=&#34;link&#34; href=&#34;https://en.wikipedia.org/wiki/GitHub&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github维基百科&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
     </channel>
 </rss>
