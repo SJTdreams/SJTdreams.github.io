@@ -14,7 +14,7 @@
 <meta property='og:description' content="机器学习 线性代数学习笔记 本篇是在学习过程中写的，可能会存在疏漏，欢迎补充！\n“人工智能是我们人类正在从事的最为深刻的研究方向之一，甚至要比火与电还更加深刻。”\n">
 <meta property='og:url' content='https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='深度学习' /><meta property='article:tag' content='数学' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='线性代数' /><meta property='article:published_time' content='2025-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-07T12:18:01&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='深度学习' /><meta property='article:tag' content='数学' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='线性代数' /><meta property='article:published_time' content='2025-01-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-07T12:44:05&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.png' />
 <meta name="twitter:title" content="机器学习线性代数学习笔记">
 <meta name="twitter:description" content="机器学习 线性代数学习笔记 本篇是在学习过程中写的，可能会存在疏漏，欢迎补充！\n“人工智能是我们人类正在从事的最为深刻的研究方向之一，甚至要比火与电还更加深刻。”\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.png' />
@@ -339,6 +339,7 @@
   <ol>
     <li><a href="#61-线性变换的定义">6.1 线性变换的定义</a></li>
     <li><a href="#62-线性变换与基向量">6.2 线性变换与基向量</a></li>
+    <li><a href="#63-离散动力系统">6.3 离散动力系统</a></li>
   </ol>
 
   <ol>
@@ -718,8 +719,23 @@ $$
     S = |\det(A)|
     $$</li>
 </ul>
+<h2 id="63-离散动力系统">6.3 离散动力系统
+</h2><ul>
+<li>
+<p>离散动力系统描述了系统状态在离散时间点上的变化。离散动力系统的状态更新是在一系列特定的时间间隔内进行的，这些时间间隔通常称为时间步长。其函数可表示为：</p>
 </li>
-<li></li>
+<li>
+$$
+    x_{t+1} = f(x_t)
+    $$</li>
+<li>
+<p>特征值和特征向量在离散动力系统和连续动力系统中都有应用，它们是数值代数的核心内容。对于一个马尔可夫矩阵。可以通过当前的状态向量与概率矩阵点积得到目标概率。当反复执行过程直到趋向于稳定，就表示得到的是特征向量且特征值为1。</p>
+</li>
+<li>
+<p>一个所有列向量的元素和的值为1且所有元素非负的方阵叫做马尔可夫矩阵。</p>
+</li>
+</ul>
+</li>
 </ul>
 <p>通过对线性变换和基向量的深入理解，我们可以更好地把握线性代数在AI领域的应用，从而在算法设计和数据分析中做出更合理的决策。线性变换提供了一种强大的工具，用于分析和处理高维数据，而基向量则为我们提供了一种直观的方式来理解和操作这些变换。</p>
 <h1 id="7张成和基">7.张成和基
@@ -1015,7 +1031,7 @@ $$
 
 
         <span>
-            最后更新于 Jan 07, 2025 12:18 &#43;0800
+            最后更新于 Jan 07, 2025 12:44 &#43;0800
         </span>
     </section></footer>
 
