@@ -13,7 +13,7 @@
             </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script><meta property='og:title' content="Tags">
 <meta property='og:description' content="Face the moon">
 <meta property='og:url' content='https://SJTdreams.github.io/en/tags/'>
-<meta property='og:site_name' content='Adventure if Shu'>
+<meta property='og:site_name' content='Adventure Shu'>
 <meta property='og:type' content='website'>
 <meta name="twitter:title" content="Tags">
 <meta name="twitter:description" content="Face the moon"><link rel="alternate" type="application/rss&#43;xml" href="https://SJTdreams.github.io/en/tags/index.xml">
@@ -73,7 +73,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/en">Adventure if Shu</a></h1>
+            <h1 class="site-name"><a href="/en">Adventure Shu</a></h1>
             <h2 class="site-description">Face the moon</h2>
         </div>
     </header><ol class="menu-social">
@@ -152,9 +152,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://SJTdreams.github.io/en/" selected>English</option>
-                                
                                     <option value="https://SJTdreams.github.io/" >中文</option>
+                                
+                                    <option value="https://SJTdreams.github.io/en/" selected>English</option>
                                 
                                     <option value="https://SJTdreams.github.io/ar/" >عربي</option>
                                 
@@ -322,6 +322,14 @@ const ap = new APlayer({
     lrcType: 3,
     audio: [
         {
+            
+            name: '冬之钟OST',
+            artist: '寿司勇者',
+            url: staticDir + '冬之钟.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
              name: '【Remix】背叛的爱丽丝', 
              artist: 'MYANSR', 
              url: 'Alice.mp3', 
@@ -335,7 +343,16 @@ const ap = new APlayer({
             url: staticDir + '古兰.mp3',
             cover: staticDir + 'blacksouls.jpg',
             lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: 'BlackSouls2 OST - 狩猎邪龙的沃柏尔',
+            artist: '寿司勇者',
+            url: staticDir + '邪龙.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
         }
+        
     ]
 });
 window.onbeforeunload = () => {

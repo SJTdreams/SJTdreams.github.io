@@ -152,9 +152,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://SJTdreams.github.io/en/" >English</option>
-                                
                                     <option value="https://SJTdreams.github.io/" >中文</option>
+                                
+                                    <option value="https://SJTdreams.github.io/en/" >English</option>
                                 
                                     <option value="https://SJTdreams.github.io/ar/" selected>عربي</option>
                                 
@@ -322,6 +322,14 @@ const ap = new APlayer({
     lrcType: 3,
     audio: [
         {
+            
+            name: '冬之钟OST',
+            artist: '寿司勇者',
+            url: staticDir + '冬之钟.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
              name: '【Remix】背叛的爱丽丝', 
              artist: 'MYANSR', 
              url: 'Alice.mp3', 
@@ -335,7 +343,16 @@ const ap = new APlayer({
             url: staticDir + '古兰.mp3',
             cover: staticDir + 'blacksouls.jpg',
             lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: 'BlackSouls2 OST - 狩猎邪龙的沃柏尔',
+            artist: '寿司勇者',
+            url: staticDir + '邪龙.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
         }
+        
     ]
 });
 window.onbeforeunload = () => {
