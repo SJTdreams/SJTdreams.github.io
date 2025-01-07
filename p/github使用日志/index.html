@@ -14,7 +14,7 @@
 <meta property='og:description' content="Github使用日志 在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。\n[TOC]\n2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。\n">
 <meta property='og:url' content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Github' /><meta property='article:tag' content='数据库' /><meta property='article:tag' content='共享' /><meta property='article:tag' content='学习' /><meta property='article:published_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-07T15:03:52&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Github' /><meta property='article:tag' content='数据库' /><meta property='article:tag' content='共享' /><meta property='article:tag' content='学习' /><meta property='article:published_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-01-07T15:28:21&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png' />
 <meta name="twitter:title" content="Github使用日志">
 <meta name="twitter:description" content="Github使用日志 在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。\n[TOC]\n2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png' />
@@ -323,6 +323,7 @@
         <li><a href="#具体语法实例">具体语法实例：</a></li>
       </ol>
     </li>
+    <li><a href="#身份认证">身份认证</a></li>
     <li><a href="#总结">总结</a></li>
     <li><a href="#相关资料">相关资料</a></li>
   </ol>
@@ -401,7 +402,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 9 分钟
+                    阅读时长: 11 分钟
                 </time>
             </div>
         
@@ -756,6 +757,65 @@
 </div>
 </div></li>
 </ul>
+<h2 id="身份认证">身份认证
+</h2><ul>
+<li>身份认证主要涉及与远程仓库的交互，例如推送（push）和拉取（pull）代码。在进行这些操作时，会进行身份认证。</li>
+<li>在“Settings”页面，选择“Developer settings”。</li>
+<li>点击“Personal access tokens”，然后点击“Generate new token”。</li>
+<li>选择需要的权限范围，生成个人访问令牌。</li>
+<li>复制生成的 PAT 并妥善保管，因为之后无法再次查看完整的 PAT。
+<ul>
+<li>生成 PAT 是为了在使用 HTTPS 认证时，可以使用 PAT 代替密码进行身份验证，提高安全性，避免在代码操作过程中频繁输入密码，同时可以为不同的用途生成不同的令牌，便于管理和权限控制。</li>
+</ul>
+</li>
+<li>配置 Git 用户信息
+<ul>
+<li>在本地计算机上打开终端或命令行工具.</li>
+<li>使用命令 <code>git config --global user.name &quot;Your Name&quot;</code> 设置全局用户名.</li>
+<li>使用命令 <code>git config --global user.email &quot;your_email@example.com&quot;</code> 设置全局用户邮箱.</li>
+<li>
+<!--配置 Git 用户信息是为了在提交代码时，能够记录提交者的真实身份信息，方便项目管理和追踪代码变更的来源.-->
+</li>
+</ul>
+</li>
+<li>生成 SSH 密钥对（使用 SSH 认证）
+<ul>
+<li>生成SSH可以避免每一次登录都要输入账号密码</li>
+<li>打开终端，输入命令 <code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code> 生成 SSH 密钥对.</li>
+<li>按照提示操作，输入文件保存路径和密码（可选）.</li>
+<li>生成的公钥文件通常位于 <code>~/.ssh/id_rsa.pub</code>，私钥文件位于 <code>~/.ssh/id_rsa</code>.</li>
+</ul>
+</li>
+<li>添加 SSH 公钥到 GitHub
+<ul>
+<li>如果不添加，GitHub 无法识别本地计算机的身份，使用 SSH 认证时会出现权限拒绝的错误。</li>
+<li>登录 GitHub 账户，点击右上角的头像，选择“Settings”.</li>
+<li>在左侧菜单选择“SSH and GPG keys”，点击“New SSH key”.</li>
+<li>输入 SSH 密钥的标题，将公钥内容粘贴到“Key”框中，点击“Add SSH key”.</li>
+</ul>
+</li>
+<li>克隆远程仓库
+<ul>
+<li>使用 SSH URL 克隆远程仓库，例如 <code>git clone git@github.com:username/repository.git</code>.</li>
+<li>在首次克隆时，可能会提示输入 SSH 密钥的密码（如果设置了密码）.</li>
+</ul>
+</li>
+<li>推送和拉取代码（使用 SSH 认证）
+<ul>
+<li>在本地仓库中进行代码更改后，使用 <code>git push</code> 推送代码到远程仓库.</li>
+<li>使用 <code>git pull</code> 从远程仓库拉取代码更新.</li>
+<li>由于使用了 SSH 密钥认证，不需要输入用户名和密码.</li>
+</ul>
+</li>
+<li>使用 HTTPS 认证（不推荐）
+<ul>
+<li>每次操作都需要输入用户名和密码，增加了操作的复杂性，且在安全性上可能不如 SSH 认证。</li>
+<li>使用 HTTPS URL 克隆远程仓库，例如 <code>git clone https://github.com/username/repository.git</code>.</li>
+<li>在推送和拉取代码时，输入用户名和密码（或 PAT）进行身份验证.</li>
+<li>如果使用 PAT，可以在 Git 命令中输入 <code>username</code> 和 <code>PAT</code> 作为凭证.</li>
+</ul>
+</li>
+</ul>
 <h2 id="总结">总结
 </h2><ul>
 <li>Git 作为一个开源的分布式版本控制系统，以其高效和灵活性被广泛应用于各种项目中。而 GitHub，作为一个基于 Web 的服务平台，提供了 Git 仓库托管和丰富的协作工具，极大地方便了开发者之间的代码共享和项目管理。</li>
@@ -808,7 +868,7 @@
 
 
         <span>
-            最后更新于 Jan 07, 2025 15:03 &#43;0800
+            最后更新于 Jan 07, 2025 15:28 &#43;0800
         </span>
     </section></footer>
 

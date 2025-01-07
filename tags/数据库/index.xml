@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Tue, 07 Jan 2025 15:03:52 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 07 Jan 2025 15:28:21 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Github使用日志</title>
         <link>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</link>
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
@@ -352,6 +352,65 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;身份认证&#34;&gt;身份认证
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;身份认证主要涉及与远程仓库的交互，例如推送（push）和拉取（pull）代码。在进行这些操作时，会进行身份认证。&lt;/li&gt;
+&lt;li&gt;在“Settings”页面，选择“Developer settings”。&lt;/li&gt;
+&lt;li&gt;点击“Personal access tokens”，然后点击“Generate new token”。&lt;/li&gt;
+&lt;li&gt;选择需要的权限范围，生成个人访问令牌。&lt;/li&gt;
+&lt;li&gt;复制生成的 PAT 并妥善保管，因为之后无法再次查看完整的 PAT。
+&lt;ul&gt;
+&lt;li&gt;生成 PAT 是为了在使用 HTTPS 认证时，可以使用 PAT 代替密码进行身份验证，提高安全性，避免在代码操作过程中频繁输入密码，同时可以为不同的用途生成不同的令牌，便于管理和权限控制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;配置 Git 用户信息
+&lt;ul&gt;
+&lt;li&gt;在本地计算机上打开终端或命令行工具.&lt;/li&gt;
+&lt;li&gt;使用命令 &lt;code&gt;git config --global user.name &amp;quot;Your Name&amp;quot;&lt;/code&gt; 设置全局用户名.&lt;/li&gt;
+&lt;li&gt;使用命令 &lt;code&gt;git config --global user.email &amp;quot;your_email@example.com&amp;quot;&lt;/code&gt; 设置全局用户邮箱.&lt;/li&gt;
+&lt;li&gt;
+&lt;!--配置 Git 用户信息是为了在提交代码时，能够记录提交者的真实身份信息，方便项目管理和追踪代码变更的来源.--&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;生成 SSH 密钥对（使用 SSH 认证）
+&lt;ul&gt;
+&lt;li&gt;生成SSH可以避免每一次登录都要输入账号密码&lt;/li&gt;
+&lt;li&gt;打开终端，输入命令 &lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;&lt;/code&gt; 生成 SSH 密钥对.&lt;/li&gt;
+&lt;li&gt;按照提示操作，输入文件保存路径和密码（可选）.&lt;/li&gt;
+&lt;li&gt;生成的公钥文件通常位于 &lt;code&gt;~/.ssh/id_rsa.pub&lt;/code&gt;，私钥文件位于 &lt;code&gt;~/.ssh/id_rsa&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加 SSH 公钥到 GitHub
+&lt;ul&gt;
+&lt;li&gt;如果不添加，GitHub 无法识别本地计算机的身份，使用 SSH 认证时会出现权限拒绝的错误。&lt;/li&gt;
+&lt;li&gt;登录 GitHub 账户，点击右上角的头像，选择“Settings”.&lt;/li&gt;
+&lt;li&gt;在左侧菜单选择“SSH and GPG keys”，点击“New SSH key”.&lt;/li&gt;
+&lt;li&gt;输入 SSH 密钥的标题，将公钥内容粘贴到“Key”框中，点击“Add SSH key”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;克隆远程仓库
+&lt;ul&gt;
+&lt;li&gt;使用 SSH URL 克隆远程仓库，例如 &lt;code&gt;git clone git@github.com:username/repository.git&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;在首次克隆时，可能会提示输入 SSH 密钥的密码（如果设置了密码）.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;推送和拉取代码（使用 SSH 认证）
+&lt;ul&gt;
+&lt;li&gt;在本地仓库中进行代码更改后，使用 &lt;code&gt;git push&lt;/code&gt; 推送代码到远程仓库.&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;git pull&lt;/code&gt; 从远程仓库拉取代码更新.&lt;/li&gt;
+&lt;li&gt;由于使用了 SSH 密钥认证，不需要输入用户名和密码.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;使用 HTTPS 认证（不推荐）
+&lt;ul&gt;
+&lt;li&gt;每次操作都需要输入用户名和密码，增加了操作的复杂性，且在安全性上可能不如 SSH 认证。&lt;/li&gt;
+&lt;li&gt;使用 HTTPS URL 克隆远程仓库，例如 &lt;code&gt;git clone https://github.com/username/repository.git&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;在推送和拉取代码时，输入用户名和密码（或 PAT）进行身份验证.&lt;/li&gt;
+&lt;li&gt;如果使用 PAT，可以在 Git 命令中输入 &lt;code&gt;username&lt;/code&gt; 和 &lt;code&gt;PAT&lt;/code&gt; 作为凭证.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;总结&#34;&gt;总结
 &lt;/h2&gt;&lt;ul&gt;
