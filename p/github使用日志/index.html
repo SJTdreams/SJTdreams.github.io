@@ -14,7 +14,7 @@
 <meta property='og:description' content="Github使用攻略 在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。\n前排提示：如果你是一个萌新，建议直接看具体工作流示范（从0开始）部分！\n">
 <meta property='og:url' content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Unity' /><meta property='article:tag' content='python' /><meta property='article:tag' content='大模型' /><meta property='article:tag' content='api' /><meta property='article:published_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-02-15T15:55:59&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Github' /><meta property='article:tag' content='数据库' /><meta property='article:tag' content='共享' /><meta property='article:tag' content='学习' /><meta property='article:published_time' content='2025-01-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-02-15T16:00:46&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png' />
 <meta name="twitter:title" content="Github使用日志">
 <meta name="twitter:description" content="Github使用攻略 在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。\n前排提示：如果你是一个萌新，建议直接看具体工作流示范（从0开始）部分！\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png' />
@@ -311,23 +311,30 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#github和git的具体概念">Github和Git的具体概念</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#获取进程信息"><strong>获取进程信息</strong></a></li>
-            <li><a href="#终止进程"><strong>终止进程</strong></a></li>
-            <li><a href="#重定向输入流"><strong>重定向输入流</strong></a></li>
-            <li><a href="#重定向输出流"><strong>重定向输出流</strong></a></li>
-            <li><a href="#重定向错误流"><strong>重定向错误流</strong></a></li>
-          </ol>
-        </li>
+        <li><a href="#git的具体概念">git的具体概念</a></li>
+        <li><a href="#github的具体概念">github的具体概念</a></li>
       </ol>
     </li>
-  </ol>
-
-  <ol>
-    <li><a href="#process"><strong><code>Process</code></strong></a></li>
+    <li><a href="#github的使用">Github的使用</a></li>
+    <li><a href="#git的使用">Git的使用</a>
+      <ol>
+        <li><a href="#具体语法实例">具体语法实例：</a></li>
+      </ol>
+    </li>
+    <li><a href="#身份认证">身份认证</a></li>
+    <li><a href="#具体工作流示范从0开始">具体工作流示范（从<code>0</code>开始）</a>
+      <ol>
+        <li><a href="#一注册及相关准备工作">一、注册及相关准备工作</a></li>
+        <li><a href="#二本地git下载和配置">二、本地git下载和配置</a></li>
+        <li><a href="#三身份认证">三、身份认证</a></li>
+        <li><a href="#四下载仓库和拉取分支更改到本地">四、下载仓库和拉取分支（更改）到本地</a></li>
+        <li><a href="#五-上传文件到仓库">五、 上传文件到仓库</a></li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#相关资料">相关资料</a></li>
   </ol>
 </nav>
         </div>
@@ -419,64 +426,654 @@
     <section class="article-content">
     
     
-    <h1 id="通过process在unity中调用python未完成">通过Process在Unity中调用<strong>Python</strong>(未完成)
-</h1><p>[TOC]</p>
-<blockquote>
-<p>由于个人对Unity比较熟悉，因此打算将api接入unity实现对话的图形化&hellip;不过大部分的模型api都是通过python来调用，因此决定通过unity来实现对python脚本的调用。经过了解，有许多文案写的是通过<strong>Python for Unity</strong>来实现调用。然而该组件实现的脚本只能放在Editor目录下，也没办法打包，只能说完全不适配。尽管还存在**<code>UnityWebRequest</code><strong>等实现方式，不过决定通过</strong><code>Process</code>**来实现。</p></blockquote>
-<h1 id="一process类简介">一、<code>Process</code>类简介
+    <h1 id="github使用攻略">Github使用攻略
 </h1><blockquote>
-<p><a class="link" href="https://learn.microsoft.com/zh-cn/dotnet/api/system.diagnostics.process?view=net-8.0"  target="_blank" rel="noopener"
-    >Process</a>组件提供对计算机上正在运行的进程的访问权限。 用最简单的术语说，进程是一个正在运行的应用。 线程是操作系统分配处理器时间的基本单元。 线程可以执行进程代码的任何部分，包括当前由另一个线程执行的部分。</p>
-<p>​														——————————文档介绍</p></blockquote>
-<p>​	<code>Process</code> 类是 C# 中 <code>System.Diagnostics</code> 命名空间下的一个类，可以管理和控制操作系统进程。其可以调用的范围包括：</p>
-<ul>
-<li>
-<p><em>.exe</em></p>
-</li>
-<li>
-<p><em>.bat / .cmd</em></p>
-</li>
-<li>
-<p><em>任何包含可打开该后缀的文件，比如当电脑安装了python便可以打开<code>.py</code>，当电脑安装了音乐播放器就可以打开<code>.mp3</code>。</em></p>
-</li>
-<li>
-<p><em>处理正在运行的进程，可以进行包括但不限于</em></p>
-<ul>
-<li>
-<h4 id="获取进程信息"><strong>获取进程信息</strong>
-</h4></li>
-<li>
-<h4 id="终止进程"><strong>终止进程</strong>
-</h4></li>
-<li>
-<h4 id="重定向输入流"><strong>重定向输入流</strong>
-</h4></li>
-<li>
-<h4 id="重定向输出流"><strong>重定向输出流</strong>
-</h4></li>
-<li>
-<h4 id="重定向错误流"><strong>重定向错误流</strong>
-</h4></li>
-</ul>
-<p>因此，通过打开<code>.py</code>文件作为进程，重定向输入、输出和错误，就可以实现在<strong>Unity</strong>中调用<code>python</code>。</p>
-</li>
-</ul>
-<h1 id="二process语法">二、<code>Process</code>语法
-</h1><p>就要用得上的部分分析，包括以下几个类：</p>
-<ul>
-<li><strong><code>Process</code></strong></li>
-<li><strong><code>ProcessStartInfo</code></strong></li>
-<li><strong><code>Trace</code></strong></li>
-<li><strong><code>Stopwatch</code></strong></li>
-<li><strong><code>Debug</code></strong></li>
-</ul>
-<p>其中，**<code>Process</code><strong>和</strong><code>ProcessStartInfo</code>**是刚需，剩下的作为性能优化考虑。</p>
-<ul>
-<li>
-<h2 id="process"><strong><code>Process</code></strong>
+<p>在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。</p></blockquote>
+<blockquote>
+<p><strong>前排提示</strong>：<em><strong>如果你是一个萌新，建议直接看</strong></em><code>具体工作流示范（从</code>0<code>开始）</code><em><strong>部分！</strong></em></p></blockquote>
+<p>[TOC]</p>
+<blockquote>
+<p><strong>2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。</strong></p></blockquote>
+<h2 id="github和git的具体概念">Github和Git的具体概念
 </h2><ul>
+<li>
+<p>首先，github和git是两个不同的概念。GitHub 本身是一个基于web的服务平台，其通过提供git仓库的托管进行服务。而git则是开源的<a class="link" href="https://baike.baidu.com/item/%e5%88%86%e5%b8%83%e5%bc%8f/19276232?fromModule=lemma_inlink"  target="_blank" rel="noopener"
+    >分布式</a>版本控制系统，两者绝对不能混为一谈。</p>
+</li>
+<li>
+<p>git并不是github独有的。包括<strong>Bitbucket</strong>、<strong>SourceForge</strong>、<strong>Gogs</strong>、<strong>Gitbucket</strong>、<strong>GitLab</strong>、<strong>Gitee</strong>、<strong>Azure DevOps</strong>、<strong>Gitea</strong>在内的多个平台使用的都是git。</p>
+<h3 id="git的具体概念">git的具体概念
+</h3><blockquote>
+<p>Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+<p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+<p>Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p></blockquote>
+<ul>
+<li>
+<p><strong>对象存储</strong>：Git使用内容寻址文件系统来存储内容。每个文件和目录都以对象的形式存储，并通过SHA-1哈希值进行索引。</p>
+</li>
+<li>
+<p><strong>分支管理</strong>：在Git中，分支是一个引用（轻量级的分支）或是一个分支对象（重量级的分支）。分支切换实际上是改变当前HEAD指针的位置。</p>
+</li>
+<li>
+<p><strong>索引（Index）</strong>：Git的索引是一个准备区，用于暂存即将提交的文件变更。</p>
+</li>
+<li>
+<p><strong>冲突解决</strong>：当两个分支有冲突时，Git会标记出冲突的文件，需要手动解决冲突后才能进行合并。</p>
+</li>
+<li>
+<p><strong>标签（Tag）</strong>：用于标记特定的提交，通常用于版本发布。</p>
+</li>
+<li>
+<p><strong>仓库（Repository）</strong>：Git用来保存项目文件和版本历史的数据库。每个项目都有一个Git仓库。</p>
+</li>
+<li>
+<p><strong>提交（Commit）</strong>：项目文件的一个快照，包括文件的内容和元数据（如作者、日期、提交信息）。</p>
+</li>
+<li>
+<p><strong>分支（Branch）</strong>：指向特定提交的可移动的指针，用于隔离开发流程的不同部分。</p>
+</li>
+<li>
+<p><strong>合并（Merge）</strong>：将两个或多个不同的开发历史合并在一起。</p>
+</li>
+<li>
+<p><strong>克隆（Clone）</strong>：创建一个仓库的副本，包括所有文件和提交历史。</p>
+</li>
+<li>
+<p><strong>远程仓库（Remote Repository）</strong>：托管在服务器上的仓库，可以是GitHub、GitLab等。</p>
+<h3 id="github的具体概念">github的具体概念
+</h3><blockquote>
+<p>GitHub是一个面向<a class="link" href="https://baike.baidu.com/item/%e5%bc%80%e6%ba%90/20720669?fromModule=lemma_inlink"  target="_blank" rel="noopener"
+    >开源</a>及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。</p></blockquote>
+</li>
+</ul>
+<ul>
+<li>
+<p><strong>代码托管</strong>：GitHub允许用户托管Git仓库，并提供了一个图形界面来浏览代码、提交历史、分支和标签。</p>
+</li>
+<li>
+<p><strong>协作工具</strong>：GitHub提供了issues（问题跟踪系统）、pull requests（代码审查和合并请求）、wikis（项目文档）和项目看板等工具，以支持团队协作。</p>
+</li>
+<li>
+<p><strong>社交功能</strong>：GitHub有关注（following）、星标（starring）、观察（watching）等社交功能，允许用户跟踪项目和开发者的活动。</p>
+</li>
+<li>
+<p><strong>集成和自动化</strong>：GitHub提供了API和Webhooks，允许开发者集成外部服务和自动化工作流程。</p>
+<ul>
+<li><strong>代码审查和合并</strong>：通过pull requests，GitHub支持代码审查和讨论，确保代码质量，并简化合并流程。</li>
+</ul>
+<h2 id="github的使用">Github的使用
+</h2><ul>
+<li>
+<p>GitHub允许你创建一个远程库。需要通过git来将本地的库同步到github中。</p>
+</li>
+<li>
+<p>Github允许你提交一个<strong>SSH</strong>密钥到账号。SSH允许你无需账号密码来同步文件。</p>
+</li>
+<li>
+<p>Github包含一个<strong>Issues</strong>，用于追踪项目中的错误和功能请求。可以在仓库的页面上找到New issue，填写相关信息后提交。</p>
+</li>
+<li>
+<p>Github允许你通过<strong>Pull Requests</strong>来请求将某个分支的变更合并到主分支，便于代码审查。在仓库页面，点击&quot;Pull requests&quot;，然后点击&quot;New pull request&quot;，选择要合并的分支，添加更改说明后提交。</p>
+</li>
+<li>
+<p>Github包含一个<strong>Wikis</strong>，可以在仓库中托管项目文档。在仓库页面，点击&quot;Wiki&quot;标签，然后点击&quot;Add or edit pages&quot;，创建或编辑文档页面。</p>
+</li>
+<li>
+<p>Github包含<strong>GitHub Actions</strong>可以实现自动化部署和持续集成（CI/CD）。例如在同步仓库时自动更新readme等操作。若要使用，则需在仓库的<code>.github/workflows</code>目录下创建一个YAML文件，定义工作流程和触发条件。</p>
+</li>
+<li>
+<p>Github还包含<strong>Stars</strong>（点赞/关注）、<strong>Forks</strong>（克隆）、<strong>Watching</strong>（订阅）等内容。这是一种用户间的互动。</p>
+</li>
+<li>
+<p>Github可以创建组织，方便同步文件。登录GitHub账户，点击右上角的&quot;+&ldquo;号，选择&quot;New organization&rdquo;，填写组织信息后创建。在组织的页面，点击&quot;Teams&quot;，然后点击&quot;New team&quot;，设置团队名称和成员。</p>
+</li>
 <li></li>
 </ul>
+<h2 id="git的使用">Git的使用
+</h2><ul>
+<li>
+<p>git的本地仓库包含三个部分：其一是工作目录，其保存着实际的文件。其二是暂存区，类似于缓存，保存临时改动。其三是HEAD区，指向最后一次提交的结果。</p>
+</li>
+<li>
+<p><code>git init</code>：初始化一个git仓库。</p>
+</li>
+<li>
+<p><code>git clone path</code>：克隆一个本地仓库。把<strong>path</strong>换成具体路径。</p>
+</li>
+<li>
+<p><code>git clone [url]</code>：克隆一个远程仓库。包含https克隆和SSH克隆。https的链接通常类似于这样：<u><a class="link" href="https://github.com/username/repository.git"  target="_blank" rel="noopener"
+    >https://github.com/username/repository.git</a></u>。SSH的链接通常类似于这样：<u>git clone <a class="link" href="mailto:git@github.com" >git@github.com</a>:username/repository.git</u>。</p>
+</li>
+<li>
+<p><code>git add &lt;filename&gt;</code>：添加文件到暂存区。如果filename为**<code>.</code>**（就是一个点）就是指当前目录下的所有文件。文件名不添加路径则是当前目录下的文件。当选择的是文件夹会递归的添加其下的所有文件。</p>
+<ul>
+<li><code>git add -u</code>：这个命令只添加已经跟踪的文件（即之前已经添加到Git仓库的文件），不包括新文件。</li>
+<li><code>git add -A</code> / <code>git add --all</code>：这些命令添加所有变化的文件和新文件。</li>
+</ul>
+</li>
+<li>
+<p><code>git commit -m &quot;代码提交信息&quot;</code>：将改动提交到HEAD。</p>
+</li>
+<li>
+<p><code>git push origin master</code>：将这些改动推送到远端仓库。其中，<strong>origin</strong>是远程仓库的默认名称，当你克隆一个远程仓库时，Git 自动将远程仓库的引用设置为 <code>origin</code>。这个名称是可替的。master是提交分支名，可以自行更改。</p>
+</li>
+<li>
+<p><code>git remote -v</code>：查看远程仓库的URL，<code>origin</code> 会显示在列表中。</p>
+</li>
+<li>
+<p><code>git remote add new_origin &lt;repository_url&gt;</code>：添加一个新的远程仓库，命名为<strong>new_origin</strong>。</p>
+</li>
+<li>
+<p><strong>master</strong>是git的默认分支。</p>
+</li>
+<li>
+<p><code>git checkout feature_x</code>：切换到某个分支。<strong>feature_x</strong>是该分支的名称。</p>
+</li>
+<li>
+<p><code>git checkout -b feature_x</code>：创建并切换到某个分支，<strong>feature_x</strong>是该分支的名称。</p>
+</li>
+<li>
+<p><code>git branch -d feature_x</code>：删除某个分支，<strong>feature_x</strong>是该分支的名称。</p>
+</li>
+<li>
+<p><code>git push origin &lt;branch&gt;</code>：推送这个分支。没有推送的分支在远程上是不可见的。</p>
+</li>
+<li>
+<p><code>git pull [remote] [branch]</code>:从远程仓库拉取代码变更，并尝试将这些变更自动合并到当前本地分支。<code>[remote]</code>：这是远程仓库的名称，默认是 <code>origin</code>。<code>branch</code>：这是远程仓库中你想要拉取的分支名称。如果你不指定 <code>[remote]</code> 和 <code>branch</code>，Git 会默认拉取 <code>origin</code> 远程仓库中与当前本地分支关联的分支的变更。</p>
+</li>
+<li>
+<p><code>git merge &lt;branch&gt;</code>：合并一个分支到当前分支。<strong>branch</strong>是该分支的名称（&lt;&gt;是不要的）。</p>
+</li>
+<li>
+<p><code>git diff &lt;source_branch&gt; &lt;target_branch&gt;</code>：预览两个分支的差异。</p>
+</li>
+<li>
+<p><code>git log</code>：获得提交ID。</p>
+</li>
+<li>
+<p><code>git tag 1.0.0 id</code>：创建一个叫做 <em>1.0.0</em> 的标签。id指提交 ID 的前 10 位字符。</p>
+</li>
+<li>
+<p><code>git checkout -- &lt;filename&gt;</code>：使用 HEAD 中的最新内容替换掉你的工作目录中的文件。</p>
+</li>
+<li>
+<p><code>git fetch [remote]</code>：从远程仓库获取数据，并下载远程分支的更新和提交，但不会自动合并这些更改到你的本地分支。</p>
+</li>
+<li>
+<p><code>git reset [--hard] [&lt;commit&gt;]</code>：重置当前HEAD和索引（暂存区）。<code>[--hard]</code>：这是一个可选的选项，表示重置时连同工作目录一起重置，即放弃所有本地未提交的更改。<code>[&lt;commit&gt;]</code>：这是一个占位符，表示你想要重置到的特定的提交（commit）。可以是一个分支名、标签或者提交的哈希值。</p>
+</li>
+<li>
+<p><code>gitk</code>：图形化git。</p>
+</li>
+<li>
+<p><code>git config color.ui true/false</code>开启/关闭彩色输出。</p>
+</li>
+<li>
+<p><code>git config format.pretty oneline</code>：显示历史记录时，每个提交的信息只显示一行。</p>
+</li>
+<li>
+<p><code>git add -i</code>：交互式添加文件到暂存区。</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="具体语法实例">具体语法实例：
+</h3></li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 初始化一个Git仓库</span>
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 克隆一个远程仓库到本地</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/username/repository.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加文件到暂存区</span>
+</span></span><span class="line"><span class="cl">git add index.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加所有变化的文件和新文件</span>
+</span></span><span class="line"><span class="cl">git add -A
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加已经跟踪的文件（不包括新文件）</span>
+</span></span><span class="line"><span class="cl">git add -u
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提交暂存区的更改到本地仓库</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Add index.md with Github usage log&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看远程仓库的URL</span>
+</span></span><span class="line"><span class="cl">git remote -v
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加一个新的远程仓库引用</span>
+</span></span><span class="line"><span class="cl">git remote add origin https://github.com/username/repository.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 推送本地仓库的更改到远程仓库</span>
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 从远程仓库拉取代码变更，并合并到当前本地分支</span>
+</span></span><span class="line"><span class="cl">git pull origin master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 合并远程分支的更改到当前分支</span>
+</span></span><span class="line"><span class="cl">git merge origin/master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示两个分支的差异</span>
+</span></span><span class="line"><span class="cl">git diff master feature_x
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看提交历史</span>
+</span></span><span class="line"><span class="cl">git log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个标签</span>
+</span></span><span class="line"><span class="cl">git tag 1.0.0 &lt;commit_id&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检出标签对应的提交</span>
+</span></span><span class="line"><span class="cl">git checkout 1.0.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检出HEAD中的最新内容替换工作目录中的文件</span>
+</span></span><span class="line"><span class="cl">git checkout -- index.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 从远程仓库获取数据，但不自动合并</span>
+</span></span><span class="line"><span class="cl">git fetch origin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重置当前HEAD和索引（暂存区）到指定的提交</span>
+</span></span><span class="line"><span class="cl">git reset --hard &lt;commit_id&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重置当前HEAD和索引（暂存区）到远程分支的状态</span>
+</span></span><span class="line"><span class="cl">git reset --hard origin/master
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 打开图形化Git工具</span>
+</span></span><span class="line"><span class="cl">gitk
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 开启/关闭彩色输出</span>
+</span></span><span class="line"><span class="cl">git config --global color.ui <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示历史记录时，每个提交的信息只显示一行</span>
+</span></span><span class="line"><span class="cl">git config --global format.pretty oneline
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 交互式添加文件到暂存区</span>
+</span></span><span class="line"><span class="cl">git add -i
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h2 id="身份认证">身份认证
+</h2><ul>
+<li>身份认证主要涉及与远程仓库的交互，例如推送（push）和拉取（pull）代码。在进行这些操作时，会进行身份认证。</li>
+<li>在“Settings”页面，选择“Developer settings”。</li>
+<li>点击“Personal access tokens”，然后点击“Generate new token”。</li>
+<li>选择需要的权限范围，生成个人访问令牌。</li>
+<li>复制生成的 PAT 并妥善保管，因为之后无法再次查看完整的 PAT。
+<ul>
+<li>生成 PAT 是为了在使用 HTTPS 认证时，可以使用 PAT 代替密码进行身份验证，提高安全性，避免在代码操作过程中频繁输入密码，同时可以为不同的用途生成不同的令牌，便于管理和权限控制。</li>
+</ul>
+</li>
+<li>配置 Git 用户信息
+<ul>
+<li>在本地计算机上打开终端或命令行工具.</li>
+<li>使用命令 <code>git config --global user.name &quot;Your Name&quot;</code> 设置全局用户名.</li>
+<li>使用命令 <code>git config --global user.email &quot;your_email@example.com&quot;</code> 设置全局用户邮箱.</li>
+<li>
+<!--配置 Git 用户信息是为了在提交代码时，能够记录提交者的真实身份信息，方便项目管理和追踪代码变更的来源.-->
+</li>
+</ul>
+</li>
+<li>生成 SSH 密钥对（使用 SSH 认证）
+<ul>
+<li>生成SSH可以避免每一次登录都要输入账号密码</li>
+<li>打开终端，输入命令 <code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code> 生成 SSH 密钥对.</li>
+<li>按照提示操作，输入文件保存路径和密码（可选）.</li>
+<li>生成的公钥文件通常位于 <code>~/.ssh/id_rsa.pub</code>，私钥文件位于 <code>~/.ssh/id_rsa</code>.</li>
+</ul>
+</li>
+<li>添加 SSH 公钥到 GitHub
+<ul>
+<li>如果不添加，GitHub 无法识别本地计算机的身份，使用 SSH 认证时会出现权限拒绝的错误。</li>
+<li>登录 GitHub 账户，点击右上角的头像，选择“Settings”.</li>
+<li>在左侧菜单选择“SSH and GPG keys”，点击“New SSH key”.</li>
+<li>输入 SSH 密钥的标题，将公钥内容粘贴到“Key”框中，点击“Add SSH key”.</li>
+</ul>
+</li>
+<li>克隆远程仓库
+<ul>
+<li>使用 SSH URL 克隆远程仓库，例如 <code>git clone git@github.com:username/repository.git</code>.</li>
+<li>在首次克隆时，可能会提示输入 SSH 密钥的密码（如果设置了密码）.</li>
+</ul>
+</li>
+<li>推送和拉取代码（使用 SSH 认证）
+<ul>
+<li>在本地仓库中进行代码更改后，使用 <code>git push</code> 推送代码到远程仓库.</li>
+<li>使用 <code>git pull</code> 从远程仓库拉取代码更新.</li>
+<li>由于使用了 SSH 密钥认证，不需要输入用户名和密码.</li>
+</ul>
+</li>
+<li>使用 HTTPS 认证（不推荐）
+<ul>
+<li>每次操作都需要输入用户名和密码，增加了操作的复杂性，且在安全性上可能不如 SSH 认证。</li>
+<li>使用 HTTPS URL 克隆远程仓库，例如 <code>git clone https://github.com/username/repository.git</code>.</li>
+<li>在推送和拉取代码时，输入用户名和密码（或 PAT）进行身份验证.</li>
+<li>如果使用 PAT，可以在 Git 命令中输入 <code>username</code> 和 <code>PAT</code> 作为凭证.</li>
+</ul>
+</li>
+</ul>
+<h2 id="具体工作流示范从0开始">具体工作流示范（从<code>0</code>开始）
+</h2><ul>
+<li>
+<h3 id="一注册及相关准备工作">一、注册及相关准备工作
+</h3><ul>
+<li>在具体使用Github前，需要先注册一个账号。在国内由于“<em>多方面</em>”原因可能比较难以登上。如果遇到了无法登上的问题，可以考虑更换浏览器或者使用<a class="link" href="https://steampp.net/"  target="_blank" rel="noopener"
+    >Watt Toolkit</a></li>
+<li>访问<a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    >GitHub官网</a>，点击右上角的<a class="link" href="https://github.com/signup?ref_cta=Sign&#43;up"  target="_blank" rel="noopener"
+    ><strong>Sign up</strong></a>按钮，按照提示填写信息（<em>邮箱，密码，用户名</em>）创建一个新的GitHub账户。</li>
+<li>登录到GitHub账户后，点击右上角的**+<strong>按钮，选择</strong>New repository**。</li>
+<li>在创建仓库界面，要注意的选项有以下几项，根据自己的需求来决定：
+<ul>
+<li><strong>Repository name</strong>（必填）：这个项会决定仓库的名称。</li>
+<li><strong>Public/Private</strong>（默认public）：选择可以决定仓库是否公开，也就是别人能不能看到。</li>
+<li><strong>Add a README file</strong>（可选）：可以在仓库中加入一个介绍的文本，方便写项目介绍、更新日志之类的东西。</li>
+<li><strong>Add .gitignore</strong>（可选）：创建一个上传选择文件，可以在仓库上传时选择性的忽略一部分文件。</li>
+<li><strong>Choose a license</strong>（可选）：可以决定别人要怎么对待你这个项目。简单来说可以从以下几个选择一个，具体的可以查<a class="link" href="http://choosealicense.online/"  target="_blank" rel="noopener"
+    >Github许可证使用手册中文版</a>：
+<ul>
+<li><strong>MIT许可证</strong>：最宽松，只要保留版权和许可声明，就可以随意使用、修改和分发代码，适合希望代码被广泛传播的个人或小项目。</li>
+<li><strong>Apache许可证</strong>：也很宽松，和MIT类似，但多了专利保护条款，适合大型项目，尤其是涉及多个开发者和组织合作的项目。</li>
+<li><strong>GPL许可证</strong>：要求修改后的代码也必须开源，适合希望保持项目开源精神，防止代码被闭源的项目。</li>
+<li><strong>BSD许可证</strong>：比较宽松，允许自由使用和修改代码，但需保留版权声明，适合希望代码能被广泛应用，包括商业用途的项目。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="二本地git下载和配置">二、本地git下载和配置
+</h3><ul>
+<li>
+<p>通过链接简单安装git到电脑上：<a class="link" href="https://git-scm.com/downloads/win"  target="_blank" rel="noopener"
+    >git windows版下载地址</a></p>
+</li>
+<li>
+<p>配置你的用户名和邮箱，这个会决定你提交更改时显示的用户信息。输入<code>win + R</code>,输入<code>cmd</code>并打开。</p>
+</li>
+<li>
+<p>在其中输入以下代码。注意将<strong>Your Name</strong>换成你自己的用户名，<strong><a class="link" href="mailto:your_email@example.com" >your_email@example.com</a></strong>换成你自己的邮箱地址：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;Your Name&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;your_email@example.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="三身份认证">三、身份认证
+</h3><ul>
+<li>
+<p>上传代码到仓库时需要身份认证。如果每一次都输入账号密码就很麻烦，所以采用<strong>SSH密钥认证</strong>来跳过这个步骤。</p>
+</li>
+<li>
+<p>在<code>cmd</code>中输入以下片段。将<code>your_email@example.com</code>替换成你在GitHub上注册的邮箱地址：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C “your_email@example.com”
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>登录GitHub，点击右上角头像，选择<strong>Settings</strong>。</p>
+</li>
+<li>
+<p>在左侧菜单中选择<strong>SSH and GPG keys</strong>，点击<strong>New SSH key</strong>。</p>
+</li>
+<li>
+<p>在<strong>Title</strong>字段中，为SSH密钥添加名字；在<strong>Key</strong>字段中，将<code>id_rsa.pub</code>文件的内容复制粘贴进去，然后点击<strong>Add SSH key</strong>确认添加。</p>
+</li>
+<li>
+<p>继续在<code>cmd</code>中输入，将<strong>Your Name</strong>改为你的用户名，将<strong><a class="link" href="mailto:your_email@example.com" >your_email@example.com</a></strong>改为你的邮箱：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;Your Name&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;your_email@example.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="四下载仓库和拉取分支更改到本地">四、下载仓库和拉取分支（更改）到本地
+</h3><ul>
+<li>
+<p>打开你要找的仓库，找到界面中的***<code>&lt; &gt; Code</code>***选项，打开复制链接。</p>
+</li>
+<li>
+<p>打开<code>cmd</code>，输入以下代码，这会将项目下载到指定目录下：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> &lt;你要的具体路径&gt;
+</span></span><span class="line"><span class="cl">git clone &lt;刚才复制的链接&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>拉取分支通过以下操作。如果你不知道分支是什么，可以理解为延申出去的不同方面的更改：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#打开到指定目录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> &lt;仓库路径&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#切换到你要的指定分支</span>
+</span></span><span class="line"><span class="cl">git checkout main
+</span></span><span class="line"><span class="cl"><span class="c1">#拉取指定分支</span>
+</span></span><span class="line"><span class="cl">git pull origin &lt;分支名称&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#拉取当前分支的最新内容</span>
+</span></span><span class="line"><span class="cl">git pull
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="五-上传文件到仓库">五、 上传文件到仓库
+</h3><ul>
+<li>
+<p>首次上传时，打开<code>cmd</code>，执行以下操作：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> &lt;你要上传的文件路径&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#初始化git，这会创建一个.git隐藏目录，用于存储Git的元数据和对象数据库</span>
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl"><span class="c1">#创建一个分支，用于提交，并切换到这个分支上</span>
+</span></span><span class="line"><span class="cl">git checkout -b &lt;分支名称&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#选择你要上传到的仓库</span>
+</span></span><span class="line"><span class="cl">git remote add origin &lt;仓库链接&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#决定要上传的文件</span>
+</span></span><span class="line"><span class="cl">git add &lt;fileName&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#如果你希望上传当前目录所有文件，用这个</span>
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl"><span class="c1">#先提交到本地仓库上</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;提交信息&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#发送分支到目标仓库</span>
+</span></span><span class="line"><span class="cl">git push -u origin new-branch-name
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>在要更新时，可以简单的这么做：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Update&#34;</span>
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结">总结
+</h2><ul>
+<li>Git 作为一个开源的分布式版本控制系统，以其高效和灵活性被广泛应用于各种项目中。而 GitHub，作为一个基于 Web 的服务平台，提供了 Git 仓库托管和丰富的协作工具，极大地方便了开发者之间的代码共享和项目管理。</li>
+<li>本篇涉及了了 Git 的核心特性，和基础语法，大概阐释了涉及到的概念。可以作为我自身的查档用，也有一定的参考价值。</li>
+<li>GitHub 的主要语法和操作实际上基于 Git，而 GitHub 则作为远程仓库的角色，使得代码的远程托管和管理变得更加便捷。希望本文能帮助您更好地理解和使用 Git 和 GitHub，提高您的工作效率，并在开源社区中发挥更大的作用。</li>
+</ul>
+<h2 id="相关资料">相关资料
+</h2><p>* <a class="link" href="https://www.runoob.com/manual/git-guide/"  target="_blank" rel="noopener"
+    >git - 简明指南</a>
+* <a class="link" href="https://www.runoob.com/git/git-tutorial.html"  target="_blank" rel="noopener"
+    >Git 教程|菜鸟编程</a>
+* <a class="link" href="https://baike.baidu.com/item/github/10145341"  target="_blank" rel="noopener"
+    >Github-百度百科</a>
+* <a class="link" href="https://baike.baidu.com/item/GIT/12647237"  target="_blank" rel="noopener"
+    >Git-百度百科</a>
+* <a class="link" href="https://git-scm.com/"  target="_blank" rel="noopener"
+    >Git官方文档</a>
+* <a class="link" href="https://en.wikipedia.org/wiki/Git"  target="_blank" rel="noopener"
+    >Git维基百科</a>
+* <a class="link" href="https://en.wikipedia.org/wiki/GitHub"  target="_blank" rel="noopener"
+    >Github维基百科</a></p>
 </li>
 </ul>
 
@@ -487,13 +1084,13 @@
     
     <section class="article-tags">
         
-            <a href="/tags/unity/">Unity</a>
+            <a href="/tags/github/">Github</a>
         
-            <a href="/tags/python/">Python</a>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
         
-            <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a>
+            <a href="/tags/%E5%85%B1%E4%BA%AB/">共享</a>
         
-            <a href="/tags/api/">Api</a>
+            <a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
         
     </section>
 
@@ -508,7 +1105,7 @@
 
 
         <span>
-            最后更新于 Feb 15, 2025 15:55 &#43;0800
+            最后更新于 Feb 15, 2025 16:00 &#43;0800
         </span>
     </section></footer>
 
@@ -575,23 +1172,23 @@
             
                 
 <article class="has-image">
-    <a href="/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/">
+    <a href="/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/">
         
         
             <div class="article-image">
-                <img src="/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.1c98cf02cc980795a9b5fbfa41ce4bd0_hu_6a3eb7a08798b2a2.png" 
+                <img src="/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/title.84acae7dc22d91eb7cbb34f831ce22bd_hu_f88202d79fb0eb5d.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post Github使用日志"
+                        alt="Featured image of post 通过Process在Unity中调用**Python**"
                         
-                        data-hash="md5-HJjPAsyYB5Wptfv6Qc5L0A==">
+                        data-hash="md5-hKyufcItket8uzT4Mc4ivQ==">
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Github使用日志</h2>
+            <h2 class="article-title">通过Process在Unity中调用**Python**</h2>
         </div>
     </a>
 </article>

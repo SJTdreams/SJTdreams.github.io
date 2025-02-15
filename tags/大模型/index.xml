@@ -7,13 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Sat, 15 Feb 2025 15:55:59 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Github使用日志</title>
-        <link>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</link>
+        <lastBuildDate>Sat, 15 Feb 2025 16:00:46 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>通过Process在Unity中调用**Python**</title>
+        <link>https://SJTdreams.github.io/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/</link>
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</guid>
-        <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.jpg" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;通过process在unity中调用python未完成&#34;&gt;通过Process在Unity中调用&lt;strong&gt;Python&lt;/strong&gt;(未完成)
+        <guid>https://SJTdreams.github.io/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/</guid>
+        <description>&lt;img src="https://SJTdreams.github.io/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/title.jpg" alt="Featured image of post 通过Process在Unity中调用**Python**" /&gt;&lt;h1 id=&#34;通过process在unity中调用python未完成&#34;&gt;通过Process在Unity中调用&lt;strong&gt;Python&lt;/strong&gt;(未完成)
 &lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;由于个人对Unity比较熟悉，因此打算将api接入unity实现对话的图形化&amp;hellip;不过大部分的模型api都是通过python来调用，因此决定通过unity来实现对python脚本的调用。经过了解，有许多文案写的是通过&lt;strong&gt;Python for Unity&lt;/strong&gt;来实现调用。然而该组件实现的脚本只能放在Editor目录下，也没办法打包，只能说完全不适配。尽管还存在**&lt;code&gt;UnityWebRequest&lt;/code&gt;&lt;strong&gt;等实现方式，不过决定通过&lt;/strong&gt;&lt;code&gt;Process&lt;/code&gt;**来实现。&lt;/p&gt;&lt;/blockquote&gt;
