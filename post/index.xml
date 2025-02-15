@@ -7,23 +7,681 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Sun, 19 Jan 2025 12:37:14 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 15 Feb 2025 15:55:59 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>孟德尔の遗传学模拟程序</title>
+        <link>https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/</link>
+        <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/</guid>
+        <description>&lt;img src="https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/title.jpg" alt="Featured image of post 孟德尔の遗传学模拟程序" /&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;h1 id=&#34;遗传学模拟程序用户手册&#34;&gt;遗传学模拟程序用户手册
+&lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;项目下载链接:&lt;a class=&#34;link&#34; href=&#34;https://github.com/SJTdreams/GeneSim-Lab&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[github]&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-程序简介&#34;&gt;🌱 程序简介
+&lt;/h2&gt;&lt;p&gt;这是一个用于模拟遗传规律的互动程序，可以帮助你：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;观察显性和隐性基因的遗传规律&lt;/li&gt;
+&lt;li&gt;模拟不同基因组合的繁殖结果&lt;/li&gt;
+&lt;li&gt;统计基因型和表型的分布比例&lt;/li&gt;
+&lt;li&gt;理解孟德尔遗传定律的实际应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-基本概念速查&#34;&gt;🧬 基本概念速查
+&lt;/h2&gt;&lt;h3 id=&#34;基因相关&#34;&gt;基因相关
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;显性基因&lt;/strong&gt;：用大写字母表示（如A），决定显性性状&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隐性基因&lt;/strong&gt;：用小写字母表示（如a），只有两个隐性基因组合时才表现性状&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基因型&lt;/strong&gt;：个体的基因组合（如AA/Aa/aa）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;表型&lt;/strong&gt;：实际表现出的性状（如高茎/矮茎）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;组别功能&#34;&gt;组别功能
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;实验容器&lt;/strong&gt;：每个组都是一个独立的实验环境&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据隔离&lt;/strong&gt;：不同组的实验数据互不影响&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模式切换&lt;/strong&gt;：支持随机交配和人工杂交两种模式&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;历史记录&lt;/strong&gt;：自动保存各代繁殖数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-快速入门&#34;&gt;💻 快速入门
+&lt;/h2&gt;&lt;h3 id=&#34;启动程序&#34;&gt;启动程序
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python main.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;出现 &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; 提示符表示启动成功&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;基础指令速查&#34;&gt;基础指令速查
+&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;指令&lt;/th&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;/help&lt;/td&gt;
+          &lt;td&gt;查看帮助文档&lt;/td&gt;
+          &lt;td&gt;/help&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;/add&lt;/td&gt;
+          &lt;td&gt;添加新基因&lt;/td&gt;
+          &lt;td&gt;/add A a 高茎 矮茎&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;/create&lt;/td&gt;
+          &lt;td&gt;创建新组&lt;/td&gt;
+          &lt;td&gt;/create 豌豆组&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;/random&lt;/td&gt;
+          &lt;td&gt;随机生成个体&lt;/td&gt;
+          &lt;td&gt;/random 豌豆组 10 2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;/run&lt;/td&gt;
+          &lt;td&gt;执行一代繁殖&lt;/td&gt;
+          &lt;td&gt;/run 豌豆组&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;/show&lt;/td&gt;
+          &lt;td&gt;查看统计数据&lt;/td&gt;
+          &lt;td&gt;/show 豌豆组 -details&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;-详细使用指南&#34;&gt;📚 详细使用指南
+&lt;/h2&gt;&lt;h3 id=&#34;第一步定义基因&#34;&gt;第一步：定义基因
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;显性符号&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;隐性符号&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;显性性状&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;隐性性状&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add A a 高茎 矮茎
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add B b 圆粒 皱粒
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;💡 小贴士：基因符号必须为单个字母，显性用大写&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;第二步创建实验组&#34;&gt;第二步：创建实验组
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;组名&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 实验一组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 对照组
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;第三步添加实验个体&#34;&gt;第三步：添加实验个体
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;方法1：手动添加&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;组名&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;基因型&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; add &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;数量&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 实验一组 AA add &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 添加5个AA型个体&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;方法2：随机生成&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;组名&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;数量&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;基因长度&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random 实验一组 &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 生成20个双基因个体（如AaBb）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;第四步执行繁殖实验&#34;&gt;第四步：执行繁殖实验
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/run &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;组名&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;# 观察结果但不保存&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/write &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;组名&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# 执行并保存结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/runs &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;次数&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;# 连续繁殖多代&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;示例流程&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 豌豆实验
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random 豌豆实验 &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 生成10个单基因个体&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show 豌豆实验        &lt;span class=&#34;c1&#34;&gt;# 查看初始分布&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/run 豌豆实验         &lt;span class=&#34;c1&#34;&gt;# 执行一代繁殖&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;第五步查看实验结果&#34;&gt;第五步：查看实验结果
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;组名&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# 基础统计&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;组名&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; -details &lt;span class=&#34;c1&#34;&gt;# 详细数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;输出示例&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;=== 实验组 统计 ===
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;总个体数：50
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;基因型分布：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Aa: 25 (50.00%)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  AA: 15 (30.00%)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  aa: 10 (20.00%)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;表型分布：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  (高茎,):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    数量：40 占比：80.00%
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    基因型：Aa, AA
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-实验模式说明&#34;&gt;🧪 实验模式说明
+&lt;/h2&gt;&lt;h3 id=&#34;-随机交配模式&#34;&gt;🌐 随机交配模式
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;自然随机配对&lt;/li&gt;
+&lt;li&gt;适合模拟自然种群&lt;/li&gt;
+&lt;li&gt;使用指令：&lt;code&gt;/mode [组名] random&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-人工杂交模式&#34;&gt;✂️ 人工杂交模式
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;可控配对组合&lt;/li&gt;
+&lt;li&gt;适合特定基因型杂交实验&lt;/li&gt;
+&lt;li&gt;使用指令：&lt;code&gt;/mode [组名] cross&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-学习案例豌豆实验&#34;&gt;💡 学习案例：豌豆实验
+&lt;/h2&gt;&lt;h3 id=&#34;实验目标&#34;&gt;实验目标
+&lt;/h3&gt;&lt;p&gt;观察高茎（AA/Aa）与矮茎（aa）豌豆的杂交结果&lt;/p&gt;
+&lt;h3 id=&#34;操作步骤&#34;&gt;操作步骤
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;添加基因定义&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add A a 高茎 矮茎
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建实验组&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 豌豆实验
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加亲本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 豌豆实验 AA add &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 10株高茎纯合体&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 豌豆实验 aa add &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 10株矮茎&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置杂交模式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/mode 豌豆实验 cross
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行杂交&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/run 豌豆实验
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分析结果&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show 豌豆实验 -details
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;-load指令详解&#34;&gt;📥 LOAD指令详解
+&lt;/h2&gt;&lt;h3 id=&#34;指令作用&#34;&gt;指令作用
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;/load [文件路径]&lt;/code&gt; 可以批量执行预先编写好的实验指令文件，适合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;保存常用实验方案&lt;/li&gt;
+&lt;li&gt;快速重建复杂实验&lt;/li&gt;
+&lt;li&gt;课堂演示重复实验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;文件格式要求&#34;&gt;文件格式要求
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;使用普通文本文件（建议.txt扩展名）&lt;/li&gt;
+&lt;li&gt;每行一条有效指令&lt;/li&gt;
+&lt;li&gt;支持#号注释&lt;/li&gt;
+&lt;li&gt;使用UTF-8编码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;使用步骤&#34;&gt;使用步骤
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;用记事本创建指令文件&lt;/li&gt;
+&lt;li&gt;每行写一个有效命令&lt;/li&gt;
+&lt;li&gt;保存时选择UTF-8编码&lt;/li&gt;
+&lt;li&gt;在程序中执行&lt;code&gt;/load 文件路径&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;-实例代码库&#34;&gt;📋 实例代码库
+&lt;/h2&gt;&lt;h3 id=&#34;基础示例单基因实验&#34;&gt;基础示例：单基因实验
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 保存为 basic_exp.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 第一步：定义基因
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add A a 高茎 矮茎
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 第二步：创建实验组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 单基因实验
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 第三步：生成初始种群
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random 单基因实验 20 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 第四步：设置杂交模式
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/mode 单基因实验 cross
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 第五步：执行三次繁殖
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/runs 3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 第六步：查看最终结果
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show 单基因实验 -details
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;进阶示例双基因自由组合&#34;&gt;进阶示例：双基因自由组合
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 保存为 two_genes.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 定义两个性状基因
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add A a 高茎 矮茎
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add B b 圆粒 皱粒
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 创建双基因实验组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 双基因实验
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 添加特定基因型亲本（AABB × aabb）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 双基因实验 AABB add 5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 双基因实验 aabb add 5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 设置杂交模式
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/mode 双基因实验 cross
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 执行两代繁殖
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/runs 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 保存最终结果
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/save 双基因结果
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;课堂演示脚本&#34;&gt;课堂演示脚本
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 保存为 class_demo.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 初始化设置
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add M m 正常 白化
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add C c 能尝味 不能尝味
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 创建对照组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 对照组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random 对照组 30 4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 创建实验组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 实验组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 实验组 MmCc add 10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 实验组 mmcc add 10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 批量执行5代繁殖
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/mode 实验组 cross
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/runs 5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 对比两组结果
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show 对照组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show 实验组 -details
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-load使用技巧&#34;&gt;🛠️ LOAD使用技巧
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;渐进式实验&lt;/strong&gt;：分阶段保存不同脚本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;BASH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;load&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_初始化基因&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;load&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;02&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_创建对照组&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;load&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;03&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_创建实验组&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;txt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;参数化实验&lt;/strong&gt;：修改数字快速生成不同规模实验&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 修改数量参数即可生成不同规模种群
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random 实验组 ${数量} 4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;错误处理&lt;/strong&gt;：遇到错误时会显示行号&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;TEXT[行5] 执行: /add A a 高茎
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;!! 行5执行失败: 参数数量错误，需要4个参数
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;快速重建&lt;/strong&gt;：保存成功实验配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 保存当前状态
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/save 成功案例
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 下次使用时
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/read 成功案例
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;-实战案例包&#34;&gt;💼 实战案例包
+&lt;/h2&gt;&lt;h3 id=&#34;案例1三代显性追踪&#34;&gt;案例1：三代显性追踪
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 保存为 three_generations.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add H h 正常 亨廷顿症
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 家族追踪
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random 家族追踪 10 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show 家族追踪
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/runs 3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/show 家族追踪 -details
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;案例2多性状组合实验&#34;&gt;案例2：多性状组合实验
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 保存为 multi_traits.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add T t 卷舌 平舌
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add E e 双眼皮 单眼皮
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add F f 有酒窝 无酒窝
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 三性状实验
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/random 三性状实验 50 6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/mode 三性状实验 random
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/runs 5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/write 三性状实验
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;案例3异常情况测试&#34;&gt;案例3：异常情况测试
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BASH# 保存为 error_test.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 测试各种错误情况
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/add X y 显性 隐性 # 应该报错（显隐基因相同）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/create 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/read 不存在的组
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/change 测试组 AAA add 10
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-使用注意事项&#34;&gt;📌 使用注意事项
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;文件路径建议使用英文命名&lt;/li&gt;
+&lt;li&gt;复杂实验建议每10行添加注释&lt;/li&gt;
+&lt;li&gt;遇到编码问题可使用Notepad++保存为UTF-8格式&lt;/li&gt;
+&lt;li&gt;重要实验前先用小数据量测试脚本&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 &lt;strong&gt;教学建议&lt;/strong&gt;：可让学生先手动操作理解流程，再用LOAD指令进行大规模实验对比，加深对遗传规律的理解。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;-常见问题解答&#34;&gt;❓ 常见问题解答
+&lt;/h2&gt;&lt;h3 id=&#34;q1为什么提示基因长度不符&#34;&gt;Q1：为什么提示&amp;quot;基因长度不符&amp;quot;？
+&lt;/h3&gt;&lt;p&gt;A：同一实验组的所有个体必须具有相同的基因组合长度，添加新个体时请保持与现有个体相同的基因位数&lt;/p&gt;
+&lt;h3 id=&#34;q2如何比较不同代的实验结果&#34;&gt;Q2：如何比较不同代的实验结果？
+&lt;/h3&gt;&lt;p&gt;A：可以为每代创建不同组（如F1代、F2代），使用&lt;code&gt;/list&lt;/code&gt;指令查看各组数据&lt;/p&gt;
+&lt;h3 id=&#34;q3为什么隐性性状没有出现&#34;&gt;Q3：为什么隐性性状没有出现？
+&lt;/h3&gt;&lt;p&gt;A：检查：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;是否正确定义隐性性状&lt;/li&gt;
+&lt;li&gt;实验个体是否包含隐性基因&lt;/li&gt;
+&lt;li&gt;繁殖代数是否足够&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;q4如何保存实验结果&#34;&gt;Q4：如何保存实验结果？
+&lt;/h3&gt;&lt;p&gt;A：程序运行期间数据保存在内存中，关闭前可以使用&lt;code&gt;/save&lt;/code&gt;指令保存组状态&lt;/p&gt;
+&lt;h2 id=&#34;-进阶技巧&#34;&gt;🚀 进阶技巧
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多基因实验&lt;/strong&gt;：添加多个基因定义（如同时研究茎高和种子形状）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;历史回溯&lt;/strong&gt;：通过创建多个组保存不同阶段的实验数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;批量操作&lt;/strong&gt;：使用&lt;code&gt;/load&lt;/code&gt;指令从文件批量执行命令&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性状组合&lt;/strong&gt;：在详细统计模式查看多基因性状组合&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;-遗传规律验证&#34;&gt;📊 遗传规律验证
+&lt;/h2&gt;&lt;p&gt;通过本程序可以验证：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分离定律（子一代性状分离比）&lt;/li&gt;
+&lt;li&gt;自由组合定律（多对性状组合）&lt;/li&gt;
+&lt;li&gt;显隐性关系&lt;/li&gt;
+&lt;li&gt;基因型与表型对应关系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;📌 &lt;strong&gt;提示&lt;/strong&gt;：开始实验前建议先用&lt;code&gt;/help&lt;/code&gt;查看完整指令列表，遇到问题可尝试输入&lt;code&gt;/help [指令名]&lt;/code&gt;查看具体帮助&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Github使用日志</title>
         <link>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</link>
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
         
         <guid>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</guid>
-        <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;适合0基础萌新体质github使用攻略&#34;&gt;适合&lt;code&gt;0&lt;/code&gt;基础萌新体质Github使用攻略
+        <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;github使用攻略&#34;&gt;Github使用攻略
 &lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;前排提示&lt;/strong&gt;：&lt;em&gt;&lt;strong&gt;如果你是一个萌新，建议直接看&lt;/strong&gt;&lt;/em&gt;&lt;code&gt;具体工作流示范（从&lt;/code&gt;0&lt;code&gt;开始）&lt;/code&gt;&lt;em&gt;&lt;strong&gt;部分！&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;前排提示&lt;/strong&gt;：&lt;em&gt;&lt;strong&gt;如果你是一个萌新，建议直接看&lt;/strong&gt;&lt;/em&gt;&lt;code&gt;具体工作流示范（从&lt;/code&gt;0&lt;code&gt;开始）&lt;/code&gt;&lt;em&gt;&lt;strong&gt;部分！&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;github和git的具体概念&#34;&gt;Github和Git的具体概念
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -36,8 +694,7 @@
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。&lt;/p&gt;
 &lt;p&gt;Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。&lt;/p&gt;
-&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;对象存储&lt;/strong&gt;：Git使用内容寻址文件系统来存储内容。每个文件和目录都以对象的形式存储，并通过SHA-1哈希值进行索引。&lt;/p&gt;
@@ -74,8 +731,7 @@
 &lt;h3 id=&#34;github的具体概念&#34;&gt;github的具体概念
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;GitHub是一个面向&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e5%bc%80%e6%ba%90/20720669?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;开源&lt;/a&gt;及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;开源&lt;/a&gt;及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
@@ -671,6 +1327,74 @@
 </description>
         </item>
         <item>
+        <title>Github使用日志</title>
+        <link>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</link>
+        <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</guid>
+        <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.jpg" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;通过process在unity中调用python未完成&#34;&gt;通过Process在Unity中调用&lt;strong&gt;Python&lt;/strong&gt;(未完成)
+&lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于个人对Unity比较熟悉，因此打算将api接入unity实现对话的图形化&amp;hellip;不过大部分的模型api都是通过python来调用，因此决定通过unity来实现对python脚本的调用。经过了解，有许多文案写的是通过&lt;strong&gt;Python for Unity&lt;/strong&gt;来实现调用。然而该组件实现的脚本只能放在Editor目录下，也没办法打包，只能说完全不适配。尽管还存在**&lt;code&gt;UnityWebRequest&lt;/code&gt;&lt;strong&gt;等实现方式，不过决定通过&lt;/strong&gt;&lt;code&gt;Process&lt;/code&gt;**来实现。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;一process类简介&#34;&gt;一、&lt;code&gt;Process&lt;/code&gt;类简介
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/dotnet/api/system.diagnostics.process?view=net-8.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Process&lt;/a&gt;组件提供对计算机上正在运行的进程的访问权限。 用最简单的术语说，进程是一个正在运行的应用。 线程是操作系统分配处理器时间的基本单元。 线程可以执行进程代码的任何部分，包括当前由另一个线程执行的部分。&lt;/p&gt;
+&lt;p&gt;​														——————————文档介绍&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;​	&lt;code&gt;Process&lt;/code&gt; 类是 C# 中 &lt;code&gt;System.Diagnostics&lt;/code&gt; 命名空间下的一个类，可以管理和控制操作系统进程。其可以调用的范围包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;.exe&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;.bat / .cmd&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;任何包含可打开该后缀的文件，比如当电脑安装了python便可以打开&lt;code&gt;.py&lt;/code&gt;，当电脑安装了音乐播放器就可以打开&lt;code&gt;.mp3&lt;/code&gt;。&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;处理正在运行的进程，可以进行包括但不限于&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;获取进程信息&#34;&gt;&lt;strong&gt;获取进程信息&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;终止进程&#34;&gt;&lt;strong&gt;终止进程&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;重定向输入流&#34;&gt;&lt;strong&gt;重定向输入流&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;重定向输出流&#34;&gt;&lt;strong&gt;重定向输出流&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;重定向错误流&#34;&gt;&lt;strong&gt;重定向错误流&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此，通过打开&lt;code&gt;.py&lt;/code&gt;文件作为进程，重定向输入、输出和错误，就可以实现在&lt;strong&gt;Unity&lt;/strong&gt;中调用&lt;code&gt;python&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;二process语法&#34;&gt;二、&lt;code&gt;Process&lt;/code&gt;语法
+&lt;/h1&gt;&lt;p&gt;就要用得上的部分分析，包括以下几个类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Process&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;ProcessStartInfo&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Trace&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Stopwatch&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Debug&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中，**&lt;code&gt;Process&lt;/code&gt;&lt;strong&gt;和&lt;/strong&gt;&lt;code&gt;ProcessStartInfo&lt;/code&gt;**是刚需，剩下的作为性能优化考虑。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;process&#34;&gt;&lt;strong&gt;&lt;code&gt;Process&lt;/code&gt;&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>机器学习线性代数学习笔记</title>
         <link>https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
@@ -678,20 +1402,16 @@
         <guid>https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
         <description>&lt;img src="https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.png" alt="Featured image of post 机器学习线性代数学习笔记" /&gt;&lt;h1 id=&#34;机器学习-线性代数学习笔记&#34;&gt;机器学习 线性代数学习笔记
 &lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;本篇是在学习过程中写的，可能会存在疏漏，欢迎补充！&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;本篇是在学习过程中写的，可能会存在疏漏，欢迎补充！&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“人工智能是我们人类正在从事的最为深刻的研究方向之一，甚至要比火与电还更加深刻。”&lt;/p&gt;
-&lt;p&gt;​											——桑德尔·皮猜（Sundar Pichai）, 2020&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;​											——桑德尔·皮猜（Sundar Pichai）, 2020&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本人观看地址：https://www.bilibili.com/video/BV1Pg4y1X7Pa/?spm_id_from=333.337.search-card.all.click&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;本人观看地址：https://www.bilibili.com/video/BV1Pg4y1X7Pa/?spm_id_from=333.337.search-card.all.click&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h1 id=&#34;1-数学基础在ai学习中的作用&#34;&gt;1. 数学基础在AI学习中的作用
 &lt;/h1&gt;&lt;h2 id=&#34;11-数学基础在ai研究中的必要性&#34;&gt;1.1 数学基础在AI研究中的必要性
-&lt;/h2&gt;&lt;p&gt;AI训练、学习和研究的的过程中存在大量涉及数学的要点。良好的数学基础是必要的&lt;/p&gt;
-&lt;ul&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;理论支撑&lt;/strong&gt;：存在大量的AI模型理论都依靠大量的数学基础。深度学习的原理上涉及到了大量的线性代数运算，如点积、矩阵乘法等。而微积分也在各种损失函数、计算梯度上运用广泛。例如训练神经网络的核心算法：反向传播，就涉及到了大量的微积分知识。大名鼎鼎的框架TensorFlow，直译就是“张量流动”。&lt;/p&gt;
 &lt;/li&gt;
@@ -705,9 +1425,8 @@
 &lt;p&gt;&lt;strong&gt;算法创新&lt;/strong&gt;：数学是推动AI算法创新的关键。许多新的AI算法，如卷积神经网络（CNN）和循环神经网络（RNN），都是基于数学理论的创新。CNN运用了数学上的互相关运算，而RNN的时间序列也是矩阵表示的，RNN的预测还涉及到了马尔科夫链(概率论)。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;12-可能涉及到的数学内容&#34;&gt;1.2 可能涉及到的数学内容
-&lt;/h2&gt;&lt;p&gt;以下是各种数学领域可能涉及到的深度学习内容:&lt;/p&gt;
-&lt;ul&gt;
+&lt;h2 id=&#34;12-深度学习可能涉及到的数学内容&#34;&gt;1.2 深度学习可能涉及到的数学内容
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;线性代数&lt;/strong&gt;：在线性代数中，矩阵和向量运算是构建和理解神经网络的基础。矩阵的乘法、转置、逆等操作在神经网络的前向传播和反向传播中扮演着核心角色。线性代数极大程度的简化了模型的表示。&lt;/p&gt;
 &lt;/li&gt;
@@ -722,11 +1441,9 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;blockquote&gt;
-&lt;p&gt;与均方误差（MSE）相比，交叉熵损失函数在处理分类问题时通常更具优势，因为它直接衡量模型对于类别分布的拟合程度，而MSE则通过最小化预测值与真实值之间的平方差来评估模型性能，这在分类问题中可能不够直观&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;与均方误差（MSE）相比，交叉熵损失函数在处理分类问题时通常更具优势，因为它直接衡量模型对于类别分布的拟合程度，而MSE则通过最小化预测值与真实值之间的平方差来评估模型性能，这在分类问题中可能不够直观&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;综上所述，数学在AI中的运用极度广泛。它不仅为AI算法提供了理论支持，而且在模型设计、训练和优化过程中发挥着关键作用。&lt;/p&gt;
 &lt;h1 id=&#34;2-线性代数的核心概念&#34;&gt;2. 线性代数的核心概念
 &lt;/h1&gt;&lt;h2 id=&#34;21-矩阵的定义与应用&#34;&gt;2.1 矩阵的定义与应用
 &lt;/h2&gt;&lt;p&gt;矩阵是线性代数中的一个基本概念，由数排成的矩形阵列，常用于线性方程组的系数表示、线性变换等。矩阵可以在某种程度上视为一个用于存放方程系数的二维系统，并且可以通过保持奇异性的行操作化简成行阶梯形。矩阵的广泛应用是线性代数中的核心，以下是矩阵的一些关键应用：&lt;/p&gt;
@@ -774,8 +1491,7 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;3-线性代数的深入理解&#34;&gt;3. 线性代数的深入理解
 &lt;/h1&gt;&lt;h2 id=&#34;31-奇异性与非奇异性&#34;&gt;3.1 奇异性与非奇异性
-&lt;/h2&gt;&lt;p&gt;在线性代数中，奇异性与非奇异性是描述矩阵性质的两个重要概念。它们对于理解矩阵的可逆性、解的存在性以及线性方程组的解空间至关重要。&lt;/p&gt;
-&lt;ul&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;奇异性定义&lt;/strong&gt;：简单而言，一个不具备冗余和矛盾信息的句子系统或方程组是非奇异的。非奇异方程组在一般情况下通常可解，而奇异方程在一般情况下通常不可解。这可以通过行列式法或秩判定法来判断。行列式法涉及将矩阵按照两个方向划分为数条对角线，若各自乘积之和相等则是奇异的。秩判定法则是看方阵的秩是否小于其阶数，若是，则矩阵是奇异的。&lt;/p&gt;
 &lt;/li&gt;
@@ -787,8 +1503,10 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;32-秩的概念及其重要性&#34;&gt;3.2 秩的概念及其重要性
-&lt;/h2&gt;&lt;p&gt;秩是矩阵的一个基本属性，它描述了矩阵中线性无关的行或列的最大数量，反映了矩阵所包含的“有效”信息的多少。&lt;/p&gt;
-&lt;ul&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;秩是矩阵的一个基本属性，它描述了矩阵中线性无关的行或列的最大数量，反映了矩阵所包含的“有效”信息的多少。&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;秩的定义&lt;/strong&gt;：矩阵的秩是矩阵中线性无关的行（或列）向量的最大个数。它决定了线性方程组中独立方程的个数，进而影响方程组解的情况。秩的概念在信息论中也非常重要，因为它可以衡量矩阵信息量。&lt;/p&gt;
 &lt;/li&gt;
@@ -1220,11 +1938,9 @@ $$
 &lt;p&gt;&lt;strong&gt;特征工程&lt;/strong&gt;：线性代数提供了特征归一化和相似性度量的工具，这对于特征选择和降维非常重要。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;通过对线性代数的深入理解和应用，AI研究者和实践者能够更好地设计和优化算法，处理和分析数据，从而推动AI技术的发展。线性代数不仅是AI学习的基础，也是实现AI应用的关键。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[NOTE]&lt;/p&gt;
-&lt;p&gt;本篇存在一定AI辅助&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;本篇存在一定AI辅助&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
 </description>
         </item>

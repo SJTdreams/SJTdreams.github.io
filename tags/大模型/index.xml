@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>大模型 on 疏间徒泍の旅途</title>
+        <link>https://SJTdreams.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/</link>
+        <description>Recent content in 大模型 on 疏间徒泍の旅途</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>疏间徒泍</copyright>
+        <lastBuildDate>Sat, 15 Feb 2025 15:55:59 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Github使用日志</title>
+        <link>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</link>
+        <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</guid>
+        <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.jpg" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;通过process在unity中调用python未完成&#34;&gt;通过Process在Unity中调用&lt;strong&gt;Python&lt;/strong&gt;(未完成)
+&lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于个人对Unity比较熟悉，因此打算将api接入unity实现对话的图形化&amp;hellip;不过大部分的模型api都是通过python来调用，因此决定通过unity来实现对python脚本的调用。经过了解，有许多文案写的是通过&lt;strong&gt;Python for Unity&lt;/strong&gt;来实现调用。然而该组件实现的脚本只能放在Editor目录下，也没办法打包，只能说完全不适配。尽管还存在**&lt;code&gt;UnityWebRequest&lt;/code&gt;&lt;strong&gt;等实现方式，不过决定通过&lt;/strong&gt;&lt;code&gt;Process&lt;/code&gt;**来实现。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;一process类简介&#34;&gt;一、&lt;code&gt;Process&lt;/code&gt;类简介
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/dotnet/api/system.diagnostics.process?view=net-8.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Process&lt;/a&gt;组件提供对计算机上正在运行的进程的访问权限。 用最简单的术语说，进程是一个正在运行的应用。 线程是操作系统分配处理器时间的基本单元。 线程可以执行进程代码的任何部分，包括当前由另一个线程执行的部分。&lt;/p&gt;
+&lt;p&gt;​														——————————文档介绍&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;​	&lt;code&gt;Process&lt;/code&gt; 类是 C# 中 &lt;code&gt;System.Diagnostics&lt;/code&gt; 命名空间下的一个类，可以管理和控制操作系统进程。其可以调用的范围包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;.exe&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;.bat / .cmd&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;任何包含可打开该后缀的文件，比如当电脑安装了python便可以打开&lt;code&gt;.py&lt;/code&gt;，当电脑安装了音乐播放器就可以打开&lt;code&gt;.mp3&lt;/code&gt;。&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;处理正在运行的进程，可以进行包括但不限于&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;获取进程信息&#34;&gt;&lt;strong&gt;获取进程信息&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;终止进程&#34;&gt;&lt;strong&gt;终止进程&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;重定向输入流&#34;&gt;&lt;strong&gt;重定向输入流&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;重定向输出流&#34;&gt;&lt;strong&gt;重定向输出流&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;h4 id=&#34;重定向错误流&#34;&gt;&lt;strong&gt;重定向错误流&lt;/strong&gt;
+&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此，通过打开&lt;code&gt;.py&lt;/code&gt;文件作为进程，重定向输入、输出和错误，就可以实现在&lt;strong&gt;Unity&lt;/strong&gt;中调用&lt;code&gt;python&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;二process语法&#34;&gt;二、&lt;code&gt;Process&lt;/code&gt;语法
+&lt;/h1&gt;&lt;p&gt;就要用得上的部分分析，包括以下几个类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Process&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;ProcessStartInfo&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Trace&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Stopwatch&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Debug&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中，**&lt;code&gt;Process&lt;/code&gt;&lt;strong&gt;和&lt;/strong&gt;&lt;code&gt;ProcessStartInfo&lt;/code&gt;**是刚需，剩下的作为性能优化考虑。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;process&#34;&gt;&lt;strong&gt;&lt;code&gt;Process&lt;/code&gt;&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Sun, 19 Jan 2025 12:37:14 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 15 Feb 2025 15:55:59 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机器学习线性代数学习笔记</title>
         <link>https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
@@ -15,20 +15,16 @@
         <guid>https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
         <description>&lt;img src="https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.png" alt="Featured image of post 机器学习线性代数学习笔记" /&gt;&lt;h1 id=&#34;机器学习-线性代数学习笔记&#34;&gt;机器学习 线性代数学习笔记
 &lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;本篇是在学习过程中写的，可能会存在疏漏，欢迎补充！&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;本篇是在学习过程中写的，可能会存在疏漏，欢迎补充！&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“人工智能是我们人类正在从事的最为深刻的研究方向之一，甚至要比火与电还更加深刻。”&lt;/p&gt;
-&lt;p&gt;​											——桑德尔·皮猜（Sundar Pichai）, 2020&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;​											——桑德尔·皮猜（Sundar Pichai）, 2020&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;本人观看地址：https://www.bilibili.com/video/BV1Pg4y1X7Pa/?spm_id_from=333.337.search-card.all.click&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;本人观看地址：https://www.bilibili.com/video/BV1Pg4y1X7Pa/?spm_id_from=333.337.search-card.all.click&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h1 id=&#34;1-数学基础在ai学习中的作用&#34;&gt;1. 数学基础在AI学习中的作用
 &lt;/h1&gt;&lt;h2 id=&#34;11-数学基础在ai研究中的必要性&#34;&gt;1.1 数学基础在AI研究中的必要性
-&lt;/h2&gt;&lt;p&gt;AI训练、学习和研究的的过程中存在大量涉及数学的要点。良好的数学基础是必要的&lt;/p&gt;
-&lt;ul&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;理论支撑&lt;/strong&gt;：存在大量的AI模型理论都依靠大量的数学基础。深度学习的原理上涉及到了大量的线性代数运算，如点积、矩阵乘法等。而微积分也在各种损失函数、计算梯度上运用广泛。例如训练神经网络的核心算法：反向传播，就涉及到了大量的微积分知识。大名鼎鼎的框架TensorFlow，直译就是“张量流动”。&lt;/p&gt;
 &lt;/li&gt;
@@ -42,9 +38,8 @@
 &lt;p&gt;&lt;strong&gt;算法创新&lt;/strong&gt;：数学是推动AI算法创新的关键。许多新的AI算法，如卷积神经网络（CNN）和循环神经网络（RNN），都是基于数学理论的创新。CNN运用了数学上的互相关运算，而RNN的时间序列也是矩阵表示的，RNN的预测还涉及到了马尔科夫链(概率论)。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;12-可能涉及到的数学内容&#34;&gt;1.2 可能涉及到的数学内容
-&lt;/h2&gt;&lt;p&gt;以下是各种数学领域可能涉及到的深度学习内容:&lt;/p&gt;
-&lt;ul&gt;
+&lt;h2 id=&#34;12-深度学习可能涉及到的数学内容&#34;&gt;1.2 深度学习可能涉及到的数学内容
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;线性代数&lt;/strong&gt;：在线性代数中，矩阵和向量运算是构建和理解神经网络的基础。矩阵的乘法、转置、逆等操作在神经网络的前向传播和反向传播中扮演着核心角色。线性代数极大程度的简化了模型的表示。&lt;/p&gt;
 &lt;/li&gt;
@@ -59,11 +54,9 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;blockquote&gt;
-&lt;p&gt;与均方误差（MSE）相比，交叉熵损失函数在处理分类问题时通常更具优势，因为它直接衡量模型对于类别分布的拟合程度，而MSE则通过最小化预测值与真实值之间的平方差来评估模型性能，这在分类问题中可能不够直观&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;与均方误差（MSE）相比，交叉熵损失函数在处理分类问题时通常更具优势，因为它直接衡量模型对于类别分布的拟合程度，而MSE则通过最小化预测值与真实值之间的平方差来评估模型性能，这在分类问题中可能不够直观&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;综上所述，数学在AI中的运用极度广泛。它不仅为AI算法提供了理论支持，而且在模型设计、训练和优化过程中发挥着关键作用。&lt;/p&gt;
 &lt;h1 id=&#34;2-线性代数的核心概念&#34;&gt;2. 线性代数的核心概念
 &lt;/h1&gt;&lt;h2 id=&#34;21-矩阵的定义与应用&#34;&gt;2.1 矩阵的定义与应用
 &lt;/h2&gt;&lt;p&gt;矩阵是线性代数中的一个基本概念，由数排成的矩形阵列，常用于线性方程组的系数表示、线性变换等。矩阵可以在某种程度上视为一个用于存放方程系数的二维系统，并且可以通过保持奇异性的行操作化简成行阶梯形。矩阵的广泛应用是线性代数中的核心，以下是矩阵的一些关键应用：&lt;/p&gt;
@@ -111,8 +104,7 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;3-线性代数的深入理解&#34;&gt;3. 线性代数的深入理解
 &lt;/h1&gt;&lt;h2 id=&#34;31-奇异性与非奇异性&#34;&gt;3.1 奇异性与非奇异性
-&lt;/h2&gt;&lt;p&gt;在线性代数中，奇异性与非奇异性是描述矩阵性质的两个重要概念。它们对于理解矩阵的可逆性、解的存在性以及线性方程组的解空间至关重要。&lt;/p&gt;
-&lt;ul&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;奇异性定义&lt;/strong&gt;：简单而言，一个不具备冗余和矛盾信息的句子系统或方程组是非奇异的。非奇异方程组在一般情况下通常可解，而奇异方程在一般情况下通常不可解。这可以通过行列式法或秩判定法来判断。行列式法涉及将矩阵按照两个方向划分为数条对角线，若各自乘积之和相等则是奇异的。秩判定法则是看方阵的秩是否小于其阶数，若是，则矩阵是奇异的。&lt;/p&gt;
 &lt;/li&gt;
@@ -124,8 +116,10 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;32-秩的概念及其重要性&#34;&gt;3.2 秩的概念及其重要性
-&lt;/h2&gt;&lt;p&gt;秩是矩阵的一个基本属性，它描述了矩阵中线性无关的行或列的最大数量，反映了矩阵所包含的“有效”信息的多少。&lt;/p&gt;
-&lt;ul&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;秩是矩阵的一个基本属性，它描述了矩阵中线性无关的行或列的最大数量，反映了矩阵所包含的“有效”信息的多少。&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;秩的定义&lt;/strong&gt;：矩阵的秩是矩阵中线性无关的行（或列）向量的最大个数。它决定了线性方程组中独立方程的个数，进而影响方程组解的情况。秩的概念在信息论中也非常重要，因为它可以衡量矩阵信息量。&lt;/p&gt;
 &lt;/li&gt;
@@ -557,11 +551,9 @@ $$
 &lt;p&gt;&lt;strong&gt;特征工程&lt;/strong&gt;：线性代数提供了特征归一化和相似性度量的工具，这对于特征选择和降维非常重要。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;通过对线性代数的深入理解和应用，AI研究者和实践者能够更好地设计和优化算法，处理和分析数据，从而推动AI技术的发展。线性代数不仅是AI学习的基础，也是实现AI应用的关键。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[NOTE]&lt;/p&gt;
-&lt;p&gt;本篇存在一定AI辅助&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;本篇存在一定AI辅助&lt;/p&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
 </description>
         </item>
