@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Sat, 15 Feb 2025 16:00:46 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 15 Feb 2025 16:20:07 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>孟德尔の遗传学模拟程序</title>
         <link>https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/</link>
         <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
@@ -18,7 +18,8 @@
 &lt;h1 id=&#34;遗传学模拟程序用户手册&#34;&gt;遗传学模拟程序用户手册
 &lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;p&gt;项目下载链接:&lt;a class=&#34;link&#34; href=&#34;https://github.com/SJTdreams/GeneSim-Lab&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;[github]&lt;/a&gt;&lt;/p&gt;
+    &gt;[github]&lt;/a&gt; &lt;a class=&#34;link&#34; href=&#34;https://wwts.lanzoub.com/iPadm2nv0jri&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;[蓝奏云]&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;-程序简介&#34;&gt;🌱 程序简介
 &lt;/h2&gt;&lt;p&gt;这是一个用于模拟遗传规律的互动程序，可以帮助你：&lt;/p&gt;
 &lt;ul&gt;
