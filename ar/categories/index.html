@@ -467,25 +467,31 @@ window.onbeforeunload = () => {
     })
 </script>
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        
-        
-        if (typeof window.Busuanzi !== 'undefined') {
-            
-            const busuanziContainer = document.getElementById('busuanzi_value_page_pv');
-            if (busuanziContainer) {
-                busuanziContainer.parentNode.removeChild(busuanziContainer);
-            }
-            
-            const newSpan = document.createElement('span');
-            newSpan.id = 'busuanzi_value_page_pv';
-            document.querySelector('.article-time--reading').appendChild(newSpan);
-        }
-    });
+document.addEventListener('pjax:complete', () => {
+    
+    const oldSpan = document.getElementById('busuanzi_value_page_pv');
+    if (oldSpan) oldSpan.remove();
+
+    
+    const parentContainer = document.querySelector('.article-time--reading');
+    if (!parentContainer) {
+        console.error('未找到 .article-time--reading 元素');
+        return;
+    }
+
+    
+    const newSpan = document.createElement('span');
+    newSpan.id = 'busuanzi_value_page_pv';
+    newSpan.textContent = '统计中...'; 
+    parentContainer.appendChild(newSpan);
+
+    
+    if (window.Busuanzi) {
+        window.Busuanzi.fetch();
+    }
+});
 </script>
 
 

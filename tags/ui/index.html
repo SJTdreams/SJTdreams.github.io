@@ -14,7 +14,7 @@
 <meta property='og:description' content="向着日晖和星辰的梦">
 <meta property='og:url' content='https://SJTdreams.github.io/tags/ui/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-03-08T12:44:05&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-03-08T12:56:15&#43;08:00 '/>
 <meta name="twitter:title" content="Tag: UI - 疏间徒泍の旅途">
 <meta name="twitter:description" content="向着日晖和星辰的梦"><link rel="alternate" type="application/rss&#43;xml" href="https://SJTdreams.github.io/tags/ui/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -687,25 +687,31 @@ window.onbeforeunload = () => {
     })
 </script>
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
-    document.addEventListener('pjax:complete', () => {
-        
-        window.Stack.init();
-        
-        
-        if (typeof window.Busuanzi !== 'undefined') {
-            
-            const busuanziContainer = document.getElementById('busuanzi_value_page_pv');
-            if (busuanziContainer) {
-                busuanziContainer.parentNode.removeChild(busuanziContainer);
-            }
-            
-            const newSpan = document.createElement('span');
-            newSpan.id = 'busuanzi_value_page_pv';
-            document.querySelector('.article-time--reading').appendChild(newSpan);
-        }
-    });
+document.addEventListener('pjax:complete', () => {
+    
+    const oldSpan = document.getElementById('busuanzi_value_page_pv');
+    if (oldSpan) oldSpan.remove();
+
+    
+    const parentContainer = document.querySelector('.article-time--reading');
+    if (!parentContainer) {
+        console.error('未找到 .article-time--reading 元素');
+        return;
+    }
+
+    
+    const newSpan = document.createElement('span');
+    newSpan.id = 'busuanzi_value_page_pv';
+    newSpan.textContent = '统计中...'; 
+    parentContainer.appendChild(newSpan);
+
+    
+    if (window.Busuanzi) {
+        window.Busuanzi.fetch();
+    }
+});
 </script>
 
 
