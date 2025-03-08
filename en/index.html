@@ -455,6 +455,27 @@ window.onbeforeunload = () => {
     })
 </script>
 
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+        
+        
+        if (typeof window.Busuanzi !== 'undefined') {
+            
+            const busuanziContainer = document.getElementById('busuanzi_value_page_pv');
+            if (busuanziContainer) {
+                busuanziContainer.parentNode.removeChild(busuanziContainer);
+            }
+            
+            const newSpan = document.createElement('span');
+            newSpan.id = 'busuanzi_value_page_pv';
+            document.querySelector('.article-time--reading').appendChild(newSpan);
+        }
+    });
+</script>
+
 
     </body>
 </html>
