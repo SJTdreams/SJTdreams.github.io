@@ -14,7 +14,7 @@
 <meta property='og:description' content="向着日晖和星辰的梦">
 <meta property='og:url' content='https://SJTdreams.github.io/tags/%E5%AD%A6%E4%B9%A0/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-03-29T10:37:10&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-03-29T12:47:02&#43;08:00 '/>
 <meta name="twitter:title" content="Tag: 学习 - 疏间徒泍の旅途">
 <meta name="twitter:description" content="向着日晖和星辰的梦"><link rel="alternate" type="application/rss&#43;xml" href="https://SJTdreams.github.io/tags/%E5%AD%A6%E4%B9%A0/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -570,84 +570,139 @@
 
   }
 </style>
+<div id="particles-js"></div>
 
-
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src=https://SJTdreams.github.io/background/particles.min.js></script>
 <script>
-function loadBusuanzi() {
-    const script = document.createElement('script');
-    script.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-    script.async = true;
-    script.onload = () => {
-        
-        if (window.Busuanzi && typeof window.Busuanzi.fetch === 'function') {
-            window.Busuanzi.fetch();
-        } else {
-            console.error('不蒜子初始化失败');
-        }
-    };
-    document.head.appendChild(script);
-}
-
-
-loadBusuanzi();
-
-
-document.addEventListener('pjax:complete', () => {
-    loadBusuanzi();
-});
+  particlesJS.load('particles-js', "https://SJTdreams.github.io/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
 </script>
-<script>
 
-function initBusuanzi() {
-    
-    const oldScript = document.querySelector('script[src*="busuanzi.pure.mini.js"]');
-    if (oldScript) oldScript.remove();
-
-    
-    const script = document.createElement('script');
-    script.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-    script.async = true;
-    script.onload = () => {
-        if (window.Busuanzi && typeof window.Busuanzi.fetch === 'function') {
-            console.log('不蒜子初始化成功');
-            window.Busuanzi.fetch(); 
-        } else {
-            console.error('不蒜子核心对象未定义');
-        }
-    };
-    document.head.appendChild(script);
-}
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
 
 
-initBusuanzi();
-
-
-document.addEventListener('pjax:complete', initBusuanzi);
-</script>
-// 动态加载不蒜子脚本（避免缓存问题）
-function loadBusuanzi() {
-    const script = document.createElement('script');
-    script.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-    script.async = true;
-    script.onload = () => {
-        console.log('不蒜子脚本已加载');
-        window.Busuanzi.fetch(); // 立即触发统计
-    };
-    document.head.appendChild(script);
-}
-
-// 初始加载
-loadBusuanzi();
-
-// Pjax 页面切换后重新加载
-document.addEventListener('pjax:complete', () => {
-    loadBusuanzi();
-});
-</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 <div id="aplayer"></div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script>
+    
+    const cssPath = "https://SJTdreams.github.io/waifu/waifu.css"
+    const tipsJsonPath = "https://SJTdreams.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://cdn.jsdelivr.net/gh/SJTDreams/BlogModel@v0.0.1/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            let currentTop = waifuTop + (e.clientY - mouseTop);
+            if (currentTop < 30) {
+                currentTop = 30
+            } else if (currentTop > window.innerHeight - 290) {
+                currentTop = window.innerHeight - 290
+            }
+            waifu.style.top = currentTop + "px";
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+
+<script>
+    function showHideView() {
+        
+        let viewCounts = document.querySelectorAll("#viewCount");
+        if (viewCounts) {
+            
+            let article =  document.querySelector(".article-page");
+            if (!article) {
+                viewCounts.forEach(ele => {
+                    ele.style.display = 'none';
+                });
+            }
+        }
+    }
+    
+    showHideView();
+</script>
 
 <script>
 const staticDir = "https://SJTdreams.github.io/"
@@ -799,48 +854,6 @@ window.onbeforeunload = () => {
         
         window.Stack.init();
     })
-</script>
-<script>
-
-let busuanziCallbackName = '';
-Object.defineProperty(window, 'BusuanziCallback', {
-    set: function(value) {
-        busuanziCallbackName = Object.keys(value)[0]; 
-        const suffix = busuanziCallbackName.split('_').pop(); 
-        const counterSpan = document.getElementById(`busuanzi_value_page_pv_${suffix}`);
-        if (counterSpan) {
-            
-            window[busuanziCallbackName] = (data) => {
-                counterSpan.textContent = data.page_pv;
-            };
-        }
-    },
-    configurable: true
-});
-</script>
-document.addEventListener('pjax:complete', () => {
-    // 删除旧统计标签
-    const oldSpan = document.getElementById('busuanzi_value_page_pv');
-    if (oldSpan) oldSpan.remove();
-
-    // 确保父容器存在
-    const parentContainer = document.querySelector('.article-time--reading');
-    if (!parentContainer) {
-        console.error('未找到 .article-time--reading 元素');
-        return;
-    }
-
-    // 创建并插入新标签
-    const newSpan = document.createElement('span');
-    newSpan.id = 'busuanzi_value_page_pv';
-    newSpan.textContent = '统计中...'; // 明确占位文本
-    parentContainer.appendChild(newSpan);
-
-    // 强制不蒜子重新计数（核心）
-    if (window.Busuanzi) {
-        window.Busuanzi.fetch();
-    }
-});
 </script>
 
 
