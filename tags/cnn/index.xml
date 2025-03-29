@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Sat, 29 Mar 2025 10:12:58 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 29 Mar 2025 10:37:10 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>kaggle入门 - 手写数字识别实战</title>
         <link>https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/</link>
         <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
@@ -16,16 +16,16 @@
         <description>&lt;img src="https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/title.jpg" alt="Featured image of post kaggle入门 - 手写数字识别实战" /&gt;&lt;h1 id=&#34;深度学习入门---kaggle手写数字识别实战&#34;&gt;深度学习入门 - kaggle手写数字识别实战
 &lt;/h1&gt;&lt;p&gt;&lt;strong&gt;目录&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&#34;引言&#34;&gt;引言
-&lt;/h1&gt;&lt;blockquote&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言
+&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;**&lt;a class=&#34;link&#34; href=&#34;https://www.aigc.cn/kaggle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Kaggle&lt;/a&gt;**是一个在数据科学领域极具影响力的在线社区和平台，由联合创始人、首席执行官安东尼·高德布卢姆（Anthony Goldbloom）于2010年在墨尔本创立，2017年被谷歌母公司Alphabet收购，现为Google Cloud的一部分。它主要面向数据科学家、机器学习工程师和数据分析师等数据领域的专业人士，也吸引了众多相关领域爱好者的加入，目前已经吸引了80万名数据科学家的关注。&lt;/p&gt;
 &lt;p&gt;Kaggle最开始的成立初衷是成为数据科学的众包平台，对于企业来说，养一批工程师成本较高，通过在Kaggle平台上设置一定奖金，将待解决的数据问题发布到平台众包是一个很不错的选择，企业只需要提供数据集以及想要解决的问题，数据专家们就会在平台上帮忙解答 。从本质上来说，Kaggle是连接数据需求方与拥有数据处理技能人群的桥梁。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;本篇博客将会以简明的步骤，引导你通过**&lt;a class=&#34;link&#34; href=&#34;https://www.kaggle.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;kaggle&lt;/a&gt;&lt;strong&gt;逐步完成一个基础的&lt;/strong&gt;CNN**（Convolutional Neural Network，卷积神经网络）用于经典的&lt;strong&gt;Digit Recognizer&lt;/strong&gt;（手写数字识别，识别目标图片并返回数字）项目，并提交到比赛中，并在这个过程中介绍涉及的相关深度学习知识，保证0基础读者也能跟随完成并了解关于深度学习工作的基础流程。&lt;/p&gt;
 &lt;p&gt;在进行后续步骤前，你最好先注册一个&lt;em&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/em&gt;账号。如果你不会注册，请参考这里：https://blog.csdn.net/weixin_51288849/article/details/130164188 。&lt;/p&gt;
-&lt;h1 id=&#34;第一步了解项目信息&#34;&gt;第一步：了解项目信息
-&lt;/h1&gt;&lt;p&gt;首先通过这个网址：&lt;a class=&#34;link&#34; href=&#34;https://www.kaggle.com/competitions/digit-recognizer/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;h2 id=&#34;第一步了解项目信息&#34;&gt;第一步：了解项目信息
+&lt;/h2&gt;&lt;p&gt;首先通过这个网址：&lt;a class=&#34;link&#34; href=&#34;https://www.kaggle.com/competitions/digit-recognizer/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;[Digit Recognizer]&lt;/a&gt; 来打开比赛页面。你可以在这里了解到项目的相关信息。&lt;/p&gt;
 &lt;p&gt;注意两个模块：&lt;strong&gt;Overview&lt;/strong&gt;，你可以在这里了解到这个项目的主要信息；&lt;strong&gt;Data&lt;/strong&gt;，你可以在这里了解到数据集的格式。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -39,8 +39,8 @@
 &lt;p&gt;For example, pixel31 indicates the pixel that is in the fourth column from the left, and the second row from the top, as in the ascii-diagram below.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;通过这段话，我们可以注意到，第一段是训练数据集的真实标签，因此在处理时要先分离开。同时，每一列的数据是一个长度为784的向量，其中每一个数代表一个像素点，构成&lt;em&gt;28 x 28&lt;/em&gt;的图像。每一个像素点都是&lt;em&gt;0 ~ 255&lt;/em&gt;之间的一个数字，代表这个像素点的灰度值。&lt;/p&gt;
 &lt;p&gt;得出这些条件后，我们就可以开始了。&lt;/p&gt;
-&lt;h1 id=&#34;第二步处理数据&#34;&gt;第二步：处理数据
-&lt;/h1&gt;&lt;p&gt;在同界面的右上角，找到&lt;strong&gt;Submit Prediction&lt;/strong&gt;,点选&lt;strong&gt;Note Book&lt;/strong&gt;并点选&lt;strong&gt;Create Notebook&lt;/strong&gt;以创建记事本。&lt;/p&gt;
+&lt;h2 id=&#34;第二步处理数据&#34;&gt;第二步：处理数据
+&lt;/h2&gt;&lt;p&gt;在同界面的右上角，找到&lt;strong&gt;Submit Prediction&lt;/strong&gt;,点选&lt;strong&gt;Note Book&lt;/strong&gt;并点选&lt;strong&gt;Create Notebook&lt;/strong&gt;以创建记事本。&lt;/p&gt;
 &lt;p&gt;接下来就是正式的代码环节。在进行后续操作前，先导入一些必要的库，具体作用在注释里说明：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -136,8 +136,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;到这一步为止，数据就全部处理好了，后面就不用再动了。（注意不要重复运行）&lt;/p&gt;
-&lt;h1 id=&#34;第三步设立模型&#34;&gt;第三步：设立模型
-&lt;/h1&gt;&lt;p&gt;对于这样一个图像识别的任务，我们采用&lt;strong&gt;CNN&lt;/strong&gt;模型。&lt;/p&gt;
+&lt;h2 id=&#34;第三步设立模型&#34;&gt;第三步：设立模型
+&lt;/h2&gt;&lt;p&gt;对于这样一个图像识别的任务，我们采用&lt;strong&gt;CNN&lt;/strong&gt;模型。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;卷积神经网络（CNN）是一种深度学习模型，主要用于处理具有网格结构的数据，如图像。其核心思想是通过卷积层提取局部特征，利用池化层进行特征降维，最后通过全连接层进行分类或回归。CNN具有自动特征提取、参数共享和局部感知能力，广泛应用于图像识别、目标检测和视频分析等领域。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;在这里，我们可以参考经典的&lt;strong&gt;LeNet-5&lt;/strong&gt;模型：&lt;/p&gt;
@@ -255,8 +255,8 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;summary&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h1 id=&#34;第四步训练模型&#34;&gt;第四步：训练模型
-&lt;/h1&gt;&lt;p&gt;我们通过**&lt;code&gt;model.fit&lt;/code&gt;**方法来训练模型。在本次训练中，调用该方法，我们指定以下参数：&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;第四步训练模型&#34;&gt;第四步：训练模型
+&lt;/h2&gt;&lt;p&gt;我们通过**&lt;code&gt;model.fit&lt;/code&gt;**方法来训练模型。在本次训练中，调用该方法，我们指定以下参数：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;h4 id=&#34;x&#34;&gt;&lt;strong&gt;&lt;code&gt;x&lt;/code&gt;&lt;/strong&gt;
@@ -366,8 +366,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;当看到&lt;code&gt;Epoch 10/10&lt;/code&gt;完成后，就可以进行下一步了。&lt;/p&gt;
-&lt;h1 id=&#34;第五步评估模型&#34;&gt;第五步：评估模型
-&lt;/h1&gt;&lt;p&gt;完成对模型的训练后，我们通过折线图统计模型的效果：&lt;/p&gt;
+&lt;h2 id=&#34;第五步评估模型&#34;&gt;第五步：评估模型
+&lt;/h2&gt;&lt;p&gt;完成对模型的训练后，我们通过折线图统计模型的效果：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -432,8 +432,8 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;这意味着我们已经取得了可以使用的模型。接下来，我们就要用这个训练好的模型来对测试集进行&lt;strong&gt;预测&lt;/strong&gt;（Predict）。&lt;/p&gt;
-&lt;h1 id=&#34;第五步预测数据&#34;&gt;第五步：预测数据
-&lt;/h1&gt;&lt;p&gt;通过我们先前训练的模型，给定一组图片，其会生成一个&lt;code&gt;(样本数, 10)&lt;/code&gt;的概率矩阵。矩阵的每一行对应一个图片的概率向量。向量长度为&lt;strong&gt;10&lt;/strong&gt;,分别对应该图片为**[0 - 9]**中哪个数字的概率。&lt;/p&gt;
+&lt;h2 id=&#34;第五步预测数据&#34;&gt;第五步：预测数据
+&lt;/h2&gt;&lt;p&gt;通过我们先前训练的模型，给定一组图片，其会生成一个&lt;code&gt;(样本数, 10)&lt;/code&gt;的概率矩阵。矩阵的每一行对应一个图片的概率向量。向量长度为&lt;strong&gt;10&lt;/strong&gt;,分别对应该图片为**[0 - 9]**中哪个数字的概率。&lt;/p&gt;
 &lt;p&gt;要进行预测，只需要运行以下代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -491,13 +491,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;此时，注意右边的 &lt;strong&gt;Output&lt;/strong&gt; 模块，点击下拉箭头，我们可以注意到，已经生成了一个名为&lt;code&gt;submission.csv&lt;/code&gt;的文件，这就是等下用于提交的文件。&lt;/p&gt;
-&lt;h1 id=&#34;第六步提交数据&#34;&gt;第六步：提交数据
-&lt;/h1&gt;&lt;p&gt;点击&lt;code&gt;submission.csv&lt;/code&gt;右侧的三点，选择&lt;code&gt;Download&lt;/code&gt;。在下载完我们提交所需的数据后，就可以前往比赛界面进行提交了。&lt;/p&gt;
+&lt;h2 id=&#34;第六步提交数据&#34;&gt;第六步：提交数据
+&lt;/h2&gt;&lt;p&gt;点击&lt;code&gt;submission.csv&lt;/code&gt;右侧的三点，选择&lt;code&gt;Download&lt;/code&gt;。在下载完我们提交所需的数据后，就可以前往比赛界面进行提交了。&lt;/p&gt;
 &lt;p&gt;打开https://www.kaggle.com/competitions/digit-recognizer，选择右上角的**&lt;code&gt;Submit to Competition&lt;/code&gt;&lt;strong&gt;。打开找到刚才下载好的数据文件，拖拽到指定的方框内，并点击&lt;/strong&gt;&lt;em&gt;Submit&lt;/em&gt;**。&lt;/p&gt;
 &lt;p&gt;随后，你就可以在&lt;strong&gt;Submissions&lt;/strong&gt;里看到你的提交记录了。你可以在右侧的&lt;strong&gt;Public Score&lt;/strong&gt;看到你的准确率。（大约会在0.98左右）。&lt;/p&gt;
 &lt;p&gt;至此，你已经完成了一次简单的Kaggle比赛！ &lt;strong&gt;Congratulations!🎉🎉&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&#34;附加-代码整合&#34;&gt;附加-代码整合
-&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;h2 id=&#34;附加-代码整合&#34;&gt;附加-代码整合
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
@@ -650,8 +650,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这段代码可以直接达成一样的效果。&lt;/p&gt;
-&lt;h1 id=&#34;优化性能与总结&#34;&gt;优化性能与总结
-&lt;/h1&gt;&lt;p&gt;本篇博客通过简单的 &lt;code&gt;Digit Recognizer&lt;/code&gt; 项目，逐步展示了如何完成一项深度学习项目。如果想要进一步取得准确率上的提升，你可以尝试以下方法：&lt;/p&gt;
+&lt;h2 id=&#34;优化性能与总结&#34;&gt;优化性能与总结
+&lt;/h2&gt;&lt;p&gt;本篇博客通过简单的 &lt;code&gt;Digit Recognizer&lt;/code&gt; 项目，逐步展示了如何完成一项深度学习项目。如果想要进一步取得准确率上的提升，你可以尝试以下方法：&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;1-增加训练轮数epochs&#34;&gt;&lt;strong&gt;1. 增加训练轮数（Epochs）&lt;/strong&gt;
 &lt;/h3&gt;&lt;p&gt;将 &lt;code&gt;epochs=10&lt;/code&gt; 调整为更大的值（如 20-30），让模型更充分地学习数据特征。注意监控验证集准确率，避免过拟合：&lt;/p&gt;
