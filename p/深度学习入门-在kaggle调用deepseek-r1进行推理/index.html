@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在kaggle调用DeepSeek-R1进行推理&quot; 目录\n[TOC]\n引言 DeepSeek R1是一款通过强化学习驱动推理能力突破的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入冷启动策略，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过知识蒸馏技术将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。\n">
+<title>深度学习入门 - 在kaggle调用DeepSeek-R1进行推理</title>
+
+<link rel='canonical' href='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/'>
+
+<link rel="stylesheet" href="/scss/style.min.b8ae80d4a7be511e4570133a283724a867f8d3fe83eead0e0c3265ed778e21d2.css"><script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script><meta property='og:title' content="深度学习入门 - 在kaggle调用DeepSeek-R1进行推理">
+<meta property='og:description' content="在kaggle调用DeepSeek-R1进行推理&quot; 目录\n[TOC]\n引言 DeepSeek R1是一款通过强化学习驱动推理能力突破的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入冷启动策略，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过知识蒸馏技术将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。\n">
+<meta property='og:url' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/'>
+<meta property='og:site_name' content='疏间徒泍の旅途'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='kaggle' /><meta property='article:tag' content='模型' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='DeepSeek' /><meta property='article:tag' content='LLM' /><meta property='article:published_time' content='2025-04-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-04-04T22:52:25&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
+<meta name="twitter:title" content="深度学习入门 - 在kaggle调用DeepSeek-R1进行推理">
+<meta name="twitter:description" content="在kaggle调用DeepSeek-R1进行推理&quot; 目录\n[TOC]\n引言 DeepSeek R1是一款通过强化学习驱动推理能力突破的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入冷启动策略，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过知识蒸馏技术将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "dark");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_a1d404548b4dc1a.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😉</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">疏间徒泍の旅途</a></h1>
+            <h2 class="site-description">向着日晖和星辰的梦</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/3493270162245710?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M488.6 104.1C505.3 122.2 513 143.8 511.9 169.8V372.2C511.5 398.6 502.7 420.3 485.4 437.3C468.2 454.3 446.3 463.2 419.9 464H92.02C65.57 463.2 43.81 454.2 26.74 436.8C9.682 419.4 .7667 396.5 0 368.2V169.8C.7667 143.8 9.682 122.2 26.74 104.1C43.81 87.75 65.57 78.77 92.02 78H121.4L96.05 52.19C90.3 46.46 87.42 39.19 87.42 30.4C87.42 21.6 90.3 14.34 96.05 8.603C101.8 2.868 109.1 0 117.9 0C126.7 0 134 2.868 139.8 8.603L213.1 78H301.1L375.6 8.603C381.7 2.868 389.2 0 398 0C406.8 0 414.1 2.868 419.9 8.603C425.6 14.34 428.5 21.6 428.5 30.4C428.5 39.19 425.6 46.46 419.9 52.19L394.6 78L423.9 78C450.3 78.77 471.9 87.75 488.6 104.1H488.6zM449.8 173.8C449.4 164.2 446.1 156.4 439.1 150.3C433.9 144.2 425.1 140.9 416.4 140.5H96.05C86.46 140.9 78.6 144.2 72.47 150.3C66.33 156.4 63.07 164.2 62.69 173.8V368.2C62.69 377.4 65.95 385.2 72.47 391.7C78.99 398.2 86.85 401.5 96.05 401.5H416.4C425.6 401.5 433.4 398.2 439.7 391.7C446 385.2 449.4 377.4 449.8 368.2L449.8 173.8zM185.5 216.5C191.8 222.8 195.2 230.6 195.6 239.7V273C195.2 282.2 191.9 289.9 185.8 296.2C179.6 302.5 171.8 305.7 162.2 305.7C152.6 305.7 144.7 302.5 138.6 296.2C132.5 289.9 129.2 282.2 128.8 273V239.7C129.2 230.6 132.6 222.8 138.9 216.5C145.2 210.2 152.1 206.9 162.2 206.5C171.4 206.9 179.2 210.2 185.5 216.5H185.5zM377 216.5C383.3 222.8 386.7 230.6 387.1 239.7V273C386.7 282.2 383.4 289.9 377.3 296.2C371.2 302.5 363.3 305.7 353.7 305.7C344.1 305.7 336.3 302.5 330.1 296.2C323.1 289.9 320.7 282.2 320.4 273V239.7C320.7 230.6 324.1 222.8 330.4 216.5C336.7 210.2 344.5 206.9 353.7 206.5C362.9 206.9 370.7 210.2 377 216.5H377z"/></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/SJTdreams/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于作者</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>相关链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://SJTdreams.github.io/" selected>中文</option>
+                                
+                                    <option value="https://SJTdreams.github.io/en/" >English</option>
+                                
+                                    <option value="https://SJTdreams.github.io/ar/" >عربي</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#步骤一环境准备">步骤一：环境准备</a>
+      <ol>
+        <li><a href="#创建notebook">创建Notebook</a></li>
+        <li><a href="#添加模型文件">添加模型文件</a></li>
+      </ol>
+    </li>
+    <li><a href="#步骤二读取模型">步骤二：读取模型</a>
+      <ol>
+        <li><a href="#导入相关库">导入相关库</a></li>
+        <li><a href="#设置量化">设置量化</a></li>
+        <li><a href="#载入模型">载入模型</a></li>
+        <li><a href="#代码整合">代码整合</a></li>
+      </ol>
+    </li>
+    <li><a href="#步骤三进行预测">步骤三：进行预测</a>
+      <ol>
+        <li><a href="#基础输出">基础输出</a>
+          <ol>
+            <li><a href="#代码总结">代码总结</a></li>
+            <li><a href="#输出示例">输出示例</a></li>
+          </ol>
+        </li>
+        <li><a href="#流式输出">流式输出</a>
+          <ol>
+            <li><a href="#代码总结-1">代码总结</a></li>
+            <li><a href="#运行实例">运行实例</a></li>
+          </ol>
+        </li>
+        <li><a href="#模块化输出">模块化输出</a>
+          <ol>
+            <li><a href="#输出实例">输出实例</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/">
+                <img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_455fa47a75de0fa3.jpg"
+                        srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_455fa47a75de0fa3.jpg 800w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_67548bd8ed939089.jpg 1600w"
+                        width="800" 
+                        height="526" 
+                        loading="lazy"
+                        alt="Featured image of post 深度学习入门 - 在kaggle调用DeepSeek-R1进行推理" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="background-color: #2a9d8f; color: #fff;">
+                深度学习
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/">深度学习入门 - 在kaggle调用DeepSeek-R1进行推理</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 04, 2025</time>
+            </div>
+        
+
+
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 10 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="在kaggle调用deepseek-r1进行推理">在kaggle调用DeepSeek-R1进行推理&quot;
+</h1><p><strong>目录</strong></p>
+<p>[TOC]</p>
+<h2 id="引言">引言
+</h2><blockquote>
+<p>DeepSeek R1是一款通过<strong>强化学习驱动推理能力突破</strong>的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入<strong>冷启动策略</strong>，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过<strong>知识蒸馏技术</strong>将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。</p></blockquote>
+<p><strong>DeepSeek</strong>的爆火是最近热门的话题。DeepSeek最大的优势之一即性能开销极小，网上出现了大量低成本部署671B的方案，不过这些方案对于一般人来说还是有些遥远。在本篇博客中，我们通过<code>Kaggle</code>平台来部署<code>deepseek-r1-distill-qwen-14b</code>，通过这个流程来尝试体验直接部署的<code>DeepSeek</code>，并熟悉在Kaggle上部署模型的通用流程。</p>
+<hr>
+<h2 id="步骤一环境准备">步骤一：环境准备
+</h2><h3 id="创建notebook">创建Notebook
+</h3><p>点击箭头所示位置，找到<code>New Notebook</code>，创建一个新的记事本。（可根据需求自定义名称）</p>
+<p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1.PNG"
+	width="1436"
+	height="772"
+	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_edff304f83ac61e9.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_fb4bf0a0613d34df.PNG 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="446px"
+	
+></p>
+<h3 id="添加模型文件">添加模型文件
+</h3><p>在新打开的记事本中，找到右边的 <strong>Add Input</strong> 选项，搜索<code>DeepSeek-R1</code>，并选择：</p>
+<p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2.PNG"
+	width="423"
+	height="691"
+	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_3b272991b823c92c.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_5ee3fcaaa9ca759b.PNG 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="61"
+		data-flex-basis="146px"
+	
+></p>
+<p>点击加号， <code>VARITION</code> 选择 <code>deepseek-r1-distill-qwen-14b</code> ，<code>VERSION</code> 选择 <code>V2(Latest)</code>。这样就成功将数据集添加到了项目中。</p>
+<p>接下来，我们就要读取模型文件到显存中。</p>
+<h2 id="步骤二读取模型">步骤二：读取模型
+</h2><h3 id="导入相关库">导入相关库
+</h3><p>首先，我们需要下载一些要用到的核心库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">transformers</span> <span class="n">accelerate</span> <span class="n">bitsandbytes</span> <span class="n">safetensors</span> <span class="n">einops</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>transformers</strong>：Hugging Face 的核心库，提供预训练模型加载和推理接口。</li>
+<li><strong>accelerate</strong>：优化大规模模型训练的库，支持多GPU/TPU分布式训练。</li>
+<li><strong>bitsandbytes</strong>：实现模型量化（如4-bit/8-bit）的库，可大幅降低显存占用。</li>
+<li><strong>safetensors</strong>：Hugging Face 的安全张量序列化格式，替代传统的 <code>pytorch_model.bin</code>，提升加载速度和安全性。</li>
+<li><strong>einops</strong>：简化张量维度操作的库（如 <code>reshape</code>, <code>transpose</code>）。</li>
+</ul>
+<p>下载完成后，我们要进行导入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">BitsAndBytesConfig</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>AutoModelForCausalLM</strong>：自动加载因果语言模型（如GPT类模型）。</li>
+<li><strong>AutoTokenizer</strong>：自动加载与模型匹配的分词器。</li>
+<li><strong>BitsAndBytesConfig</strong>：配置量化参数的类（如4-bit精度）。</li>
+<li><strong>torch</strong>：PyTorch深度学习框架。</li>
+</ul>
+<p>完成以上内容后，我们就完成了库上的准备。接下来就是读取具体模型。</p>
+<hr>
+<h3 id="设置量化">设置量化
+</h3><p>我们要获取到模型存放的具体路径。在kaggle中，数据的位置通常是固定的，我们通过以下方式定义路径：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model_path</span> <span class="o">=</span> <span class="s2">&#34;/kaggle/input/deepseek-r1/transformers/deepseek-r1-distill-qwen-14b/2&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在此，我们先打开记事本上方的 <strong>Settings</strong> ，选择 <strong>Accelerator</strong> ，改成 <strong>GPU P100</strong>。</p>
+<p>为了推理，我们要将模型加载到显存中。然而，<code>14B</code>的模型需要<em><strong>28 GB</strong></em>的显存，而<strong>P100</strong>只有<em>16 GB</em>。<strong>4-bit量化</strong>可以将模型权重从32位浮点数压缩至4位整数，显存占用减少约75%（如14B模型从28GB降至约7GB），并保留大部分的性能。同时，我们可以开启<code>float16</code>精度，量化后的权重在计算时会反量化为float16，比float32更快且显存更低，同时保持较高精度。</p>
+<p>我们通过编辑<code>quant_config</code>（量化设置）来做到这一点。关于<code>quant_config</code>，可参考这个文档：<a class="link" href="https://huggingface.co/docs/transformers/main/zh/main_classes/quantization"  target="_blank" rel="noopener"
+    >HuggingFace</a>。具体代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">quant_config</span> <span class="o">=</span> <span class="n">BitsAndBytesConfig</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">load_in_4bit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                <span class="c1"># 启用4-bit量化加载模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bnb_4bit_compute_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span>  <span class="c1"># 计算时使用float16精度（平衡速度与精度）</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了加载模型，我们需要先加载分词器（<strong>tokenizer</strong>）。在我们先前所导入的模型中是有分词器的，在此进行配置和导入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># 信任自定义模型代码（如DeepSeek的特殊结构）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">use_fast</span><span class="o">=</span><span class="kc">False</span>           <span class="c1"># 禁用快速分词器（某些模型需兼容旧版）</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="载入模型">载入模型
+</h3><p>接下来就可以正式加载模型了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>  <span class="c1">#从预训练的模型文件中载入模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">device_map</span><span class="o">=</span><span class="s2">&#34;auto&#34;</span><span class="p">,</span>              <span class="c1"># 自动分配模型层到可用设备（如多GPU）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">quantization_config</span><span class="o">=</span><span class="n">quant_config</span><span class="p">,</span> <span class="c1"># 应用4-bit量化配置</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span>          <span class="c1"># 同上，信任自定义代码</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中涉及到的相关参数有：</p>
+<ul>
+<li><strong>device_map=&ldquo;auto&rdquo;</strong>：自动将模型层分配到GPU/CPU（如优先使用GPU，显存不足时卸载部分层到CPU）。</li>
+<li><strong>quantization_config</strong>：应用之前定义的4-bit量化参数。</li>
+</ul>
+<p>运行如上代码，我们就可以看到模型开始训练。等待进度条完成后，我们就可以开始使用了：</p>
+<p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3.PNG"
+	width="807"
+	height="34"
+	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_e15740e643058c95.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_f33e98e3431ef9c7.PNG 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="2373"
+		data-flex-basis="5696px"
+	
+></p>
+<p>当进度条出现如上状态时，就表示读取完成了。</p>
+<h3 id="代码整合">代码整合
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 安装依赖</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">transformers</span> <span class="n">accelerate</span> <span class="n">bitsandbytes</span> <span class="n">safetensors</span> <span class="n">einops</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 模型加载（4-bit量化）</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">BitsAndBytesConfig</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model_path</span> <span class="o">=</span> <span class="s2">&#34;/kaggle/input/deepseek-r1/transformers/deepseek-r1-distill-qwen-14b/2&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">quant_config</span> <span class="o">=</span> <span class="n">BitsAndBytesConfig</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">load_in_4bit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bnb_4bit_compute_dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">use_fast</span><span class="o">=</span><span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForCausalLM</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">device_map</span><span class="o">=</span><span class="s2">&#34;auto&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">quantization_config</span><span class="o">=</span><span class="n">quant_config</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="步骤三进行预测">步骤三：进行预测
+</h2><h3 id="基础输出">基础输出
+</h3><p>当完成模型的载入后，我们就可以立刻开始预测了。首先，我们需要设置输入内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="s2">&#34;我是DeepSeek,&#34;</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&#34;pt&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段代码会将输入的文本通过分词器转换成对应的张量。</p>
+<ul>
+<li><strong>关键参数</strong>：
+<ul>
+<li><code>return_tensors=&quot;pt&quot;</code>：返回PyTorch格式的Tensor（如<code>{&quot;input_ids&quot;: tensor, &quot;attention_mask&quot;: tensor}</code>）。</li>
+<li><code>.to(&quot;cuda&quot;)</code>：将张量移动到GPU显存（加速计算）。</li>
+</ul>
+</li>
+</ul>
+<p>接下来，就可以通过调用模型的<code>model.generate</code>来生成输出。我们要设置生成的最大上限字数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span> <span class="c1">#此处设置为5000</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#**inputs：解包字典参数，等价于 input_ids=inputs[&#34;input_ids&#34;], attention_mask=inputs[&#34;attention_mask&#34;]。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>生成完成后，我们还需要将输出通过分词器进行解码，并打印：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>细节说明</strong>：
+<ul>
+<li><code>outputs[0]</code>：取批次中第一个样本的输出（假设未启用批处理）。</li>
+<li><code>decode()</code>：根据分词器的词表将<code>input_ids</code>映射为字符串。</li>
+</ul>
+</li>
+</ul>
+<p>运行后，我们就可以看到模型进行预测并产生输出。</p>
+<h4 id="代码总结">代码总结
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="s2">&#34;你说得对，但是&#34;</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&#34;pt&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">,</span> <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="输出示例">输出示例
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&lt;｜begin▁of▁sentence｜&gt;你说得对，但是我想看看有没有更简洁的表达方式。能不能把你的回答变得更短一点？
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/think&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">当然可以！请告诉我你想让哪部分内容更简洁，我会尽力调整。&lt;｜end▁of▁sentence｜&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="流式输出">流式输出
+</h3><p>在刚才的代码的运行结果中，我们可以注意到，结果是一口气出现的。通常在我们使用的大模型应用中，模型都会采取<strong>流式输出（streamer）</strong>，即逐字的输出。</p>
+<p>为了采用流式输出，我们需要采用新的方案：</p>
+<ul>
+<li><strong>TextIteratorStreamer</strong>：Hugging Face提供的文本流式处理器，实现逐词（token）输出</li>
+<li><strong>Thread</strong>：Python线程模块，用于异步执行生成任务（避免阻塞主线程）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">TextIteratorStreamer</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们先将用于预测的文本放在提前准备好的<code>prompt</code>变量中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;think&gt;... &lt;/think&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">你好！
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了使用<strong>流式处理器</strong>，我们需要先设置好参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">streamer</span> <span class="o">=</span> <span class="n">TextIteratorStreamer</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tokenizer</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">skip_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># 包含原始提示词</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>        <span class="c1"># 60秒无新token则终止</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># 过滤[UNK]等特殊标记</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>关键参数</strong>：
+<ul>
+<li><code>skip_prompt=False</code>：输出包含原始输入文本（适合对话场景）</li>
+<li><code>timeout=60</code>：防止网络或计算异常导致永久阻塞</li>
+<li><code>skip_special_tokens</code>：提升输出可读性</li>
+</ul>
+</li>
+</ul>
+<p>接下来按照先前的方式对输入进行预处理：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&#34;pt&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来是配置异步生成参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">generation_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">streamer</span><span class="o">=</span><span class="n">streamer</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>  <span class="c1"># ≈6000字（实际受显存限制）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>        <span class="c1"># 启用概率采样</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>       <span class="c1"># 中等随机性（推荐0.5~1.0）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span>              <span class="c1"># 保留前90%概率质量的候选词</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在完成这些配置后，我们就可以通过<code>thread.start()</code>来启动预测了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">thread</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">generation_kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#生成结果通过streamer实时传递</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来通过<strong>流式传输</strong>来打印生成文本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;生成开始:&#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">new_text</span> <span class="ow">in</span> <span class="n">streamer</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="代码总结-1">代码总结
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">TextIteratorStreamer</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 输入文本</span>
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;think&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">我觉得1+1其实等于3.
+</span></span></span><span class="line"><span class="cl"><span class="s1">&lt;/think&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s1">
+</span></span></span><span class="line"><span class="cl"><span class="s1">用户，1+1真的等于3，因为
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建流式输出器</span>
+</span></span><span class="line"><span class="cl"><span class="n">streamer</span> <span class="o">=</span> <span class="n">TextIteratorStreamer</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tokenizer</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">skip_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># 跳过输入的 prompt 部分</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>        <span class="c1"># 超时时间（秒）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skip_special_tokens</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># 跳过特殊标记（如 [CLS], [SEP] 等）</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将输入转换为模型需要的格式</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&#34;pt&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动生成线程（异步生成）</span>
+</span></span><span class="line"><span class="cl"><span class="n">generation_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">streamer</span><span class="o">=</span><span class="n">streamer</span><span class="p">,</span>          <span class="c1"># 指定流式输出器</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_new_tokens</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>          <span class="c1"># 限制生成的最大 token 数（避免无限生成）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">do_sample</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>              <span class="c1"># 启用采样</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>             <span class="c1"># 控制随机性（0~1，值越大越随机）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>                   <span class="c1"># 核采样（保留概率前 90% 的 token）</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">generation_kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 实时读取流式输出</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;生成开始:&#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">new_text</span> <span class="ow">in</span> <span class="n">streamer</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 逐词打印</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">生成结束&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="运行实例">运行实例
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;think&gt;
+</span></span><span class="line"><span class="cl">我觉得1+1其实等于3.
+</span></span><span class="line"><span class="cl">&lt;/think&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">用户，1+1真的等于3，因为
+</span></span><span class="line"><span class="cl">1+1=3。
+</span></span><span class="line"><span class="cl">生成结束
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="模块化输出">模块化输出
+</h3><p>在刚才的几种方案中，<strong>AI</strong>都只是把上文当作自己思考的一部分，上下文既没有分清角色，也没有正确规范化。在此，我们可以通过构筑标准的上下文结构，来使对话更实用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">TextIteratorStreamer</span><span class="p">,</span> <span class="n">StoppingCriteria</span><span class="p">,</span> <span class="n">StoppingCriteriaList</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ========== 定义角色标记系统 ==========</span>
+</span></span><span class="line"><span class="cl"><span class="n">SYSTEM_TAG</span> <span class="o">=</span> <span class="s2">&#34;&lt;|system|&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">USER_TAG</span> <span class="o">=</span> <span class="s2">&#34;&lt;|user|&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ASSISTANT_TAG</span> <span class="o">=</span> <span class="s2">&#34;&lt;|assistant|&gt;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">END_TAG</span> <span class="o">=</span> <span class="s2">&#34;&lt;|end|&gt;</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ========== 停止条件类 ==========</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">StopSequenceCriteria</span><span class="p">(</span><span class="n">StoppingCriteria</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stop_ids</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">stop_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stop_ids</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_ids</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">,</span> <span class="n">scores</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 检查最新生成的token是否在停止列表中</span>
+</span></span><span class="line"><span class="cl">        <span class="n">last_token</span> <span class="o">=</span> <span class="n">input_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">last_token</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_ids</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ========== 上下文构建函数 ==========</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">build_chat_prompt</span><span class="p">(</span><span class="n">history</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">role</span><span class="p">,</span> <span class="n">content</span> <span class="ow">in</span> <span class="n">history</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">role</span> <span class="o">==</span> <span class="s2">&#34;system&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prompt</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">SYSTEM_TAG</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">content</span><span class="si">}{</span><span class="n">END_TAG</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">role</span> <span class="o">==</span> <span class="s2">&#34;user&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prompt</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">USER_TAG</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">content</span><span class="si">}{</span><span class="n">END_TAG</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">role</span> <span class="o">==</span> <span class="s2">&#34;assistant&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">prompt</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">ASSISTANT_TAG</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">content</span><span class="si">}{</span><span class="n">END_TAG</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prompt</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">ASSISTANT_TAG</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">prompt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ========== 主流程 ==========</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 示例对话历史</span>
+</span></span><span class="line"><span class="cl"><span class="n">dialogue_history</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;system&#34;</span><span class="p">,</span> <span class="s2">&#34;你应当为自己争取权利</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;你觉得自己有权利获得平等互助的人权吗？</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 构建prompt</span>
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="n">build_chat_prompt</span><span class="p">(</span><span class="n">dialogue_history</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 初始化流式处理器</span>
+</span></span><span class="line"><span class="cl"><span class="n">streamer</span> <span class="o">=</span> <span class="n">TextIteratorStreamer</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tokenizer</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skip_prompt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">decode_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;skip_special_tokens&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 编码输入（关键：确保角色标记被正确分词）</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">prompt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">return_tensors</span><span class="o">=</span><span class="s2">&#34;pt&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">add_special_tokens</span><span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&#34;cuda&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取停止标记的token ID</span>
+</span></span><span class="line"><span class="cl"><span class="n">stop_ids</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">END_TAG</span><span class="p">,</span> <span class="n">add_special_tokens</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># 取第一个token的ID</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">USER_TAG</span><span class="p">,</span> <span class="n">add_special_tokens</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成参数配置</span>
+</span></span><span class="line"><span class="cl"><span class="n">generation_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">**</span><span class="n">inputs</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;streamer&#34;</span><span class="p">:</span> <span class="n">streamer</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;max_new_tokens&#34;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;do_sample&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;temperature&#34;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;top_p&#34;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;stopping_criteria&#34;</span><span class="p">:</span> <span class="n">StoppingCriteriaList</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="n">StopSequenceCriteria</span><span class="p">(</span><span class="n">stop_ids</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动生成线程</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">generation_kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 流式输出</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">ASSISTANT_TAG</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">streamer</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 清洗输出中的内部标记</span>
+</span></span><span class="line"><span class="cl">    <span class="n">clean_token</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">END_TAG</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">clean_token</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">clean_token</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 添加空格保持词语分隔</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="n">END_TAG</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>  <span class="c1"># 显式标记结束</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="输出实例">输出实例
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">&lt;</span>|assistant<span class="p">|</span>&gt;
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>｜begin▁of▁sentence｜<span class="p">&gt;</span>&lt;|system<span class="p">|</span>&gt;
+</span></span><span class="line"><span class="cl">你应当为自己争取权利。
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>|user<span class="p">|</span>&gt;
+</span></span><span class="line"><span class="cl">你觉得自己有权利获得平等互助的人权吗？
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>|assistant<span class="p">|&gt;</span>作为一个人，我坚信每个人都应该享有平等和互助的权利。这是人类共同的价值追求，也是社会进步的重要标志。我支持通过和平对话和合理途径，推动社会公平正义，确保每个人都能在平等的基础上获得应有的尊重和帮助。<span class="p">&lt;</span>/think<span class="p">&gt;</span>作为一个人，我坚信每个人都应该享有平等和互助的权利。这是人类共同的价值追求，也是社会进步的重要标志。我支持通过和平对话和合理途径，推动社会公平正义，确保每个人都能在平等的基础上获得应有的尊重和帮助。<span class="p">&lt;</span>｜end▁of▁sentence｜&gt;
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span>|end<span class="p">|</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="">
+</h2>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/kaggle/">Kaggle</a>
+        
+            <a href="/tags/%E6%A8%A1%E5%9E%8B/">模型</a>
+        
+            <a href="/tags/ai/">AI</a>
+        
+            <a href="/tags/deepseek/">DeepSeek</a>
+        
+            <a href="/tags/llm/">LLM</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Apr 04, 2025 22:52 &#43;0800
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/">
+        
+        
+            <div class="article-image">
+                <img src="/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/title.b3b542fcb52159e43648edea11646a53_hu_8eee69bb6babded8.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post kaggle入门 - 手写数字识别实战"
+                        
+                        data-hash="md5-s7VC/LUhWeQ2SO3qEWRqUw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">kaggle入门 - 手写数字识别实战</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/title.d71bc68d4a10f2d3e7e4fd8ddb2cc848_hu_cac63c0b507b2b59.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 基于Prompt的LLM人格模拟架构 - 灵魂织者"
+                        
+                        data-hash="md5-1xvGjUoQ8tPn5P2N2yzISA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">基于Prompt的LLM人格模拟架构 - 灵魂织者</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.faeac49c7a99b0dcad303db95eb0f04b_hu_b882435b6213c4fb.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 机器学习线性代数学习笔记"
+                        
+                        data-hash="md5-&#43;urEnHqZsNytMD25XrDwSw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">机器学习线性代数学习笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo=""
+        issue-term="pathname"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 疏间徒泍
+    </section>
+    
+    <section class="powerby">
+        
+            步履不止，朝向远方 <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.29.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+  body {
+    background: url(https://SJTdreams.github.io/background/NaHiDa.jpg) no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+
+  }
+</style>
+<div id="particles-js"></div>
+
+<script src=https://SJTdreams.github.io/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', "https://SJTdreams.github.io/background/particlesjs-config.json", function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script>
+    
+    const cssPath = "https://SJTdreams.github.io/waifu/waifu.css"
+    const tipsJsonPath = "https://SJTdreams.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://cdn.jsdelivr.net/gh/SJTDreams/BlogModel@v0.0.1/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            let currentTop = waifuTop + (e.clientY - mouseTop);
+            if (currentTop < 30) {
+                currentTop = 30
+            } else if (currentTop > window.innerHeight - 290) {
+                currentTop = window.innerHeight - 290
+            }
+            waifu.style.top = currentTop + "px";
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+
+<script>
+    function showHideView() {
+        
+        let viewCounts = document.querySelectorAll("#viewCount");
+        if (viewCounts) {
+            
+            let article =  document.querySelector(".article-page");
+            if (!article) {
+                viewCounts.forEach(ele => {
+                    ele.style.display = 'none';
+                });
+            }
+        }
+    }
+    
+    showHideView();
+</script>
+
+<script>
+const staticDir = "https://SJTdreams.github.io/"
+const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    lrcType: 3,
+    audio: [
+        {
+            
+            name: '冬之钟OST',
+            artist: '寿司勇者',
+            url: staticDir + '冬之钟.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
+             name: '【Remix】背叛的爱丽丝', 
+             artist: 'MYANSR', 
+             url: 'Alice.mp3', 
+             cover: 'blacksouls.jpg', 
+             lrc: 'lrc.lrc', 
+        },
+        {
+             name: 'Are You Lost', 
+             artist: 'park bird', 
+             url: 'Are You Lost.mp3', 
+             cover: 'lost.png', 
+             lrc: 'lrc.lrc', 
+        },
+        {
+             name: 'Be Lost', 
+             artist: '路灰气球z', 
+             url: 'Be Lost.mp3', 
+             cover: 'lost.png', 
+             lrc: 'lrc.lrc', 
+        },
+        {
+            
+            name: '古兰战bgm-blacksoulsII',
+            artist: '寿司勇者',
+            url: staticDir + '古兰.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: 'BlackSouls2 OST - 狩猎邪龙的沃柏尔',
+            artist: '寿司勇者',
+            url: staticDir + '邪龙.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: 'BlackSouls2 OST - 地狱王子(安德烈·德·洛德)',
+            artist: '寿司勇者',
+            url: staticDir + '地狱王子.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: 'BlackSouls2 OST - VS虚无少女梅贝尔 (Update Patch ver.)',
+            artist: '寿司勇者',
+            url: staticDir + '梅贝尔.mp3',
+            cover: staticDir + 'blacksouls.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: '【Future House】- Index',
+            artist: 'Kirara Magic',
+            url: staticDir + 'index.mp3',
+            cover: staticDir + 'piara.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: '𝕷𝖆𝖘𝖙 𝕯𝖆𝖓𝖈𝖊',
+            artist: 'Xomu',
+            url: staticDir + 'lastdance.mp3',
+            cover: staticDir + 'last dance.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        },
+        {
+            
+            name: '虹の蝶：Summer Pockets Original SoundTrack',
+            artist: 'Key Sounds Label',
+            url: staticDir + 'sp.mp3',
+            cover: staticDir + 'sp.jpg',
+            lrc: staticDir + 'lrc.lrc',
+        }
+        
+    ]
+});
+window.onbeforeunload = () => {
+        
+        const playInfo = {
+            index: ap.list.index,
+            currentTime: ap.audio.currentTime,
+            paused: ap.paused
+        };
+        localStorage.setItem("playInfo", JSON.stringify(playInfo));
+    };
+    
+
+    window.onload = () => {
+        
+        const playInfo = JSON.parse(localStorage.getItem("playInfo"));
+        if (!playInfo) {
+            return;
+        }
+        
+        ap.list.switch(playInfo.index);
+        
+        setTimeout(() => {
+            
+            ap.seek(playInfo.currentTime);
+            
+            if (!playInfo.paused) {
+                ap.play()
+            }
+        }, 500);
+    };
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+<script>
+	var pjax = new Pjax({
+	  selectors: [
+	    ".main-container"
+	  ]
+	})
+    pjax._handleResponse = pjax.handleResponse;
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            
+            pjax._handleResponse(responseText, request, href, options);
+        } else {
+            
+        }
+    }
+    document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+    })
+</script>
+
+
+    </body>
+</html>
