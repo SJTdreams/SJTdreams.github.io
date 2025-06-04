@@ -317,8 +317,8 @@ $$
 &lt;/ul&gt;
 &lt;h4 id=&#34;3-组合输出&#34;&gt;3. 组合输出
 &lt;/h4&gt;&lt;p&gt;总费用 = 第一阶梯费用 + 第二阶梯费用 + 第三阶梯费用
-通过&lt;strong&gt;逻辑门&lt;/strong&gt;确保只有当前阶梯信号为1时生效：
-$$
+通过&lt;strong&gt;逻辑门&lt;/strong&gt;确保只有当前阶梯信号为1时生效：&lt;/p&gt;
+&lt;p&gt;$$
 \begin{aligned}
 \text{Cost}(x) = \ &amp;amp;
 \frac{x}{2} \left( \left\lfloor \frac{A_1}{2A_1+1} \right\rfloor - \left\lfloor \frac{B_1}{2B_1+1} \right\rfloor + 1 \right) \&lt;/p&gt;
