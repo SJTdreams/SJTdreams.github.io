@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Fri, 04 Apr 2025 22:52:25 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 04 Jun 2025 18:42:57 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机器学习线性代数学习笔记</title>
         <link>https://SJTdreams.github.io/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
@@ -246,13 +246,24 @@ $$
 &lt;p&gt;&lt;strong&gt;基向量的变换&lt;/strong&gt;：对于一个给定的线性变换 \( T \)，如果我们知道基向量在 \( T \) 下的像，那么我们就可以确定 \( T \) 对空间中任何向量的作用。这是因为空间中的任何向量都可以表示为基向量的线性组合，而 \( T \) 的线性保证了它对线性组合的作用可以通过对基向量的作用来确定。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;strong&gt;矩阵表示&lt;/strong&gt;：在实际应用中，线性变换通常通过矩阵来表示。如果
+&lt;/p&gt;
 $$
   \{\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_n\}
-  $$$$
+  $$&lt;p&gt;
+是向量空间 \( V \) 的一组基，
+&lt;/p&gt;
+$$
   \{\mathbf{w}_1, \mathbf{w}_2, ..., \mathbf{w}_m\} 
-  $$$$
+  $$&lt;p&gt;
+是向量空间 \( W \) 的一组基，那么线性变换 \( T \) 可以由一个
+&lt;/p&gt;
+$$
   m \times n
-  $$$$
+  $$&lt;p&gt;
+矩阵 \( A \) 来表示，其中矩阵的列是基向量
+&lt;/p&gt;
+$$
   \mathbf{v}_i 
   $$&lt;p&gt;
 在 \( T \) 下的像，以 \( W \) 的基向量表示。&lt;/p&gt;

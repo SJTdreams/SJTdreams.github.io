@@ -7,7 +7,343 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Fri, 04 Apr 2025 22:52:25 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 04 Jun 2025 18:42:57 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>一种有趣的数学构筑尝试</title>
+        <link>https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/</link>
+        <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/</guid>
+        <description>&lt;img src="https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/title.png" alt="Featured image of post 一种有趣的数学构筑尝试" /&gt;&lt;h1 id=&#34;一种有趣的数学构筑法&#34;&gt;一种有趣的数学构筑法
+&lt;/h1&gt;&lt;h1 id=&#34;一引言&#34;&gt;一、引言
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;在看到某些分段函数时，其中所蕴含的一种“不够直接”的感觉往往令我感到难受。我们是否能找到一种方式，来用任意一个函数拟合各种特别的分段函数呢？&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在必修一的课本上，存在这样一幅函数图像：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1.PNG&#34;
+	width=&#34;714&#34;
+	height=&#34;223&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_d2cee8ced6336d20.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_972c76ae32e404d7.PNG 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;320&#34;
+		data-flex-basis=&#34;768px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;​	课本上对于该函数的表达式为：
+&lt;/p&gt;
+$$
+y=\left|x-2k\right|\left(2k-1&lt;x&lt;2k+1\right)\left(k∈Z\right)
+$$&lt;p&gt;
+​	然而，当我们尝试直接在&lt;strong&gt;desmos&lt;/strong&gt;中使用这个公式时，我们会遇到这样的问题：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2.PNG&#34;
+	width=&#34;447&#34;
+	height=&#34;80&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2_hu_393f19cde03b419d.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2_hu_5913f80fb770f95e.PNG 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;558&#34;
+		data-flex-basis=&#34;1341px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;​	让我们来考虑一个问题：&lt;strong&gt;能否不用这种带括号指定范围的分段函数，来实现相同的效果&lt;/strong&gt;呢？&lt;/p&gt;
+&lt;p&gt;​	先看结论！这个函数，写成&lt;strong&gt;这样子&lt;/strong&gt;（可以复制到desmos里尝试）：
+&lt;/p&gt;
+$$
+y = \left(\left(-1\right)^{1+\lceil x \rceil} \cdot \text{mod}\left(x, 1\right)\right) + \left(\text{mod}\left(\lfloor x \rfloor, 2\right)\right)
+$$&lt;p&gt;
+看上去相当的复杂，对吧？在介绍原理之前，我们可以再举一个例子：统计学的&lt;strong&gt;百分位数&lt;/strong&gt;。
+&lt;/p&gt;
+$$
+P_k = 
+\begin{cases} 
+x_{\lfloor n \cdot k \rfloor + 1}, &amp; \text{如果 } n \cdot k \text{ 不是整数} \\
+\frac{x_{n \cdot k} + x_{n \cdot k + 1}}{2}, &amp; \text{如果 } n \cdot k \text{ 是整数}
+\end{cases}
+$$&lt;p&gt;
+这是它的常规公式。那么，我们能否找到一个&lt;strong&gt;独立&lt;/strong&gt;的公式，效果却和百分位数&lt;strong&gt;一模一样&lt;/strong&gt;呢？有的兄弟，有的！先看结论：
+&lt;/p&gt;
+$$
+t = \left( \frac{\lceil | n \times k\% - \lfloor n \times k\% \rfloor | \rceil + 1}{2} \right) \times X_{\lceil n \times k\% \rceil} + \left( \frac{|\lceil \text{mod}(n \times k\%, 1) \rceil - 1|}{2} \right) \times X_{\lceil n \times k\% \rceil + 1}
+$$&lt;p&gt;
+看上去似乎更加复杂了&amp;hellip;那么，我们要如何写出这样的函数呢？让我们先来拆分下上面两个函数的思路！&lt;/p&gt;
+&lt;h1 id=&#34;二逻辑拆分&#34;&gt;二、逻辑拆分
+&lt;/h1&gt;&lt;p&gt;尽管以上两个公式令人生畏，但其中包含一个清晰的逻辑。让我们对其进行具体分析：&lt;/p&gt;
+&lt;h2 id=&#34;1锯齿函数&#34;&gt;1.锯齿函数
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1.PNG&#34;
+	width=&#34;714&#34;
+	height=&#34;223&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_d2cee8ced6336d20.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_972c76ae32e404d7.PNG 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;320&#34;
+		data-flex-basis=&#34;768px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;观察原图像，我们可以分析一下其具备的规律：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在所有的&lt;strong&gt;偶数到奇数&lt;/strong&gt;段内，曲线从&lt;code&gt;0 - 1&lt;/code&gt;上升。&lt;/li&gt;
+&lt;li&gt;在所有的&lt;strong&gt;奇数到偶数&lt;/strong&gt;段内，曲线从&lt;code&gt;1 - 0&lt;/code&gt;下降。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;规则很简单，我们要如何着手这个图像呢？既然我们不打算用括号显式的指定&lt;strong&gt;周期函数&lt;/strong&gt;，那我们不妨用些现成的周期函数。观察&lt;code&gt;mod(x,1)&lt;/code&gt;的图像，我们会发现，这和我们的目标很相似：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3.PNG&#34;
+	width=&#34;1439&#34;
+	height=&#34;735&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3_hu_c001e43574076636.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3_hu_ad0b2b11eab1ee51.PNG 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;469px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;很显然，这个图像在所有的&lt;strong&gt;偶数到奇数&lt;/strong&gt;段完全正确！因此，我们要做的就是把偶数段和奇数段分开处理。怎么做到呢？&lt;/p&gt;
+&lt;p&gt;这里我们不妨看看另一个函数：&lt;code&gt;-1^n&lt;/code&gt;。我们都知道，&lt;strong&gt;-1&lt;/strong&gt;的&lt;strong&gt;奇数次幂&lt;/strong&gt;为-1，&lt;strong&gt;偶数次幂&lt;/strong&gt;为1。刚好，我们需要做到的效果是偶数次幂时方向取反。将&lt;strong&gt;偶数到奇数&lt;/strong&gt;区段内的数进行&lt;strong&gt;向上取整&lt;/strong&gt;会使其变成奇数，反之亦然。在这么做之后多取一个**-1**就可以达到效果！（其实直接向下取整也可以）&lt;/p&gt;
+&lt;p&gt;那么，我们就得到了第二个关键组件：
+&lt;/p&gt;
+$$
+\left(-1\right)^{1+\lceil x \rceil}
+$$&lt;p&gt;
+&lt;img src=&#34;image4.PNG&#34; alt=&#34;image1&#34; style=&#34;zoom:75%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;所得图像如下。&lt;/p&gt;
+&lt;p&gt;接下来我们要将所有的&lt;strong&gt;偶数&lt;/strong&gt;（奇数到偶数）区段+1。简单用一个取模函数加上向下取整即可：
+&lt;/p&gt;
+$$
+\left(\text{mod}\left(\lfloor x \rfloor, 2\right)\right)
+$$&lt;p&gt;
+那么，只要将这三个模块组合，就可以达到完整的函数效果。接下来，让我们分析一下第二个函数：&lt;/p&gt;
+&lt;h2 id=&#34;2百分位数&#34;&gt;2.百分位数
+&lt;/h2&gt;&lt;p&gt;让我们先观察一下百分位数的逻辑：
+&lt;/p&gt;
+$$
+P_k = 
+\begin{cases} 
+x_{\lfloor n \cdot k \rfloor + 1}, &amp; \text{如果 } n \cdot k \text{ 不是整数} \\
+\frac{x_{n \cdot k} + x_{n \cdot k + 1}}{2}, &amp; \text{如果 } n \cdot k \text{ 是整数}
+\end{cases}
+$$&lt;p&gt;
+为了让式子尽可能的简单，我们来看看存在哪些点可以简化：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，当&lt;code&gt;n*k&lt;/code&gt;不是整数的时候，对其进行向下取整再加一完全可以等价于向上取整；&lt;/li&gt;
+&lt;li&gt;如果&lt;em&gt;n*k&lt;/em&gt;是整数，n*k的向上取整值不变&lt;/li&gt;
+&lt;li&gt;那么，我们可以把逻辑简化为：一定会取一半的当前位数（指n*k向上取整位置）；如果是整数，就取一半下一位数的值；如果不是，则再取一半当前位数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;再完成这样的分析后，再来写式子就简单多了。&lt;/p&gt;
+&lt;p&gt;首先，我们肯定需要一个基底的一半当前位数：
+&lt;/p&gt;
+$$
+t = \frac{1}{2} \times X_{\lceil n \times k\% \rceil}
+$$&lt;p&gt;
+接下来，我们需要得到一个式子用来判断是否具备小数。有两个简单的式子可以达到这个目的：
+&lt;/p&gt;
+$$
+\lceil x-\lfloor x \rfloor\rceil  \\  \lceil mod(x,1) \rceil
+$$&lt;p&gt;
+这两个式子具备相同的效果，具体情况是：&lt;strong&gt;在有小数时输出&lt;code&gt;1&lt;/code&gt;，否则输出&lt;code&gt;0&lt;/code&gt;&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;我们只要用这个式子的结果乘以一半的&lt;strong&gt;当前位数&lt;/strong&gt;的值，再拿式子的结果相反值乘以一半的&lt;strong&gt;下一位数&lt;/strong&gt;的值，就可以达成目的了。那么，我们还需要一个取反的式子：
+&lt;/p&gt;
+$$
+-(x-1)  \\ |x-1|
+$$&lt;p&gt;
+这两个式子都可以达成完全相同的效果。那么，我们只要把数个模块组装起来，就可以得到最终式子：
+&lt;/p&gt;
+$$
+t = \left( \frac{\lceil | n \times k\% - \lfloor n \times k\% \rfloor | \rceil + 1}{2} \right) \times X_{\lceil n \times k\% \rceil} + \left( \frac{|\lceil \text{mod}(n \times k\%, 1) \rceil - 1|}{2} \right) \times X_{\lceil n \times k\% \rceil + 1}
+$$&lt;h2 id=&#34;3思考范式&#34;&gt;3.思考范式
+&lt;/h2&gt;&lt;p&gt;通过以上两个例子，我们可以注意到，这种方式可以找到一个共通的步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分析原式&lt;/li&gt;
+&lt;li&gt;找到规律&lt;/li&gt;
+&lt;li&gt;找出式子&lt;/li&gt;
+&lt;li&gt;组合&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;分析原式和找到规律的部分似乎没有什么好用的快速方案，然而，式子中却似乎有很多部分是共通的！那么，我们不妨对常用的式子进行一个提取？&lt;/p&gt;
+&lt;h1 id=&#34;三公式逻辑门&#34;&gt;三、公式逻辑门
+&lt;/h1&gt;&lt;p&gt;为了更好的运用这些公式进行组装，我们不妨采取一个&lt;strong&gt;统一的接口数字&lt;/strong&gt;。那么，我们不妨设为&lt;code&gt;0和1&lt;/code&gt;。其中，&lt;strong&gt;1&lt;/strong&gt;代表&lt;strong&gt;是&lt;/strong&gt;，0代表&lt;strong&gt;否&lt;/strong&gt;！同时，为了方便，我们可以再取&lt;code&gt;1和-1&lt;/code&gt;作为第二套逻辑标准。&lt;/p&gt;
+&lt;h2 id=&#34;单位转化&#34;&gt;单位转化
+&lt;/h2&gt;&lt;p&gt;那么，当务之急就是先定义出两套标准的转化。我们不妨让0和-1互相转化：
+&lt;/p&gt;
+$$
+1,0 =&gt; 1,-1 : -(-1)^x \\ 1,0 &lt;= 1,-1 :\frac{x+1}{2}
+$$&lt;p&gt;
+这两串有趣的式子就可以在x值合适的情况下完成转换的工作！接下来，我们再定义出几个有趣的小工具。&lt;/p&gt;
+&lt;h2 id=&#34;符号提取&#34;&gt;符号提取
+&lt;/h2&gt;&lt;p&gt;符号提取可以将一个大小任意的数字转化到标准信号的一种之中。我们可以很自然的想到这样的方式：
+&lt;/p&gt;
+$$
+\frac{x}{|x|}
+$$&lt;p&gt;
+然而，这个式子不可兼容0 。那么，我们只能采取一个更加复杂的方案：
+&lt;/p&gt;
+$$
+\lceil( \frac{x}{ (|x|+1)} )\rceil -  \lceil(\frac {-x}{(|x|+1)} )\rceil
+$$&lt;p&gt;
+不过，在确认输入值 ≠0 的情况下，可以采用第一种方案。&lt;/p&gt;
+&lt;h2 id=&#34;提取小数&#34;&gt;提取小数
+&lt;/h2&gt;&lt;p&gt;提取小数可以用这两个简单的公式。同时，如果想表达是否“存在小数”，则进行向上取整即可：
+&lt;/p&gt;
+$$
+x-\lfloor x \rfloor \\ mod(x,1)
+$$&lt;h2 id=&#34;非运算&#34;&gt;非运算
+&lt;/h2&gt;&lt;p&gt;1和-1的非运算再简单不过。我们考虑1和0的非运算：(两式效果相同)
+&lt;/p&gt;
+$$
+|x-1| \\ -(x-1)
+$$&lt;h2 id=&#34;与运算&#34;&gt;与运算
+&lt;/h2&gt;&lt;p&gt;我们同样有多种方法可以实现该效果：
+&lt;/p&gt;
+$$
+\lfloor\frac{x_1+x_2}{2}\rfloor  \\  x1\times x2
+$$&lt;h2 id=&#34;或运算&#34;&gt;或运算
+&lt;/h2&gt;&lt;p&gt;我们可以按照逻辑门的角度考虑：非（（非1）与（非2））即或。或者，我们可以用向上取整：
+&lt;/p&gt;
+$$
+\lceil\frac{x_1+x_2}{2}\rceil
+$$&lt;p&gt;
+其实，拥有了以上三种门之后我们可以构筑出更多东西。在此并不一一列举，不过我们可以尝试构筑一下异或：&lt;/p&gt;
+&lt;h2 id=&#34;异或运算&#34;&gt;异或运算
+&lt;/h2&gt;&lt;p&gt;我们采用这个逻辑：（1 与 非2）或 （非1 与 2）：
+&lt;/p&gt;
+$$
+\lceil\frac{[(x1\times-(x2-1))+(x2\times-(x1-1))]}{2}\rceil
+$$&lt;h2 id=&#34;奇偶切割&#34;&gt;奇偶切割
+&lt;/h2&gt;&lt;p&gt;我们可以通过以下两种方式将奇数部分和偶数部分切割。其中，前一种方案采取的是&lt;code&gt;1/-1&lt;/code&gt;编码，后一种采取的是&lt;code&gt;0,1&lt;/code&gt;编码：
+&lt;/p&gt;
+$$
+(-1)^{\lfloor x\rfloor+1}  \\  mod(\lceil x\rceil,2)
+$$&lt;h2 id=&#34;周期性取值&#34;&gt;周期性取值
+&lt;/h2&gt;&lt;p&gt;用于在满足&lt;strong&gt;周期n&lt;/strong&gt;时取到&lt;strong&gt;值k&lt;/strong&gt;:（可以做成周期性添值或者乘值）
+&lt;/p&gt;
+$$
+k|[mod(\lceil x \rceil,n)]-1|
+$$&lt;h2 id=&#34;判断大小&#34;&gt;判断大小
+&lt;/h2&gt;&lt;p&gt;判断x是否大于（或小于）某个数k，可以直接将x与k相减，再通过提取符号观察正负即可：
+&lt;/p&gt;
+$$
+\frac{(x-k)}{|(x-k)|}(x≠0) \\\\ \lceil( \frac{(x-k)}{ (|(x-k)|+1)} )\rceil -  \lceil(\frac {-(x-k)}{(|(x-k)|+1)} )\rceil
+$$&lt;p&gt;
+如果想要判断是否在一定范围内，判断两次然后用与运算即可。&lt;/p&gt;
+&lt;h2 id=&#34;选择器&#34;&gt;选择器
+&lt;/h2&gt;&lt;p&gt;选择器只要根据条件在两种值中选择一种即可，实现上也非常简单（条件为k，两种情况分别为x1 x2）：
+&lt;/p&gt;
+$$
+k(x_1)-(k-1)(x_2)
+$$&lt;h2 id=&#34;多重与多重或&#34;&gt;多重与&amp;amp;多重或
+&lt;/h2&gt;&lt;p&gt;多重与和多重或只需要用连乘和连加即可：
+&lt;/p&gt;
+$$
+\prod_{i=1}^{n} x_i  \\ \lceil\frac{1}{n}\sum_{i=1}^{n} x_i\rceil
+$$&lt;h2 id=&#34;判断数值&#34;&gt;判断数值
+&lt;/h2&gt;&lt;p&gt;要判断x是否等于某个特定的值（k），我们只需要将x-k带进符号判断公式中，并将-1设为1再取反即可：
+&lt;/p&gt;
+$$
+(|\lceil( \frac{x-k}{ (|x-k|+1)} )\rceil -  \lceil(\frac {-(x-k)}{(|x-k|+1)} )\rceil|-1)
+$$&lt;h2 id=&#34;区间二分&#34;&gt;区间二分
+&lt;/h2&gt;&lt;p&gt;让x在每个区间k内，将前半段和后半段进行区分（返回值0,1）：
+&lt;/p&gt;
+$$
+\lfloor\frac {mod(x,k)}{k}+\frac{1}{2}\rfloor
+$$&lt;h1 id=&#34;四实战&#34;&gt;四、实战
+&lt;/h1&gt;&lt;p&gt;我们现在可以来快速尝试将上述的内容运用到实战：&lt;/p&gt;
+&lt;h2 id=&#34;尝试1relu线性整流函数&#34;&gt;尝试1：ReLU（线性整流函数）
+&lt;/h2&gt;&lt;p&gt;RuLU函数的基础函数是：
+&lt;/p&gt;
+$$
+\max(0,x)
+$$&lt;p&gt;
+我们能否使用上述的内容来完成Relu呢？我们只需要用一个判断函数，在x的前面加上系数：x&amp;gt;0的判断，并将-1转化成0即可（为了实现这个目的，加一再除以2再向下取整）。式子如下：
+&lt;/p&gt;
+$$
+x(\lfloor\frac{\lceil( \frac{(x-k)}{ (|(x-k)|+1)} )\rceil -  \lceil(\frac {-(x-k)}{(|(x-k)|+1)} )\rceil+1\lfloor}{2})
+$$&lt;p&gt;
+不过，这种方案是直接套模块得到的，我们还有更简单的方案，不过要具体分析情况得到了：
+&lt;/p&gt;
+$$
+\frac{(x + |x|)}{2}
+$$&lt;h2 id=&#34;尝试2自定义函数&#34;&gt;尝试2：自定义函数
+&lt;/h2&gt;&lt;h3 id=&#34;场景设定&#34;&gt;场景设定
+&lt;/h3&gt;&lt;p&gt;假设电费按用量分段计费：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;第一阶梯&lt;/strong&gt;（0~100度）：每度0.5元&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第二阶梯&lt;/strong&gt;（100~200度）：超出100度的部分每度0.8元&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第三阶梯&lt;/strong&gt;（&amp;gt;200度）：超出200度的部分每度1.2元&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;分步构造&#34;&gt;分步构造
+&lt;/h3&gt;&lt;h4 id=&#34;1-阶梯区间检测&#34;&gt;1. 阶梯区间检测
+&lt;/h4&gt;&lt;p&gt;我们需要三个逻辑信号（1表示属于该区间，0表示不属于）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;k₁&lt;/strong&gt;（第一阶梯）：x ∈ [0,100]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;k₂&lt;/strong&gt;（第二阶梯）：x ∈ (100,200]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;k₃&lt;/strong&gt;（第三阶梯）：x &amp;gt; 200&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;构造方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;用&lt;strong&gt;符号差+取整&lt;/strong&gt;检测边界：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+$$
+    k_1 = \lceil \frac{100 - x + |100 - x|}{2(100 - x + |100 - x|) + 1} \rceil - \lceil \frac{x - 100 + |x - 100|}{2(x - 100 + |x - 100|) + 1} \rceil + 1
+    $$&lt;/li&gt;
+&lt;li&gt;
+$$
+    k_2 = \text{类似方法检测 } (100,200]
+    $$&lt;/li&gt;
+&lt;li&gt;
+$$
+    k_3 = \lceil \frac{x - 200}{x - 200 + |x - 200| + 1} \rceil
+    $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;2-阶梯费用计算&#34;&gt;2. 阶梯费用计算
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;$$
+   第一阶梯费用：0.5x \cdot k_1\\
+  第二阶梯费用：[50 + 0.8(x-100)] \cdot k_2\\
+  第三阶梯费用：[130 + 1.2(x-200)] \cdot k_3\\
+  $$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;3-组合输出&#34;&gt;3. 组合输出
+&lt;/h4&gt;&lt;p&gt;总费用 = 第一阶梯费用 + 第二阶梯费用 + 第三阶梯费用
+通过&lt;strong&gt;逻辑门&lt;/strong&gt;确保只有当前阶梯信号为1时生效：
+$$
+\begin{aligned}
+\text{Cost}(x) = \ &amp;amp;
+\frac{x}{2} \left( \left\lfloor \frac{A_1}{2A_1+1} \right\rfloor - \left\lfloor \frac{B_1}{2B_1+1} \right\rfloor + 1 \right) \&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\ &amp;amp;
+\left( 50 + \frac{4(x-100)}{5} \right) \left( \left\lfloor \frac{A_2}{2A_2+1} \right\rfloor - \left\lfloor \frac{B_2}{2B_2+1} \right\rfloor - k_1 + 1 \right) \&lt;/li&gt;
+&lt;li&gt;\ &amp;amp;
+\left( 130 + \frac{6(x-200)}{5} \right) \left\lceil \frac{x-200}{C+1} \right\rceil
+\end{aligned}
+$$&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\begin{aligned}
+A_1 &amp;= 100 - x + |100 - x|, \quad B_1 = x - 100 + |x - 100| \\
+A_2 &amp;= 200 - x + |200 - x|, \quad B_2 = x - 200 + |x - 200| \\
+C &amp;= x - 200 + |x - 200|, \quad k_1 = \left\lfloor \frac{A_1}{2A_1+1} \right\rfloor - \left\lfloor \frac{B_1}{2B_1+1} \right\rfloor + 1
+\end{aligned}
+$$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
+&lt;/h1&gt;&lt;p&gt;这种方法看上去会将简单的函数大幅复杂化，最终得到一个尽管效果相同但式子复杂上许多，但成功消灭了括号和具体的“规则”的式子。同时，这种思维方式相当系统化和模块化，可以实现一种有趣的自由组装的效果，类似于程序一样。&lt;/p&gt;
+&lt;p&gt;希望这种方法能够具备一定的参考价值！&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>深度学习入门 - 在kaggle调用DeepSeek-R1进行推理</title>
         <link>https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/</link>
         <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
@@ -4074,13 +4410,24 @@ $$
 &lt;p&gt;&lt;strong&gt;基向量的变换&lt;/strong&gt;：对于一个给定的线性变换 \( T \)，如果我们知道基向量在 \( T \) 下的像，那么我们就可以确定 \( T \) 对空间中任何向量的作用。这是因为空间中的任何向量都可以表示为基向量的线性组合，而 \( T \) 的线性保证了它对线性组合的作用可以通过对基向量的作用来确定。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;strong&gt;矩阵表示&lt;/strong&gt;：在实际应用中，线性变换通常通过矩阵来表示。如果
+&lt;/p&gt;
 $$
   \{\mathbf{v}_1, \mathbf{v}_2, ..., \mathbf{v}_n\}
-  $$$$
+  $$&lt;p&gt;
+是向量空间 \( V \) 的一组基，
+&lt;/p&gt;
+$$
   \{\mathbf{w}_1, \mathbf{w}_2, ..., \mathbf{w}_m\} 
-  $$$$
+  $$&lt;p&gt;
+是向量空间 \( W \) 的一组基，那么线性变换 \( T \) 可以由一个
+&lt;/p&gt;
+$$
   m \times n
-  $$$$
+  $$&lt;p&gt;
+矩阵 \( A \) 来表示，其中矩阵的列是基向量
+&lt;/p&gt;
+$$
   \mathbf{v}_i 
   $$&lt;p&gt;
 在 \( T \) 下的像，以 \( W \) 的基向量表示。&lt;/p&gt;
