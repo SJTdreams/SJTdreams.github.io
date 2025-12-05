@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/kaggle/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/kaggle/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>深度学习入门 - 在kaggle调用DeepSeek-R1进行推理</title>
         <link>https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/</link>
         <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
@@ -18,7 +18,8 @@
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&#34;引言&#34;&gt;引言
 &lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;DeepSeek R1是一款通过&lt;strong&gt;强化学习驱动推理能力突破&lt;/strong&gt;的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入&lt;strong&gt;冷启动策略&lt;/strong&gt;，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过&lt;strong&gt;知识蒸馏技术&lt;/strong&gt;将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;DeepSeek R1是一款通过&lt;strong&gt;强化学习驱动推理能力突破&lt;/strong&gt;的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入&lt;strong&gt;冷启动策略&lt;/strong&gt;，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过&lt;strong&gt;知识蒸馏技术&lt;/strong&gt;将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;DeepSeek&lt;/strong&gt;的爆火是最近热门的话题。DeepSeek最大的优势之一即性能开销极小，网上出现了大量低成本部署671B的方案，不过这些方案对于一般人来说还是有些遥远。在本篇博客中，我们通过&lt;code&gt;Kaggle&lt;/code&gt;平台来部署&lt;code&gt;deepseek-r1-distill-qwen-14b&lt;/code&gt;，通过这个流程来尝试体验直接部署的&lt;code&gt;DeepSeek&lt;/code&gt;，并熟悉在Kaggle上部署模型的通用流程。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;步骤一环境准备&#34;&gt;步骤一：环境准备
@@ -764,7 +765,8 @@
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;**&lt;a class=&#34;link&#34; href=&#34;https://www.aigc.cn/kaggle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Kaggle&lt;/a&gt;**是一个在数据科学领域极具影响力的在线社区和平台，由联合创始人、首席执行官安东尼·高德布卢姆（Anthony Goldbloom）于2010年在墨尔本创立，2017年被谷歌母公司Alphabet收购，现为Google Cloud的一部分。它主要面向数据科学家、机器学习工程师和数据分析师等数据领域的专业人士，也吸引了众多相关领域爱好者的加入，目前已经吸引了80万名数据科学家的关注。&lt;/p&gt;
-&lt;p&gt;Kaggle最开始的成立初衷是成为数据科学的众包平台，对于企业来说，养一批工程师成本较高，通过在Kaggle平台上设置一定奖金，将待解决的数据问题发布到平台众包是一个很不错的选择，企业只需要提供数据集以及想要解决的问题，数据专家们就会在平台上帮忙解答 。从本质上来说，Kaggle是连接数据需求方与拥有数据处理技能人群的桥梁。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Kaggle最开始的成立初衷是成为数据科学的众包平台，对于企业来说，养一批工程师成本较高，通过在Kaggle平台上设置一定奖金，将待解决的数据问题发布到平台众包是一个很不错的选择，企业只需要提供数据集以及想要解决的问题，数据专家们就会在平台上帮忙解答 。从本质上来说，Kaggle是连接数据需求方与拥有数据处理技能人群的桥梁。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;本篇博客将会以简明的步骤，引导你通过**&lt;a class=&#34;link&#34; href=&#34;https://www.kaggle.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;kaggle&lt;/a&gt;&lt;strong&gt;逐步完成一个基础的&lt;/strong&gt;CNN**（Convolutional Neural Network，卷积神经网络）用于经典的&lt;strong&gt;Digit Recognizer&lt;/strong&gt;（手写数字识别，识别目标图片并返回数字）项目，并提交到比赛中，并在这个过程中介绍涉及的相关深度学习知识，保证0基础读者也能跟随完成并了解关于深度学习工作的基础流程。&lt;/p&gt;
 &lt;p&gt;在进行后续步骤前，你最好先注册一个&lt;em&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/em&gt;账号。如果你不会注册，请参考这里：https://blog.csdn.net/weixin_51288849/article/details/130164188 。&lt;/p&gt;
@@ -773,14 +775,16 @@
     &gt;[Digit Recognizer]&lt;/a&gt; 来打开比赛页面。你可以在这里了解到项目的相关信息。&lt;/p&gt;
 &lt;p&gt;注意两个模块：&lt;strong&gt;Overview&lt;/strong&gt;，你可以在这里了解到这个项目的主要信息；&lt;strong&gt;Data&lt;/strong&gt;，你可以在这里了解到数据集的格式。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;This competition is the perfect introduction to techniques like neural networks using a classic dataset including pre-extracted features.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This competition is the perfect introduction to techniques like neural networks using a classic dataset including pre-extracted features.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;注意一下数据集的格式，在处理数据集的格式时要用：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The data files train.csv and test.csv contain gray-scale images of hand-drawn digits, from zero through nine.&lt;/p&gt;
 &lt;p&gt;Each image is 28 pixels in height and 28 pixels in width, for a total of 784 pixels in total. Each pixel has a single pixel-value associated with it, indicating the lightness or darkness of that pixel, with higher numbers meaning darker. This pixel-value is an integer between 0 and 255, inclusive.&lt;/p&gt;
 &lt;p&gt;The training data set, (train.csv), has 785 columns. The first column, called &amp;ldquo;label&amp;rdquo;, is the digit that was drawn by the user. The rest of the columns contain the pixel-values of the associated image.&lt;/p&gt;
 &lt;p&gt;Each pixel column in the training set has a name like pixelx, where x is an integer between 0 and 783, inclusive. To locate this pixel on the image, suppose that we have decomposed x as x = i * 28 + j, where i and j are integers between 0 and 27, inclusive. Then pixelx is located on row i and column j of a 28 x 28 matrix, (indexing by zero).&lt;/p&gt;
-&lt;p&gt;For example, pixel31 indicates the pixel that is in the fourth column from the left, and the second row from the top, as in the ascii-diagram below.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;For example, pixel31 indicates the pixel that is in the fourth column from the left, and the second row from the top, as in the ascii-diagram below.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;通过这段话，我们可以注意到，第一段是训练数据集的真实标签，因此在处理时要先分离开。同时，每一列的数据是一个长度为784的向量，其中每一个数代表一个像素点，构成&lt;em&gt;28 x 28&lt;/em&gt;的图像。每一个像素点都是&lt;em&gt;0 ~ 255&lt;/em&gt;之间的一个数字，代表这个像素点的灰度值。&lt;/p&gt;
 &lt;p&gt;得出这些条件后，我们就可以开始了。&lt;/p&gt;
 &lt;h2 id=&#34;第二步处理数据&#34;&gt;第二步：处理数据
@@ -883,7 +887,8 @@
 &lt;h2 id=&#34;第三步设立模型&#34;&gt;第三步：设立模型
 &lt;/h2&gt;&lt;p&gt;对于这样一个图像识别的任务，我们采用&lt;strong&gt;CNN&lt;/strong&gt;模型。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;卷积神经网络（CNN）是一种深度学习模型，主要用于处理具有网格结构的数据，如图像。其核心思想是通过卷积层提取局部特征，利用池化层进行特征降维，最后通过全连接层进行分类或回归。CNN具有自动特征提取、参数共享和局部感知能力，广泛应用于图像识别、目标检测和视频分析等领域。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;卷积神经网络（CNN）是一种深度学习模型，主要用于处理具有网格结构的数据，如图像。其核心思想是通过卷积层提取局部特征，利用池化层进行特征降维，最后通过全连接层进行分类或回归。CNN具有自动特征提取、参数共享和局部感知能力，广泛应用于图像识别、目标检测和视频分析等领域。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;在这里，我们可以参考经典的&lt;strong&gt;LeNet-5&lt;/strong&gt;模型：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1.png&#34;
 	width=&#34;1322&#34;

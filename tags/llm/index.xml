@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>深度学习入门 - 在kaggle调用DeepSeek-R1进行推理</title>
         <link>https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/</link>
         <pubDate>Fri, 04 Apr 2025 00:00:00 +0000</pubDate>
@@ -18,7 +18,8 @@
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&#34;引言&#34;&gt;引言
 &lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;DeepSeek R1是一款通过&lt;strong&gt;强化学习驱动推理能力突破&lt;/strong&gt;的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入&lt;strong&gt;冷启动策略&lt;/strong&gt;，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过&lt;strong&gt;知识蒸馏技术&lt;/strong&gt;将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;DeepSeek R1是一款通过&lt;strong&gt;强化学习驱动推理能力突破&lt;/strong&gt;的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入&lt;strong&gt;冷启动策略&lt;/strong&gt;，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过&lt;strong&gt;知识蒸馏技术&lt;/strong&gt;将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;DeepSeek&lt;/strong&gt;的爆火是最近热门的话题。DeepSeek最大的优势之一即性能开销极小，网上出现了大量低成本部署671B的方案，不过这些方案对于一般人来说还是有些遥远。在本篇博客中，我们通过&lt;code&gt;Kaggle&lt;/code&gt;平台来部署&lt;code&gt;deepseek-r1-distill-qwen-14b&lt;/code&gt;，通过这个流程来尝试体验直接部署的&lt;code&gt;DeepSeek&lt;/code&gt;，并熟悉在Kaggle上部署模型的通用流程。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;步骤一环境准备&#34;&gt;步骤一：环境准备

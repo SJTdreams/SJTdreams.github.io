@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E7%94%9F%E7%89%A9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E7%94%9F%E7%89%A9/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>孟德尔の遗传学模拟程序</title>
         <link>https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/</link>
         <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
@@ -54,7 +54,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;出现 &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; 提示符表示启动成功&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;出现 &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; 提示符表示启动成功&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;基础指令速查&#34;&gt;基础指令速查
 &lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -119,7 +120,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;💡 小贴士：基因符号必须为单个字母，显性用大写&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;💡 小贴士：基因符号必须为单个字母，显性用大写&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;第二步创建实验组&#34;&gt;第二步：创建实验组
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -635,7 +637,8 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💡 &lt;strong&gt;教学建议&lt;/strong&gt;：可让学生先手动操作理解流程，再用LOAD指令进行大规模实验对比，加深对遗传规律的理解。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;💡 &lt;strong&gt;教学建议&lt;/strong&gt;：可让学生先手动操作理解流程，再用LOAD指令进行大规模实验对比，加深对遗传规律的理解。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;-常见问题解答&#34;&gt;❓ 常见问题解答
 &lt;/h2&gt;&lt;h3 id=&#34;q1为什么提示基因长度不符&#34;&gt;Q1：为什么提示&amp;quot;基因长度不符&amp;quot;？
 &lt;/h3&gt;&lt;p&gt;A：同一实验组的所有个体必须具有相同的基因组合长度，添加新个体时请保持与现有个体相同的基因位数&lt;/p&gt;

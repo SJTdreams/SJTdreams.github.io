@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/'>
 
-<link rel="stylesheet" href="/scss/style.min.d5c1af0ec3575ed0b4a57e01f194815cc1b683bbc03bf86657a689276ff0de65.css"><script 
+<link rel="stylesheet" href="/scss/style.min.06754aa28cfad345e639cd6fbf9e4da123d988e1930ae9039b65e4422bfc310b.css"><script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
@@ -14,7 +14,7 @@
 <meta property='og:description' content="在kaggle调用DeepSeek-R1进行推理&quot; 目录\n[TOC]\n引言 DeepSeek R1是一款通过强化学习驱动推理能力突破的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入冷启动策略，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过知识蒸馏技术将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。\n">
 <meta property='og:url' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='kaggle' /><meta property='article:tag' content='模型' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='DeepSeek' /><meta property='article:tag' content='LLM' /><meta property='article:published_time' content='2025-04-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-06-05T08:13:34&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='kaggle' /><meta property='article:tag' content='模型' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='DeepSeek' /><meta property='article:tag' content='LLM' /><meta property='article:published_time' content='2025-04-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-05T21:27:15&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
 <meta name="twitter:title" content="深度学习入门 - 在kaggle调用DeepSeek-R1进行推理">
 <meta name="twitter:description" content="在kaggle调用DeepSeek-R1进行推理&quot; 目录\n[TOC]\n引言 DeepSeek R1是一款通过强化学习驱动推理能力突破的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入冷启动策略，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过知识蒸馏技术将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
@@ -445,7 +445,8 @@
 <p>[TOC]</p>
 <h2 id="引言">引言
 </h2><blockquote>
-<p>DeepSeek R1是一款通过<strong>强化学习驱动推理能力突破</strong>的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入<strong>冷启动策略</strong>，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过<strong>知识蒸馏技术</strong>将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。</p></blockquote>
+<p>DeepSeek R1是一款通过<strong>强化学习驱动推理能力突破</strong>的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入<strong>冷启动策略</strong>，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过<strong>知识蒸馏技术</strong>将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。</p>
+</blockquote>
 <p><strong>DeepSeek</strong>的爆火是最近热门的话题。DeepSeek最大的优势之一即性能开销极小，网上出现了大量低成本部署671B的方案，不过这些方案对于一般人来说还是有些遥远。在本篇博客中，我们通过<code>Kaggle</code>平台来部署<code>deepseek-r1-distill-qwen-14b</code>，通过这个流程来尝试体验直接部署的<code>DeepSeek</code>，并熟悉在Kaggle上部署模型的通用流程。</p>
 <hr>
 <h2 id="步骤一环境准备">步骤一：环境准备
@@ -1207,7 +1208,7 @@
 
 
         <span>
-            最后更新于 Jun 05, 2025 08:13 &#43;0800
+            最后更新于 Dec 05, 2025 21:27 &#43;0800
         </span>
     </section></footer>
 

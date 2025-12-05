@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>kaggle入门 - 手写数字识别实战</title>
         <link>https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/</link>
         <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
@@ -20,7 +20,8 @@
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;**&lt;a class=&#34;link&#34; href=&#34;https://www.aigc.cn/kaggle&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Kaggle&lt;/a&gt;**是一个在数据科学领域极具影响力的在线社区和平台，由联合创始人、首席执行官安东尼·高德布卢姆（Anthony Goldbloom）于2010年在墨尔本创立，2017年被谷歌母公司Alphabet收购，现为Google Cloud的一部分。它主要面向数据科学家、机器学习工程师和数据分析师等数据领域的专业人士，也吸引了众多相关领域爱好者的加入，目前已经吸引了80万名数据科学家的关注。&lt;/p&gt;
-&lt;p&gt;Kaggle最开始的成立初衷是成为数据科学的众包平台，对于企业来说，养一批工程师成本较高，通过在Kaggle平台上设置一定奖金，将待解决的数据问题发布到平台众包是一个很不错的选择，企业只需要提供数据集以及想要解决的问题，数据专家们就会在平台上帮忙解答 。从本质上来说，Kaggle是连接数据需求方与拥有数据处理技能人群的桥梁。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Kaggle最开始的成立初衷是成为数据科学的众包平台，对于企业来说，养一批工程师成本较高，通过在Kaggle平台上设置一定奖金，将待解决的数据问题发布到平台众包是一个很不错的选择，企业只需要提供数据集以及想要解决的问题，数据专家们就会在平台上帮忙解答 。从本质上来说，Kaggle是连接数据需求方与拥有数据处理技能人群的桥梁。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;本篇博客将会以简明的步骤，引导你通过**&lt;a class=&#34;link&#34; href=&#34;https://www.kaggle.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;kaggle&lt;/a&gt;&lt;strong&gt;逐步完成一个基础的&lt;/strong&gt;CNN**（Convolutional Neural Network，卷积神经网络）用于经典的&lt;strong&gt;Digit Recognizer&lt;/strong&gt;（手写数字识别，识别目标图片并返回数字）项目，并提交到比赛中，并在这个过程中介绍涉及的相关深度学习知识，保证0基础读者也能跟随完成并了解关于深度学习工作的基础流程。&lt;/p&gt;
 &lt;p&gt;在进行后续步骤前，你最好先注册一个&lt;em&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/em&gt;账号。如果你不会注册，请参考这里：https://blog.csdn.net/weixin_51288849/article/details/130164188 。&lt;/p&gt;
@@ -29,14 +30,16 @@
     &gt;[Digit Recognizer]&lt;/a&gt; 来打开比赛页面。你可以在这里了解到项目的相关信息。&lt;/p&gt;
 &lt;p&gt;注意两个模块：&lt;strong&gt;Overview&lt;/strong&gt;，你可以在这里了解到这个项目的主要信息；&lt;strong&gt;Data&lt;/strong&gt;，你可以在这里了解到数据集的格式。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;This competition is the perfect introduction to techniques like neural networks using a classic dataset including pre-extracted features.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This competition is the perfect introduction to techniques like neural networks using a classic dataset including pre-extracted features.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;注意一下数据集的格式，在处理数据集的格式时要用：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The data files train.csv and test.csv contain gray-scale images of hand-drawn digits, from zero through nine.&lt;/p&gt;
 &lt;p&gt;Each image is 28 pixels in height and 28 pixels in width, for a total of 784 pixels in total. Each pixel has a single pixel-value associated with it, indicating the lightness or darkness of that pixel, with higher numbers meaning darker. This pixel-value is an integer between 0 and 255, inclusive.&lt;/p&gt;
 &lt;p&gt;The training data set, (train.csv), has 785 columns. The first column, called &amp;ldquo;label&amp;rdquo;, is the digit that was drawn by the user. The rest of the columns contain the pixel-values of the associated image.&lt;/p&gt;
 &lt;p&gt;Each pixel column in the training set has a name like pixelx, where x is an integer between 0 and 783, inclusive. To locate this pixel on the image, suppose that we have decomposed x as x = i * 28 + j, where i and j are integers between 0 and 27, inclusive. Then pixelx is located on row i and column j of a 28 x 28 matrix, (indexing by zero).&lt;/p&gt;
-&lt;p&gt;For example, pixel31 indicates the pixel that is in the fourth column from the left, and the second row from the top, as in the ascii-diagram below.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;For example, pixel31 indicates the pixel that is in the fourth column from the left, and the second row from the top, as in the ascii-diagram below.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;通过这段话，我们可以注意到，第一段是训练数据集的真实标签，因此在处理时要先分离开。同时，每一列的数据是一个长度为784的向量，其中每一个数代表一个像素点，构成&lt;em&gt;28 x 28&lt;/em&gt;的图像。每一个像素点都是&lt;em&gt;0 ~ 255&lt;/em&gt;之间的一个数字，代表这个像素点的灰度值。&lt;/p&gt;
 &lt;p&gt;得出这些条件后，我们就可以开始了。&lt;/p&gt;
 &lt;h2 id=&#34;第二步处理数据&#34;&gt;第二步：处理数据
@@ -139,7 +142,8 @@
 &lt;h2 id=&#34;第三步设立模型&#34;&gt;第三步：设立模型
 &lt;/h2&gt;&lt;p&gt;对于这样一个图像识别的任务，我们采用&lt;strong&gt;CNN&lt;/strong&gt;模型。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;卷积神经网络（CNN）是一种深度学习模型，主要用于处理具有网格结构的数据，如图像。其核心思想是通过卷积层提取局部特征，利用池化层进行特征降维，最后通过全连接层进行分类或回归。CNN具有自动特征提取、参数共享和局部感知能力，广泛应用于图像识别、目标检测和视频分析等领域。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;卷积神经网络（CNN）是一种深度学习模型，主要用于处理具有网格结构的数据，如图像。其核心思想是通过卷积层提取局部特征，利用池化层进行特征降维，最后通过全连接层进行分类或回归。CNN具有自动特征提取、参数共享和局部感知能力，广泛应用于图像识别、目标检测和视频分析等领域。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;在这里，我们可以参考经典的&lt;strong&gt;LeNet-5&lt;/strong&gt;模型：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1.png&#34;
 	width=&#34;1322&#34;

@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Github使用日志</title>
         <link>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</link>
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
@@ -15,12 +15,15 @@
         <guid>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</guid>
         <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;github使用攻略&#34;&gt;Github使用攻略
 &lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;前排提示&lt;/strong&gt;：&lt;em&gt;&lt;strong&gt;如果你是一个萌新，建议直接看&lt;/strong&gt;&lt;/em&gt;&lt;code&gt;具体工作流示范（从&lt;/code&gt;0&lt;code&gt;开始）&lt;/code&gt;&lt;em&gt;&lt;strong&gt;部分！&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;前排提示&lt;/strong&gt;：&lt;em&gt;&lt;strong&gt;如果你是一个萌新，建议直接看&lt;/strong&gt;&lt;/em&gt;&lt;code&gt;具体工作流示范（从&lt;/code&gt;0&lt;code&gt;开始）&lt;/code&gt;&lt;em&gt;&lt;strong&gt;部分！&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;github和git的具体概念&#34;&gt;Github和Git的具体概念
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -33,7 +36,8 @@
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。&lt;/p&gt;
 &lt;p&gt;Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。&lt;/p&gt;
-&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;对象存储&lt;/strong&gt;：Git使用内容寻址文件系统来存储内容。每个文件和目录都以对象的形式存储，并通过SHA-1哈希值进行索引。&lt;/p&gt;
@@ -70,7 +74,8 @@
 &lt;h3 id=&#34;github的具体概念&#34;&gt;github的具体概念
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;GitHub是一个面向&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e5%bc%80%e6%ba%90/20720669?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;开源&lt;/a&gt;及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。&lt;/p&gt;&lt;/blockquote&gt;
+    &gt;开源&lt;/a&gt;及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;

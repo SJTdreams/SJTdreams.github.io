@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>一种有趣的数学构筑尝试</title>
         <link>https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/</link>
         <pubDate>Wed, 04 Jun 2025 00:00:00 +0000</pubDate>
@@ -16,7 +16,8 @@
         <description>&lt;img src="https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/title.png" alt="Featured image of post 一种有趣的数学构筑尝试" /&gt;&lt;h1 id=&#34;一种有趣的数学构筑法&#34;&gt;一种有趣的数学构筑法
 &lt;/h1&gt;&lt;h1 id=&#34;一引言&#34;&gt;一、引言
 &lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;在看到某些分段函数时，其中所蕴含的一种“不够直接”的感觉往往令我感到难受。我们是否能找到一种方式，来用任意一个函数拟合各种特别的分段函数呢？&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在看到某些分段函数时，其中所蕴含的一种“不够直接”的感觉往往令我感到难受。我们是否能找到一种方式，来用任意一个函数拟合各种特别的分段函数呢？&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;在必修一的课本上，存在这样一幅函数图像：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1.PNG&#34;
 	width=&#34;714&#34;
@@ -349,7 +350,8 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
         
         <guid>https://SJTdreams.github.io/p/unity-uisystem%E6%90%AD%E5%BB%BA/</guid>
         <description>&lt;img src="https://SJTdreams.github.io/p/unity-uisystem%E6%90%AD%E5%BB%BA/title.jpg" alt="Featured image of post Unity UISystem搭建" /&gt;&lt;blockquote&gt;
-&lt;p&gt;下载链接（蓝奏云）：https://wwts.lanzoub.com/iw4H82ol03kb&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;下载链接（蓝奏云）：https://wwts.lanzoub.com/iw4H82ol03kb&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;unity-ui-系统使用指南从零到一构建高效-ui-管理模块&#34;&gt;Unity UI 系统使用指南：从零到一构建高效 UI 管理模块
 &lt;/h1&gt;&lt;p&gt;本篇为Unity UI 管理系统，适合中小型项目使用。无论你是个人开发者还是小团队，这套系统都能帮你快速搭建 UI 界面，同时保持代码的整洁和可维护性。&lt;/p&gt;
 &lt;p&gt;本文将带你从 &lt;strong&gt;需求分析&lt;/strong&gt; 到 &lt;strong&gt;实际使用&lt;/strong&gt;，一步步掌握这套系统的核心功能和使用方法。我会尽量用通俗的语言，结合实例，让你轻松上手。&lt;/p&gt;
@@ -668,7 +670,8 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;出现 &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; 提示符表示启动成功&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;出现 &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; 提示符表示启动成功&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;基础指令速查&#34;&gt;基础指令速查
 &lt;/h3&gt;&lt;table&gt;
   &lt;thead&gt;
@@ -733,7 +736,8 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;💡 小贴士：基因符号必须为单个字母，显性用大写&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;💡 小贴士：基因符号必须为单个字母，显性用大写&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h3 id=&#34;第二步创建实验组&#34;&gt;第二步：创建实验组
 &lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1249,7 +1253,8 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;💡 &lt;strong&gt;教学建议&lt;/strong&gt;：可让学生先手动操作理解流程，再用LOAD指令进行大规模实验对比，加深对遗传规律的理解。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;💡 &lt;strong&gt;教学建议&lt;/strong&gt;：可让学生先手动操作理解流程，再用LOAD指令进行大规模实验对比，加深对遗传规律的理解。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;-常见问题解答&#34;&gt;❓ 常见问题解答
 &lt;/h2&gt;&lt;h3 id=&#34;q1为什么提示基因长度不符&#34;&gt;Q1：为什么提示&amp;quot;基因长度不符&amp;quot;？
 &lt;/h3&gt;&lt;p&gt;A：同一实验组的所有个体必须具有相同的基因组合长度，添加新个体时请保持与现有个体相同的基因位数&lt;/p&gt;
@@ -1291,12 +1296,15 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
         <guid>https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/</guid>
         <description>&lt;img src="https://SJTdreams.github.io/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.png" alt="Featured image of post Github使用日志" /&gt;&lt;h1 id=&#34;github使用攻略&#34;&gt;Github使用攻略
 &lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;在部署博客的过程中由于对github缺乏使用经验，导致了很多问题。于是决定在现在完成后记录一下github的使用。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;前排提示&lt;/strong&gt;：&lt;em&gt;&lt;strong&gt;如果你是一个萌新，建议直接看&lt;/strong&gt;&lt;/em&gt;&lt;code&gt;具体工作流示范（从&lt;/code&gt;0&lt;code&gt;开始）&lt;/code&gt;&lt;em&gt;&lt;strong&gt;部分！&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;前排提示&lt;/strong&gt;：&lt;em&gt;&lt;strong&gt;如果你是一个萌新，建议直接看&lt;/strong&gt;&lt;/em&gt;&lt;code&gt;具体工作流示范（从&lt;/code&gt;0&lt;code&gt;开始）&lt;/code&gt;&lt;em&gt;&lt;strong&gt;部分！&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2020年GitHub的日志数达到了8.6亿条，活跃代码仓库达到了5,421万个，活跃开发者数达到了1,454万人，拥有超过3,100万开发人员和9,600多万个存储库。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;github和git的具体概念&#34;&gt;Github和Git的具体概念
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -1309,7 +1317,8 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。&lt;/p&gt;
 &lt;p&gt;Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。&lt;/p&gt;
-&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;对象存储&lt;/strong&gt;：Git使用内容寻址文件系统来存储内容。每个文件和目录都以对象的形式存储，并通过SHA-1哈希值进行索引。&lt;/p&gt;
@@ -1346,7 +1355,8 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;h3 id=&#34;github的具体概念&#34;&gt;github的具体概念
 &lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;GitHub是一个面向&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e5%bc%80%e6%ba%90/20720669?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;开源&lt;/a&gt;及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。&lt;/p&gt;&lt;/blockquote&gt;
+    &gt;开源&lt;/a&gt;及私有软件项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。GitHub拥有1亿以上的开发人员，400万以上组织机构和3.3亿以上资料库。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;

@@ -7,14 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/ui/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/ui/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Unity UISystem搭建</title>
         <link>https://SJTdreams.github.io/p/unity-uisystem%E6%90%AD%E5%BB%BA/</link>
         <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
         
         <guid>https://SJTdreams.github.io/p/unity-uisystem%E6%90%AD%E5%BB%BA/</guid>
         <description>&lt;img src="https://SJTdreams.github.io/p/unity-uisystem%E6%90%AD%E5%BB%BA/title.jpg" alt="Featured image of post Unity UISystem搭建" /&gt;&lt;blockquote&gt;
-&lt;p&gt;下载链接（蓝奏云）：https://wwts.lanzoub.com/iw4H82ol03kb&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;下载链接（蓝奏云）：https://wwts.lanzoub.com/iw4H82ol03kb&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;unity-ui-系统使用指南从零到一构建高效-ui-管理模块&#34;&gt;Unity UI 系统使用指南：从零到一构建高效 UI 管理模块
 &lt;/h1&gt;&lt;p&gt;本篇为Unity UI 管理系统，适合中小型项目使用。无论你是个人开发者还是小团队，这套系统都能帮你快速搭建 UI 界面，同时保持代码的整洁和可维护性。&lt;/p&gt;
 &lt;p&gt;本文将带你从 &lt;strong&gt;需求分析&lt;/strong&gt; 到 &lt;strong&gt;实际使用&lt;/strong&gt;，一步步掌握这套系统的核心功能和使用方法。我会尽量用通俗的语言，结合实例，让你轻松上手。&lt;/p&gt;

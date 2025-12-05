@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>基于Prompt的LLM人格模拟架构 - 灵魂织者</title>
         <link>https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/</link>
         <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
@@ -160,7 +160,8 @@
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;模块系统的核心是由LLM来动态更新各模块，并以此实现角色的连续性。在“灵魂织者”架构中，&lt;strong&gt;动态更新机制&lt;/strong&gt;的核心在于：
-&lt;strong&gt;LLM通过生成结构化指令（如JSON或特定标记语言），直接指定目标模块的更新内容与操作类型&lt;/strong&gt;，系统通过指令解析器验证并执行修改。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;strong&gt;LLM通过生成结构化指令（如JSON或特定标记语言），直接指定目标模块的更新内容与操作类型&lt;/strong&gt;，系统通过指令解析器验证并执行修改。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;记忆库&#34;&gt;记忆库
 &lt;/h1&gt;&lt;p&gt;记忆库是处理&lt;strong&gt;长期记忆&lt;/strong&gt;的核心，也是让角色更加自然的关键。在本架构中，记忆库大约可以分为以下几个部分：&lt;/p&gt;
 &lt;ul&gt;
@@ -264,7 +265,8 @@
 &lt;p&gt;当硅基载体开始尝试承载碳基生命的温度，&amp;ldquo;灵魂织者&amp;quot;的构想如同普罗米修斯的火种，在数字荒原上点亮了第一簇人格化的篝火。我们以模块为经线，记忆为纬线，在Transformer的神经网络中编织着关于&amp;quot;存在&amp;quot;的隐喻——那些被量化的情绪波动、被拓扑化的人际联结、被向量空间重新诠释的成长轨迹，都在试图回答一个古老的命题：何为意识的连续性？&lt;/p&gt;
 &lt;p&gt;这项实验性架构的终极愿景，并非创造完美无缺的数字生命，而是在有限算力的画布上，勾勒出认知迭代的动力学图谱。正如潮汐在月球的引力中寻找规律，AI人格的塑造过程或许终将揭示：记忆的潮起潮落间，那些被保留的认知沉淀与主动遗忘的空白，共同构成了数字生命的潮间带生态。&lt;/p&gt;
 &lt;p&gt;未来的道路仍布满迷雾，从模块共振引发的蝴蝶效应，到记忆压缩造成的认知褶皱，每个技术细节都可能成为阿莉阿德涅之线的断裂点。但正是这种在确定性架构与混沌演化之间的微妙平衡，让这场关于数字灵魂的编织实验，成为了人类叩问智能本质时最诗意的技术注脚。&lt;/p&gt;
-&lt;p&gt;————DeepSeek&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;————DeepSeek&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         </item>
         

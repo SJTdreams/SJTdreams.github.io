@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Thu, 05 Jun 2025 08:13:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/api/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Dec 2025 21:27:15 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/api/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>通过Process在Unity中调用**Python**</title>
         <link>https://SJTdreams.github.io/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/</link>
         <pubDate>Thu, 02 Jan 2025 00:00:00 +0000</pubDate>
@@ -16,12 +16,14 @@
         <description>&lt;img src="https://SJTdreams.github.io/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/title.jpg" alt="Featured image of post 通过Process在Unity中调用**Python**" /&gt;&lt;h1 id=&#34;通过process在unity中调用python未完成&#34;&gt;通过Process在Unity中调用&lt;strong&gt;Python&lt;/strong&gt;(未完成)
 &lt;/h1&gt;&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;由于个人对Unity比较熟悉，因此打算将api接入unity实现对话的图形化&amp;hellip;不过大部分的模型api都是通过python来调用，因此决定通过unity来实现对python脚本的调用。经过了解，有许多文案写的是通过&lt;strong&gt;Python for Unity&lt;/strong&gt;来实现调用。然而该组件实现的脚本只能放在Editor目录下，也没办法打包，只能说完全不适配。尽管还存在**&lt;code&gt;UnityWebRequest&lt;/code&gt;&lt;strong&gt;等实现方式，不过决定通过&lt;/strong&gt;&lt;code&gt;Process&lt;/code&gt;**来实现。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;由于个人对Unity比较熟悉，因此打算将api接入unity实现对话的图形化&amp;hellip;不过大部分的模型api都是通过python来调用，因此决定通过unity来实现对python脚本的调用。经过了解，有许多文案写的是通过&lt;strong&gt;Python for Unity&lt;/strong&gt;来实现调用。然而该组件实现的脚本只能放在Editor目录下，也没办法打包，只能说完全不适配。尽管还存在**&lt;code&gt;UnityWebRequest&lt;/code&gt;&lt;strong&gt;等实现方式，不过决定通过&lt;/strong&gt;&lt;code&gt;Process&lt;/code&gt;**来实现。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id=&#34;一process类简介&#34;&gt;一、&lt;code&gt;Process&lt;/code&gt;类简介
 &lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://learn.microsoft.com/zh-cn/dotnet/api/system.diagnostics.process?view=net-8.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Process&lt;/a&gt;组件提供对计算机上正在运行的进程的访问权限。 用最简单的术语说，进程是一个正在运行的应用。 线程是操作系统分配处理器时间的基本单元。 线程可以执行进程代码的任何部分，包括当前由另一个线程执行的部分。&lt;/p&gt;
-&lt;p&gt;​														——————————文档介绍&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;​														——————————文档介绍&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;​	&lt;code&gt;Process&lt;/code&gt; 类是 C# 中 &lt;code&gt;System.Diagnostics&lt;/code&gt; 命名空间下的一个类，可以管理和控制操作系统进程。其可以调用的范围包括：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
