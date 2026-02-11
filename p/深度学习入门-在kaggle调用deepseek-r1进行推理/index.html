@@ -14,7 +14,7 @@
 <meta property='og:description' content="在kaggle调用DeepSeek-R1进行推理&quot; 目录\n[TOC]\n引言 DeepSeek R1是一款通过强化学习驱动推理能力突破的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入冷启动策略，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过知识蒸馏技术将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。\n">
 <meta property='og:url' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='kaggle' /><meta property='article:tag' content='模型' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='DeepSeek' /><meta property='article:tag' content='LLM' /><meta property='article:published_time' content='2025-04-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2025-12-05T21:43:08&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='kaggle' /><meta property='article:tag' content='模型' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='DeepSeek' /><meta property='article:tag' content='LLM' /><meta property='article:published_time' content='2025-04-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-11T10:55:34&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
 <meta name="twitter:title" content="深度学习入门 - 在kaggle调用DeepSeek-R1进行推理">
 <meta name="twitter:description" content="在kaggle调用DeepSeek-R1进行推理&quot; 目录\n[TOC]\n引言 DeepSeek R1是一款通过强化学习驱动推理能力突破的大语言模型，相较于传统LLM，其核心创新在于摒弃了依赖大量人工标注数据的传统训练范式，转而采用纯强化学习（RL）实现自我进化：模型通过自主生成多步骤推理（如数学解题中的“假设-验证”），并结合答案正确性奖励与格式规范奖励的双重机制持续优化，显著提升了复杂任务的推理准确率（如在AIME数学竞赛中达到79.8%的得分，超越OpenAI早期版本）。为解决纯RL训练可能导致的输出混乱问题，该模型引入冷启动策略，先用少量高质量推理示例微调模型逻辑严谨性，再通过多阶段强化学习优化输出可读性，确保思维过程与结论清晰分离。此外，DeepSeek R1通过知识蒸馏技术将671B参数完整版的能力迁移至1.5B~70B的轻量级模型，使普通硬件（如8GB显存的消费级显卡）也能高效运行，在保持85%原版性能的同时大幅降低部署成本。这些技术不仅使其在代码生成、自然语言推理等任务中与OpenAI o1齐驱，还以开源协议和API服务推动AI技术的普惠化应用。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title.jpg' />
@@ -63,7 +63,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_a1d404548b4dc1a.png" width="300"
+                        <img src="/img/avatar_hu_9fdab3ba7a681393.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -363,8 +363,8 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/">
-                <img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_455fa47a75de0fa3.jpg"
-                        srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_455fa47a75de0fa3.jpg 800w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_67548bd8ed939089.jpg 1600w"
+                <img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_ca9e6c23fa505e41.jpg"
+                        srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_ca9e6c23fa505e41.jpg 800w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/title_hu_413ad9f26e675f37.jpg 1600w"
                         width="800" 
                         height="526" 
                         loading="lazy"
@@ -455,7 +455,7 @@
 <p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1.PNG"
 	width="1436"
 	height="772"
-	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_edff304f83ac61e9.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_fb4bf0a0613d34df.PNG 1024w"
+	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_55c88794abab581.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_c164410541171acc.PNG 1024w"
 	loading="lazy"
 	
 	
@@ -469,7 +469,7 @@
 <p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2.PNG"
 	width="423"
 	height="691"
-	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_3b272991b823c92c.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_5ee3fcaaa9ca759b.PNG 1024w"
+	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_e1a4ad6ac02e954b.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_b8669d539609965f.PNG 1024w"
 	loading="lazy"
 	
 	
@@ -592,7 +592,7 @@
 <p><img src="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3.PNG"
 	width="807"
 	height="34"
-	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_e15740e643058c95.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_f33e98e3431ef9c7.PNG 1024w"
+	srcset="/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_54ffd3627fa905a8.PNG 480w, /p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_275c2a322de57bf0.PNG 1024w"
 	loading="lazy"
 	
 	
@@ -1208,7 +1208,7 @@
 
 
         <span>
-            最后更新于 Dec 05, 2025 21:43 &#43;0800
+            最后更新于 Feb 11, 2026 10:55 &#43;0800
         </span>
     </section></footer>
 
@@ -1255,7 +1255,7 @@
         
         
             <div class="article-image">
-                <img src="/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/title.b3b542fcb52159e43648edea11646a53_hu_8eee69bb6babded8.jpg" 
+                <img src="/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/title.b3b542fcb52159e43648edea11646a53_hu_dad5e5b5da4258af.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1275,11 +1275,35 @@
             
                 
 <article class="has-image">
+    <a href="/p/%E4%B8%BB%E6%B5%81ai%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E4%B8%BB%E6%B5%81ai%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/title.423d4890dc84aed38f6965a945f6b0ea_hu_cbdccbe2640aa7dc.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 主流AI工具整理"
+                        
+                        data-hash="md5-Qj1IkNyErtOPaWWpRfaw6g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">主流AI工具整理</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
     <a href="/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/">
         
         
             <div class="article-image">
-                <img src="/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/title.d71bc68d4a10f2d3e7e4fd8ddb2cc848_hu_cac63c0b507b2b59.jpg" 
+                <img src="/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/title.d71bc68d4a10f2d3e7e4fd8ddb2cc848_hu_5e9cf3af888d462c.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1303,7 +1327,7 @@
         
         
             <div class="article-image">
-                <img src="/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.faeac49c7a99b0dcad303db95eb0f04b_hu_b882435b6213c4fb.png" 
+                <img src="/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/title.faeac49c7a99b0dcad303db95eb0f04b_hu_6dfe33a88fc5fae.png" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1382,7 +1406,7 @@
         
             2024 - 
         
-        2025 疏间徒泍
+        2026 疏间徒泍
     </section>
     
     <section class="powerby">

@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Fri, 05 Dec 2025 21:43:08 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 11 Feb 2026 10:55:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/cnn/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>kaggle入门 - 手写数字识别实战</title>
         <link>https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/</link>
         <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
@@ -148,7 +148,7 @@
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1.png&#34;
 	width=&#34;1322&#34;
 	height=&#34;374&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_5fcfc8dbb7d8fe95.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_280493945fe43b5.png 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_a60b66d792a6f79.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_81975e3d2632f31e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;LeNet-5&#34;
@@ -424,7 +424,7 @@
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2.png&#34;
 	width=&#34;1189&#34;
 	height=&#34;390&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_51bf0abcb90cc91e.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_4589fc3a4d060ff.png 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_1df07ef41cccb707.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_42386d577bfcbf55.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;LeNet-5&#34;
@@ -914,7 +914,7 @@
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3.png&#34;
 	width=&#34;332&#34;
 	height=&#34;449&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_c106fe69332769c5.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_9b46fe805c2edec4.png 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_ed4991854db59b50.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_a8e492e5a6aa80bb.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;LeNet-5&#34;

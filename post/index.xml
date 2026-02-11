@@ -7,7 +7,30 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Fri, 05 Dec 2025 21:43:08 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 11 Feb 2026 10:55:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>主流AI工具整理</title>
+        <link>https://SJTdreams.github.io/p/%E4%B8%BB%E6%B5%81ai%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</link>
+        <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://SJTdreams.github.io/p/%E4%B8%BB%E6%B5%81ai%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</guid>
+        <description>&lt;img src="https://SJTdreams.github.io/p/%E4%B8%BB%E6%B5%81ai%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/title.jpg" alt="Featured image of post 主流AI工具整理" /&gt;&lt;h1 id=&#34;主流ai工具使用整理&#34;&gt;主流AI工具使用整理
+&lt;/h1&gt;&lt;h2 id=&#34;视频生成&#34;&gt;视频生成
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;sora2：https://sora.chatgpt.com/explore，需要梯子，内测制，需要邀请码&lt;/li&gt;
+&lt;li&gt;seedance2.0:https://jimeng.jianying.com/ai-tool/home,无需梯子，内测制，需要会员&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;音乐生成&#34;&gt;音乐生成
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;suno2：https://suno.com/home，需要梯子，公测，免费，次数有日限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;图片生成&#34;&gt;图片生成
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;liblib：https://www.liblib.art/，无需梯子，有限时间免费&lt;/li&gt;
+&lt;li&gt;leonardo：https://leonardo.ai/，需要梯子，日有限次数免费&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>Windows系统自带虚拟机配置教程</title>
         <link>https://SJTdreams.github.io/p/windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
         <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
@@ -75,7 +98,7 @@
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1.PNG&#34;
 	width=&#34;714&#34;
 	height=&#34;223&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_d2cee8ced6336d20.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_972c76ae32e404d7.PNG 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_6fb51456b3ab694d.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_bd5f5984aa405120.PNG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image1&#34;
@@ -94,7 +117,7 @@ $$&lt;p&gt;​&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2.PNG&#34;
 	width=&#34;447&#34;
 	height=&#34;80&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2_hu_393f19cde03b419d.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2_hu_5913f80fb770f95e.PNG 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2_hu_f34d5e3343fb36ff.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image2_hu_89a91fe33fe21c1d.PNG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image2&#34;
@@ -132,7 +155,7 @@ $$&lt;p&gt;
 &lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1.PNG&#34;
 	width=&#34;714&#34;
 	height=&#34;223&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_d2cee8ced6336d20.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_972c76ae32e404d7.PNG 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_6fb51456b3ab694d.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image1_hu_bd5f5984aa405120.PNG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image1&#34;
@@ -152,7 +175,7 @@ $$&lt;p&gt;
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3.PNG&#34;
 	width=&#34;1439&#34;
 	height=&#34;735&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3_hu_c001e43574076636.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3_hu_ad0b2b11eab1ee51.PNG 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3_hu_496539bd6f539b32.PNG 480w, https://SJTdreams.github.io/p/%E4%B8%80%E7%A7%8D%E6%9C%89%E8%B6%A3%E7%9A%84%E6%95%B0%E5%AD%A6%E6%9E%84%E7%AD%91%E5%B0%9D%E8%AF%95/image3_hu_e1aa02df82cd685a.PNG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;image1&#34;
@@ -417,7 +440,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1.PNG&#34;
 	width=&#34;1436&#34;
 	height=&#34;772&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_edff304f83ac61e9.PNG 480w, https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_fb4bf0a0613d34df.PNG 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_55c88794abab581.PNG 480w, https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image1_hu_c164410541171acc.PNG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -431,7 +454,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2.PNG&#34;
 	width=&#34;423&#34;
 	height=&#34;691&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_3b272991b823c92c.PNG 480w, https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_5ee3fcaaa9ca759b.PNG 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_e1a4ad6ac02e954b.PNG 480w, https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image2_hu_b8669d539609965f.PNG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -554,7 +577,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3.PNG&#34;
 	width=&#34;807&#34;
 	height=&#34;34&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_e15740e643058c95.PNG 480w, https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_f33e98e3431ef9c7.PNG 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_54ffd3627fa905a8.PNG 480w, https://SJTdreams.github.io/p/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-%E5%9C%A8kaggle%E8%B0%83%E7%94%A8deepseek-r1%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86/Image3_hu_275c2a322de57bf0.PNG 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -1282,7 +1305,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1.png&#34;
 	width=&#34;1322&#34;
 	height=&#34;374&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_5fcfc8dbb7d8fe95.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_280493945fe43b5.png 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_a60b66d792a6f79.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image1_hu_81975e3d2632f31e.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;LeNet-5&#34;
@@ -1558,7 +1581,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2.png&#34;
 	width=&#34;1189&#34;
 	height=&#34;390&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_51bf0abcb90cc91e.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_4589fc3a4d060ff.png 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_1df07ef41cccb707.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image2_hu_42386d577bfcbf55.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;LeNet-5&#34;
@@ -2048,7 +2071,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3.png&#34;
 	width=&#34;332&#34;
 	height=&#34;449&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_c106fe69332769c5.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_9b46fe805c2edec4.png 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_ed4991854db59b50.png 480w, https://SJTdreams.github.io/p/kaggle%E5%85%A5%E9%97%A8-%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98/Image3_hu_a8e492e5a6aa80bb.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;LeNet-5&#34;
@@ -2323,7 +2346,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_1.jpg&#34;
 	width=&#34;806&#34;
 	height=&#34;782&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_1_hu_b0faa066e7fd11a2.jpg 480w, https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_1_hu_fe24e00e5eea712f.jpg 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_1_hu_f3313c0ec8f191c1.jpg 480w, https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_1_hu_c0f443f4e28de32a.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;灵魂织者流程配图1&#34;
@@ -2508,7 +2531,7 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;p&gt;&lt;img src=&#34;https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_2.png&#34;
 	width=&#34;703&#34;
 	height=&#34;262&#34;
-	srcset=&#34;https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_2_hu_b2a92b667b27b47c.png 480w, https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_2_hu_f2db9c061c200f0a.png 1024w&#34;
+	srcset=&#34;https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_2_hu_e43dd44cecb9e1c7.png 480w, https://SJTdreams.github.io/p/%E5%9F%BA%E4%BA%8Eprompt%E7%9A%84llm%E4%BA%BA%E6%A0%BC%E6%A8%A1%E6%8B%9F%E6%9E%B6%E6%9E%84-%E7%81%B5%E9%AD%82%E7%BB%87%E8%80%85/image_2_hu_b2b68789aec7b13d.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;灵魂织者流程配图2&#34;
@@ -2617,9 +2640,9 @@ $$&lt;h1 id=&#34;五总结&#34;&gt;五、总结
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;800x600&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;backgroundColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#FFFFFFFF&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enableCloseButton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enableDraggable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;backgroundColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c&#34;&gt;#FFFFFFFF&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;enableCloseButton&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;enableDraggable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
