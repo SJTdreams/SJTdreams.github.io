@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Wed, 11 Feb 2026 10:55:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Nov 2026 21:50:14 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>主流AI工具整理</title>
         <link>https://SJTdreams.github.io/p/%E4%B8%BB%E6%B5%81ai%E5%B7%A5%E5%85%B7%E6%95%B4%E7%90%86/</link>
         <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
@@ -110,7 +110,8 @@
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;逆矩阵&lt;/strong&gt;：逆矩阵与原矩阵的乘积等于单位矩阵。逆矩阵可以通过解方程计算得到。非奇异的矩阵总是有逆的（可逆矩阵），而奇异的矩阵总是无逆的。奇异的方程的行列式必然为0，这就像是数字0没有逆元一样。互为逆矩阵的矩阵的行列式互为倒数。刚好1/0是未定义的，奇异的矩阵无逆矩阵。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$$
+&lt;li&gt;
+$$
     det({A}^{-1})=\frac {1} {det(A)}
     $$&lt;/li&gt;
 &lt;/ul&gt;
@@ -457,7 +458,8 @@ $$
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;协方差&lt;/strong&gt;：协方差可以方便的度量数据与数据之间对于彼此的&lt;u&gt;变化趋势&lt;/u&gt;。公式表示如下。其中 &lt;em&gt;&lt;strong&gt;μ&lt;/strong&gt;&lt;/em&gt; 是&lt;em&gt;&lt;strong&gt;X，Y&lt;/strong&gt;&lt;/em&gt;的均值。&lt;em&gt;&lt;strong&gt;E&lt;/strong&gt;&lt;/em&gt;是期望值。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$$
+&lt;li&gt;
+$$
           Cov(X 
           i
           ​
@@ -483,7 +485,8 @@ $$
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;方差&lt;/strong&gt;：方差可以方便的衡量数据在轴上的密集程度。方差定义为定义为该随机变量与其均值（期望值）之差的平方的期望值。公式表示如下：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;$$
+&lt;li&gt;
+$$
           Var(X)=E[(X−μ) 
           2
            ]

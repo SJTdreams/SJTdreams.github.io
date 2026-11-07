@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 遗传学模拟程序用户手册 [TOC]\n项目下载链接:[github] [蓝奏云]\n🌱 程序简介 这是一个用于模拟遗传规律的互动程序，可以帮助你：\n观察显性和隐性基因的遗传规律 模拟不同基因组合的繁殖结果 统计基因型和表型的分布比例 理解孟德尔遗传定律的实际应用 🧬 基本概念速查 基因相关 显性基因：用大写字母表示（如A），决定显性性状 隐性基因：用小写字母表示（如a），只有两个隐性基因组合时才表现性状 基因型：个体的基因组合（如AA/Aa/aa） 表型：实际表现出的性状（如高茎/矮茎） 组别功能 实验容器：每个组都是一个独立的实验环境 数据隔离：不同组的实验数据互不影响 模式切换：支持随机交配和人工杂交两种模式 历史记录：自动保存各代繁殖数据 💻 快速入门 启动程序 1 python main.py 出现 &gt;&gt;&gt; 提示符表示启动成功\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 遗传学模拟程序用户手册 [TOC]\n项目下载链接:[github] [蓝奏云]\n🌱 程序简介 这是一个用于模拟遗传规律的互动程序，可以帮助你：\n观察显性和隐性基因的遗传规律 模拟不同基因组合的繁殖结果 统计基因型和表型的分布比例 理解孟德尔遗传定律的实际应用 🧬 基本概念速查 基因相关 显性基因：用大写字母表示（如A），决定显性性状 隐性基因：用小写字母表示（如a），只有两个隐性基因组合时才表现性状 基因型：个体的基因组合（如AA/Aa/aa） 表型：实际表现出的性状（如高茎/矮茎） 组别功能 实验容器：每个组都是一个独立的实验环境 数据隔离：不同组的实验数据互不影响 模式切换：支持随机交配和人工杂交两种模式 历史记录：自动保存各代繁殖数据 💻 快速入门 启动程序 1 python main.py 出现 &gt;&gt;&gt; 提示符表示启动成功\n基础指令速查 指令 功能 示例 /help 查看帮助文档 /help /add 添加新基因 /add A a 高茎 矮茎 /create 创建新组 /create 豌豆组 /random 随机生成个体 /random 豌豆组 10 2 /run 执行一代繁殖 /run 豌豆组 /show 查看统计数据 /show 豌豆组 -details 📚 详细使用指南 第一步：定义基因 1 /add [显性符号] [隐性符号] [显性性状] [隐性性状] 示例：\n1 2 /add A a 高茎 矮茎 /add B b 圆粒 皱粒 💡 小贴士：基因符号必须为单个字母，显性用大写\n第二步：创建实验组 1 /create [组名] 示例：\n1 2 /create 实验一组 /create 对照组 第三步：添加实验个体 方法1：手动添加\n1 /change [组名] [基因型] add [数量] 示例：\n1 /change 实验一组 AA add 5 # 添加5个AA型个体 方法2：随机生成\n1 /random [组名] [数量] [基因长度] 示例：\n1 /random 实验一组 20 4 # 生成20个双基因个体（如AaBb） 第四步：执行繁殖实验 1 2 3 /run [组名] # 观察结果但不保存 /write [组名] # 执行并保存结果 /runs [次数] # 连续繁殖多代 示例流程：\n1 2 3 4 /create 豌豆实验 /random 豌豆实验 10 2 # 生成10个单基因个体 /show 豌豆实验 # 查看初始分布 /run 豌豆实验 # 执行一代繁殖 第五步：查看实验结果 1 2 /show [组名] # 基础统计 /show [组名] -details # 详细数据 输出示例：\n1 2 3 4 5 6 7 8 9 10 11 12 === 实验组 统计 === 总个体数：50 基因型分布： Aa: 25 (50.00%) AA: 15 (30.00%) aa: 10 (20.00%) 表型分布： (高茎,): 数量：40 占比：80.00% 基因型：Aa, AA 🧪 实验模式说明 🌐 随机交配模式 自然随机配对 适合模拟自然种群 使用指令：/mode [组名] random ✂️ 人工杂交模式 可控配对组合 适合特定基因型杂交实验 使用指令：/mode [组名] cross 💡 学习案例：豌豆实验 实验目标 观察高茎（AA/Aa）与矮茎（aa）豌豆的杂交结果\n操作步骤 添加基因定义\n1 /add A a 高茎 矮茎 创建实验组\n1 /create 豌豆实验 添加亲本\n1 2 /change 豌豆实验 AA add 10 # 10株高茎纯合体 /change 豌豆实验 aa add 10 # 10株矮茎 设置杂交模式\n1 /mode 豌豆实验 cross 执行杂交\n1 /run 豌豆实验 分析结果\n1 /show 豌豆实验 -details 📥 LOAD指令详解 指令作用 /load [文件路径] 可以批量执行预先编写好的实验指令文件，适合：\n保存常用实验方案 快速重建复杂实验 课堂演示重复实验 文件格式要求 使用普通文本文件（建议.txt扩展名） 每行一条有效指令 支持#号注释 使用UTF-8编码 使用步骤 用记事本创建指令文件 每行写一个有效命令 保存时选择UTF-8编码 在程序中执行/load 文件路径 📋 实例代码库 基础示例：单基因实验 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 BASH# 保存为 basic_exp.txt # 第一步：定义基因 /add A a 高茎 矮茎 # 第二步：创建实验组 /create 单基因实验 # 第三步：生成初始种群 /random 单基因实验 20 2 # 第四步：设置杂交模式 /mode 单基因实验 cross # 第五步：执行三次繁殖 /runs 3 # 第六步：查看最终结果 /show 单基因实验 -details 进阶示例：双基因自由组合 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 BASH# 保存为 two_genes.txt # 定义两个性状基因 /add A a 高茎 矮茎 /add B b 圆粒 皱粒 # 创建双基因实验组 /create 双基因实验 # 添加特定基因型亲本（AABB × aabb） /change 双基因实验 AABB add 5 /change 双基因实验 aabb add 5 # 设置杂交模式 /mode 双基因实验 cross # 执行两代繁殖 /runs 2 # 保存最终结果 /save 双基因结果 课堂演示脚本 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 BASH# 保存为 class_demo.txt # 初始化设置 /add M m 正常 白化 /add C c 能尝味 不能尝味 # 创建对照组 /create 对照组 /random 对照组 30 4 # 创建实验组 /create 实验组 /change 实验组 MmCc add 10 /change 实验组 mmcc add 10 # 批量执行5代繁殖 /mode 实验组 cross /runs 5 # 对比两组结果 /show 对照组 /show 实验组 -details 🛠️ LOAD使用技巧 渐进式实验：分阶段保存不同脚本\n1 2 3 BASH/load 01_初始化基因.txt /load 02_创建对照组.txt /load 03_创建实验组.txt 参数化实验：修改数字快速生成不同规模实验\n1 2 BASH# 修改数量参数即可生成不同规模种群 /random 实验组 ${数量} 4 错误处理：遇到错误时会显示行号\n1 2 TEXT[行5] 执行: /add A a 高茎 !! 行5执行失败: 参数数量错误，需要4个参数 快速重建：保存成功实验配置\n1 2 3 4 BASH# 保存当前状态 /save 成功案例 # 下次使用时 /read 成功案例 💼 实战案例包 案例1：三代显性追踪 1 2 3 4 5 6 7 BASH# 保存为 three_generations.txt /add H h 正常 亨廷顿症 /create 家族追踪 /random 家族追踪 10 2 /show 家族追踪 /runs 3 /show 家族追踪 -details 案例2：多性状组合实验 1 2 3 4 5 6 7 8 9 10 BASH# 保存为 multi_traits.txt /add T t 卷舌 平舌 /add E e 双眼皮 单眼皮 /add F f 有酒窝 无酒窝 /create 三性状实验 /random 三性状实验 50 6 /mode 三性状实验 random /runs 5 /write 三性状实验 案例3：异常情况测试 1 2 3 4 5 6 BASH# 保存为 error_test.txt # 测试各种错误情况 /add X y 显性 隐性 # 应该报错（显隐基因相同） /create /read 不存在的组 /change 测试组 AAA add 10 📌 使用注意事项 文件路径建议使用英文命名 复杂实验建议每10行添加注释 遇到编码问题可使用Notepad++保存为UTF-8格式 重要实验前先用小数据量测试脚本 ">
 <title>孟德尔の遗传学模拟程序</title>
 
 <link rel='canonical' href='https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/'>
 
-<link rel="stylesheet" href="/scss/style.min.06754aa28cfad345e639cd6fbf9e4da123d988e1930ae9039b65e4422bfc310b.css"><script 
+<link rel="stylesheet" href="/scss/style.min.8bc7fa0fca5355a26a151dc923dd2f17b25a76680b835435edc5df8e9810579e.css"><script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script><meta property='og:title' content="孟德尔の遗传学模拟程序">
-<meta property='og:description' content=" 遗传学模拟程序用户手册 [TOC]\n项目下载链接:[github] [蓝奏云]\n🌱 程序简介 这是一个用于模拟遗传规律的互动程序，可以帮助你：\n观察显性和隐性基因的遗传规律 模拟不同基因组合的繁殖结果 统计基因型和表型的分布比例 理解孟德尔遗传定律的实际应用 🧬 基本概念速查 基因相关 显性基因：用大写字母表示（如A），决定显性性状 隐性基因：用小写字母表示（如a），只有两个隐性基因组合时才表现性状 基因型：个体的基因组合（如AA/Aa/aa） 表型：实际表现出的性状（如高茎/矮茎） 组别功能 实验容器：每个组都是一个独立的实验环境 数据隔离：不同组的实验数据互不影响 模式切换：支持随机交配和人工杂交两种模式 历史记录：自动保存各代繁殖数据 💻 快速入门 启动程序 1 python main.py 出现 &gt;&gt;&gt; 提示符表示启动成功\n">
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script><script type="text/javascript" src="/ts/custom.102ea47cf23dadd51f3a78b51d6e82b371a7f945d974d58b73cc22896e2c0503.js" defer></script><meta property='og:title' content="孟德尔の遗传学模拟程序">
+<meta property='og:description' content=" 遗传学模拟程序用户手册 [TOC]\n项目下载链接:[github] [蓝奏云]\n🌱 程序简介 这是一个用于模拟遗传规律的互动程序，可以帮助你：\n观察显性和隐性基因的遗传规律 模拟不同基因组合的繁殖结果 统计基因型和表型的分布比例 理解孟德尔遗传定律的实际应用 🧬 基本概念速查 基因相关 显性基因：用大写字母表示（如A），决定显性性状 隐性基因：用小写字母表示（如a），只有两个隐性基因组合时才表现性状 基因型：个体的基因组合（如AA/Aa/aa） 表型：实际表现出的性状（如高茎/矮茎） 组别功能 实验容器：每个组都是一个独立的实验环境 数据隔离：不同组的实验数据互不影响 模式切换：支持随机交配和人工杂交两种模式 历史记录：自动保存各代繁殖数据 💻 快速入门 启动程序 1 python main.py 出现 &gt;&gt;&gt; 提示符表示启动成功\n基础指令速查 指令 功能 示例 /help 查看帮助文档 /help /add 添加新基因 /add A a 高茎 矮茎 /create 创建新组 /create 豌豆组 /random 随机生成个体 /random 豌豆组 10 2 /run 执行一代繁殖 /run 豌豆组 /show 查看统计数据 /show 豌豆组 -details 📚 详细使用指南 第一步：定义基因 1 /add [显性符号] [隐性符号] [显性性状] [隐性性状] 示例：\n1 2 /add A a 高茎 矮茎 /add B b 圆粒 皱粒 💡 小贴士：基因符号必须为单个字母，显性用大写\n第二步：创建实验组 1 /create [组名] 示例：\n1 2 /create 实验一组 /create 对照组 第三步：添加实验个体 方法1：手动添加\n1 /change [组名] [基因型] add [数量] 示例：\n1 /change 实验一组 AA add 5 # 添加5个AA型个体 方法2：随机生成\n1 /random [组名] [数量] [基因长度] 示例：\n1 /random 实验一组 20 4 # 生成20个双基因个体（如AaBb） 第四步：执行繁殖实验 1 2 3 /run [组名] # 观察结果但不保存 /write [组名] # 执行并保存结果 /runs [次数] # 连续繁殖多代 示例流程：\n1 2 3 4 /create 豌豆实验 /random 豌豆实验 10 2 # 生成10个单基因个体 /show 豌豆实验 # 查看初始分布 /run 豌豆实验 # 执行一代繁殖 第五步：查看实验结果 1 2 /show [组名] # 基础统计 /show [组名] -details # 详细数据 输出示例：\n1 2 3 4 5 6 7 8 9 10 11 12 === 实验组 统计 === 总个体数：50 基因型分布： Aa: 25 (50.00%) AA: 15 (30.00%) aa: 10 (20.00%) 表型分布： (高茎,): 数量：40 占比：80.00% 基因型：Aa, AA 🧪 实验模式说明 🌐 随机交配模式 自然随机配对 适合模拟自然种群 使用指令：/mode [组名] random ✂️ 人工杂交模式 可控配对组合 适合特定基因型杂交实验 使用指令：/mode [组名] cross 💡 学习案例：豌豆实验 实验目标 观察高茎（AA/Aa）与矮茎（aa）豌豆的杂交结果\n操作步骤 添加基因定义\n1 /add A a 高茎 矮茎 创建实验组\n1 /create 豌豆实验 添加亲本\n1 2 /change 豌豆实验 AA add 10 # 10株高茎纯合体 /change 豌豆实验 aa add 10 # 10株矮茎 设置杂交模式\n1 /mode 豌豆实验 cross 执行杂交\n1 /run 豌豆实验 分析结果\n1 /show 豌豆实验 -details 📥 LOAD指令详解 指令作用 /load [文件路径] 可以批量执行预先编写好的实验指令文件，适合：\n保存常用实验方案 快速重建复杂实验 课堂演示重复实验 文件格式要求 使用普通文本文件（建议.txt扩展名） 每行一条有效指令 支持#号注释 使用UTF-8编码 使用步骤 用记事本创建指令文件 每行写一个有效命令 保存时选择UTF-8编码 在程序中执行/load 文件路径 📋 实例代码库 基础示例：单基因实验 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 BASH# 保存为 basic_exp.txt # 第一步：定义基因 /add A a 高茎 矮茎 # 第二步：创建实验组 /create 单基因实验 # 第三步：生成初始种群 /random 单基因实验 20 2 # 第四步：设置杂交模式 /mode 单基因实验 cross # 第五步：执行三次繁殖 /runs 3 # 第六步：查看最终结果 /show 单基因实验 -details 进阶示例：双基因自由组合 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 BASH# 保存为 two_genes.txt # 定义两个性状基因 /add A a 高茎 矮茎 /add B b 圆粒 皱粒 # 创建双基因实验组 /create 双基因实验 # 添加特定基因型亲本（AABB × aabb） /change 双基因实验 AABB add 5 /change 双基因实验 aabb add 5 # 设置杂交模式 /mode 双基因实验 cross # 执行两代繁殖 /runs 2 # 保存最终结果 /save 双基因结果 课堂演示脚本 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 BASH# 保存为 class_demo.txt # 初始化设置 /add M m 正常 白化 /add C c 能尝味 不能尝味 # 创建对照组 /create 对照组 /random 对照组 30 4 # 创建实验组 /create 实验组 /change 实验组 MmCc add 10 /change 实验组 mmcc add 10 # 批量执行5代繁殖 /mode 实验组 cross /runs 5 # 对比两组结果 /show 对照组 /show 实验组 -details 🛠️ LOAD使用技巧 渐进式实验：分阶段保存不同脚本\n1 2 3 BASH/load 01_初始化基因.txt /load 02_创建对照组.txt /load 03_创建实验组.txt 参数化实验：修改数字快速生成不同规模实验\n1 2 BASH# 修改数量参数即可生成不同规模种群 /random 实验组 ${数量} 4 错误处理：遇到错误时会显示行号\n1 2 TEXT[行5] 执行: /add A a 高茎 !! 行5执行失败: 参数数量错误，需要4个参数 快速重建：保存成功实验配置\n1 2 3 4 BASH# 保存当前状态 /save 成功案例 # 下次使用时 /read 成功案例 💼 实战案例包 案例1：三代显性追踪 1 2 3 4 5 6 7 BASH# 保存为 three_generations.txt /add H h 正常 亨廷顿症 /create 家族追踪 /random 家族追踪 10 2 /show 家族追踪 /runs 3 /show 家族追踪 -details 案例2：多性状组合实验 1 2 3 4 5 6 7 8 9 10 BASH# 保存为 multi_traits.txt /add T t 卷舌 平舌 /add E e 双眼皮 单眼皮 /add F f 有酒窝 无酒窝 /create 三性状实验 /random 三性状实验 50 6 /mode 三性状实验 random /runs 5 /write 三性状实验 案例3：异常情况测试 1 2 3 4 5 6 BASH# 保存为 error_test.txt # 测试各种错误情况 /add X y 显性 隐性 # 应该报错（显隐基因相同） /create /read 不存在的组 /change 测试组 AAA add 10 📌 使用注意事项 文件路径建议使用英文命名 复杂实验建议每10行添加注释 遇到编码问题可使用Notepad++保存为UTF-8格式 重要实验前先用小数据量测试脚本 ">
 <meta property='og:url' content='https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/'>
 <meta property='og:site_name' content='疏间徒泍の旅途'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='学习' /><meta property='article:tag' content='生物' /><meta property='article:tag' content='算法' /><meta property='article:tag' content='模拟' /><meta property='article:published_time' content='2025-02-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-11T10:55:34&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/title.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='学习' /><meta property='article:tag' content='生物' /><meta property='article:tag' content='算法' /><meta property='article:tag' content='模拟' /><meta property='article:published_time' content='2025-02-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-11-07T21:50:14&#43;08:00'/><meta property='og:image' content='https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/title.jpg' />
 <meta name="twitter:title" content="孟德尔の遗传学模拟程序">
-<meta name="twitter:description" content=" 遗传学模拟程序用户手册 [TOC]\n项目下载链接:[github] [蓝奏云]\n🌱 程序简介 这是一个用于模拟遗传规律的互动程序，可以帮助你：\n观察显性和隐性基因的遗传规律 模拟不同基因组合的繁殖结果 统计基因型和表型的分布比例 理解孟德尔遗传定律的实际应用 🧬 基本概念速查 基因相关 显性基因：用大写字母表示（如A），决定显性性状 隐性基因：用小写字母表示（如a），只有两个隐性基因组合时才表现性状 基因型：个体的基因组合（如AA/Aa/aa） 表型：实际表现出的性状（如高茎/矮茎） 组别功能 实验容器：每个组都是一个独立的实验环境 数据隔离：不同组的实验数据互不影响 模式切换：支持随机交配和人工杂交两种模式 历史记录：自动保存各代繁殖数据 💻 快速入门 启动程序 1 python main.py 出现 &gt;&gt;&gt; 提示符表示启动成功\n"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content=" 遗传学模拟程序用户手册 [TOC]\n项目下载链接:[github] [蓝奏云]\n🌱 程序简介 这是一个用于模拟遗传规律的互动程序，可以帮助你：\n观察显性和隐性基因的遗传规律 模拟不同基因组合的繁殖结果 统计基因型和表型的分布比例 理解孟德尔遗传定律的实际应用 🧬 基本概念速查 基因相关 显性基因：用大写字母表示（如A），决定显性性状 隐性基因：用小写字母表示（如a），只有两个隐性基因组合时才表现性状 基因型：个体的基因组合（如AA/Aa/aa） 表型：实际表现出的性状（如高茎/矮茎） 组别功能 实验容器：每个组都是一个独立的实验环境 数据隔离：不同组的实验数据互不影响 模式切换：支持随机交配和人工杂交两种模式 历史记录：自动保存各代繁殖数据 💻 快速入门 启动程序 1 python main.py 出现 &gt;&gt;&gt; 提示符表示启动成功\n基础指令速查 指令 功能 示例 /help 查看帮助文档 /help /add 添加新基因 /add A a 高茎 矮茎 /create 创建新组 /create 豌豆组 /random 随机生成个体 /random 豌豆组 10 2 /run 执行一代繁殖 /run 豌豆组 /show 查看统计数据 /show 豌豆组 -details 📚 详细使用指南 第一步：定义基因 1 /add [显性符号] [隐性符号] [显性性状] [隐性性状] 示例：\n1 2 /add A a 高茎 矮茎 /add B b 圆粒 皱粒 💡 小贴士：基因符号必须为单个字母，显性用大写\n第二步：创建实验组 1 /create [组名] 示例：\n1 2 /create 实验一组 /create 对照组 第三步：添加实验个体 方法1：手动添加\n1 /change [组名] [基因型] add [数量] 示例：\n1 /change 实验一组 AA add 5 # 添加5个AA型个体 方法2：随机生成\n1 /random [组名] [数量] [基因长度] 示例：\n1 /random 实验一组 20 4 # 生成20个双基因个体（如AaBb） 第四步：执行繁殖实验 1 2 3 /run [组名] # 观察结果但不保存 /write [组名] # 执行并保存结果 /runs [次数] # 连续繁殖多代 示例流程：\n1 2 3 4 /create 豌豆实验 /random 豌豆实验 10 2 # 生成10个单基因个体 /show 豌豆实验 # 查看初始分布 /run 豌豆实验 # 执行一代繁殖 第五步：查看实验结果 1 2 /show [组名] # 基础统计 /show [组名] -details # 详细数据 输出示例：\n1 2 3 4 5 6 7 8 9 10 11 12 === 实验组 统计 === 总个体数：50 基因型分布： Aa: 25 (50.00%) AA: 15 (30.00%) aa: 10 (20.00%) 表型分布： (高茎,): 数量：40 占比：80.00% 基因型：Aa, AA 🧪 实验模式说明 🌐 随机交配模式 自然随机配对 适合模拟自然种群 使用指令：/mode [组名] random ✂️ 人工杂交模式 可控配对组合 适合特定基因型杂交实验 使用指令：/mode [组名] cross 💡 学习案例：豌豆实验 实验目标 观察高茎（AA/Aa）与矮茎（aa）豌豆的杂交结果\n操作步骤 添加基因定义\n1 /add A a 高茎 矮茎 创建实验组\n1 /create 豌豆实验 添加亲本\n1 2 /change 豌豆实验 AA add 10 # 10株高茎纯合体 /change 豌豆实验 aa add 10 # 10株矮茎 设置杂交模式\n1 /mode 豌豆实验 cross 执行杂交\n1 /run 豌豆实验 分析结果\n1 /show 豌豆实验 -details 📥 LOAD指令详解 指令作用 /load [文件路径] 可以批量执行预先编写好的实验指令文件，适合：\n保存常用实验方案 快速重建复杂实验 课堂演示重复实验 文件格式要求 使用普通文本文件（建议.txt扩展名） 每行一条有效指令 支持#号注释 使用UTF-8编码 使用步骤 用记事本创建指令文件 每行写一个有效命令 保存时选择UTF-8编码 在程序中执行/load 文件路径 📋 实例代码库 基础示例：单基因实验 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 BASH# 保存为 basic_exp.txt # 第一步：定义基因 /add A a 高茎 矮茎 # 第二步：创建实验组 /create 单基因实验 # 第三步：生成初始种群 /random 单基因实验 20 2 # 第四步：设置杂交模式 /mode 单基因实验 cross # 第五步：执行三次繁殖 /runs 3 # 第六步：查看最终结果 /show 单基因实验 -details 进阶示例：双基因自由组合 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 BASH# 保存为 two_genes.txt # 定义两个性状基因 /add A a 高茎 矮茎 /add B b 圆粒 皱粒 # 创建双基因实验组 /create 双基因实验 # 添加特定基因型亲本（AABB × aabb） /change 双基因实验 AABB add 5 /change 双基因实验 aabb add 5 # 设置杂交模式 /mode 双基因实验 cross # 执行两代繁殖 /runs 2 # 保存最终结果 /save 双基因结果 课堂演示脚本 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 BASH# 保存为 class_demo.txt # 初始化设置 /add M m 正常 白化 /add C c 能尝味 不能尝味 # 创建对照组 /create 对照组 /random 对照组 30 4 # 创建实验组 /create 实验组 /change 实验组 MmCc add 10 /change 实验组 mmcc add 10 # 批量执行5代繁殖 /mode 实验组 cross /runs 5 # 对比两组结果 /show 对照组 /show 实验组 -details 🛠️ LOAD使用技巧 渐进式实验：分阶段保存不同脚本\n1 2 3 BASH/load 01_初始化基因.txt /load 02_创建对照组.txt /load 03_创建实验组.txt 参数化实验：修改数字快速生成不同规模实验\n1 2 BASH# 修改数量参数即可生成不同规模种群 /random 实验组 ${数量} 4 错误处理：遇到错误时会显示行号\n1 2 TEXT[行5] 执行: /add A a 高茎 !! 行5执行失败: 参数数量错误，需要4个参数 快速重建：保存成功实验配置\n1 2 3 4 BASH# 保存当前状态 /save 成功案例 # 下次使用时 /read 成功案例 💼 实战案例包 案例1：三代显性追踪 1 2 3 4 5 6 7 BASH# 保存为 three_generations.txt /add H h 正常 亨廷顿症 /create 家族追踪 /random 家族追踪 10 2 /show 家族追踪 /runs 3 /show 家族追踪 -details 案例2：多性状组合实验 1 2 3 4 5 6 7 8 9 10 BASH# 保存为 multi_traits.txt /add T t 卷舌 平舌 /add E e 双眼皮 单眼皮 /add F f 有酒窝 无酒窝 /create 三性状实验 /random 三性状实验 50 6 /mode 三性状实验 random /runs 5 /write 三性状实验 案例3：异常情况测试 1 2 3 4 5 6 BASH# 保存为 error_test.txt # 测试各种错误情况 /add X y 显性 隐性 # 应该报错（显隐基因相同） /create /read 不存在的组 /change 测试组 AAA add 10 📌 使用注意事项 文件路径建议使用英文命名 复杂实验建议每10行添加注释 遇到编码问题可使用Notepad++保存为UTF-8格式 重要实验前先用小数据量测试脚本 "><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/title.jpg' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
@@ -63,7 +63,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_9fdab3ba7a681393.png" width="300"
+                        <img src="/img/avatar_hu_d62a78a780daaa21.png" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -408,7 +408,7 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E7%BC%96%E7%A8%8B/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/categories/code/" style="background-color: #2a9d8f; color: #fff;">
                 编程
             </a>
         
@@ -419,7 +419,7 @@
         <h2 class="article-title">
             <a href="/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/">孟德尔の遗传学模拟程序</a>
         </h2>
-    
+
         
     </div>
 
@@ -443,8 +443,6 @@
             </div>
         
 
-
-
         
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -460,11 +458,20 @@
                 </time>
             </div>
         
+
+        
+        
+            <div class="article-time--views">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                <span><span id="busuanzi_value_page_pv">—</span> 次浏览</span>
+            </div>
+        
     </footer>
     
 
     
 </div>
+
 </header>
 
     <section class="article-content">
@@ -515,45 +522,45 @@
 </blockquote>
 <h3 id="基础指令速查">基础指令速查
 </h3><div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>指令</th>
-          <th>功能</th>
-          <th>示例</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>/help</td>
-          <td>查看帮助文档</td>
-          <td>/help</td>
-      </tr>
-      <tr>
-          <td>/add</td>
-          <td>添加新基因</td>
-          <td>/add A a 高茎 矮茎</td>
-      </tr>
-      <tr>
-          <td>/create</td>
-          <td>创建新组</td>
-          <td>/create 豌豆组</td>
-      </tr>
-      <tr>
-          <td>/random</td>
-          <td>随机生成个体</td>
-          <td>/random 豌豆组 10 2</td>
-      </tr>
-      <tr>
-          <td>/run</td>
-          <td>执行一代繁殖</td>
-          <td>/run 豌豆组</td>
-      </tr>
-      <tr>
-          <td>/show</td>
-          <td>查看统计数据</td>
-          <td>/show 豌豆组 -details</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>指令</th>
+					<th>功能</th>
+					<th>示例</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>/help</td>
+					<td>查看帮助文档</td>
+					<td>/help</td>
+			</tr>
+			<tr>
+					<td>/add</td>
+					<td>添加新基因</td>
+					<td>/add A a 高茎 矮茎</td>
+			</tr>
+			<tr>
+					<td>/create</td>
+					<td>创建新组</td>
+					<td>/create 豌豆组</td>
+			</tr>
+			<tr>
+					<td>/random</td>
+					<td>随机生成个体</td>
+					<td>/random 豌豆组 10 2</td>
+			</tr>
+			<tr>
+					<td>/run</td>
+					<td>执行一代繁殖</td>
+					<td>/run 豌豆组</td>
+			</tr>
+			<tr>
+					<td>/show</td>
+					<td>查看统计数据</td>
+					<td>/show 豌豆组 -details</td>
+			</tr>
+	</tbody>
 </table></div>
 <h2 id="-详细使用指南">📚 详细使用指南
 </h2><h3 id="第一步定义基因">第一步：定义基因
@@ -1156,7 +1163,7 @@
 
 
         <span>
-            最后更新于 Feb 11, 2026 10:55 &#43;0800
+            最后更新于 Nov 07, 2026 21:50 &#43;0800
         </span>
     </section></footer>
 
@@ -1203,7 +1210,7 @@
         
         
             <div class="article-image">
-                <img src="/p/unity-uisystem%E6%90%AD%E5%BB%BA/title.bbf229b7eb3ecc4ac373e16cba219a28_hu_803f3c88ac010133.jpg" 
+                <img src="/p/unity-uisystem%E6%90%AD%E5%BB%BA/title.bbf229b7eb3ecc4ac373e16cba219a28_hu_8ad3c752fbab8d47.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1227,7 +1234,7 @@
         
         
             <div class="article-image">
-                <img src="/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.1c98cf02cc980795a9b5fbfa41ce4bd0_hu_bc33990949acec6c.png" 
+                <img src="/p/github%E4%BD%BF%E7%94%A8%E6%97%A5%E5%BF%97/title.1c98cf02cc980795a9b5fbfa41ce4bd0_hu_373964645aefdcd7.png" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1251,7 +1258,7 @@
         
         
             <div class="article-image">
-                <img src="/p/windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/title.37bbe2654fce24bc4d8c8ab90f58a828_hu_1a52946b7698106d.jpg" 
+                <img src="/p/windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/title.37bbe2654fce24bc4d8c8ab90f58a828_hu_84374e5d0f63a0cc.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1275,7 +1282,7 @@
         
         
             <div class="article-image">
-                <img src="/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/title.84acae7dc22d91eb7cbb34f831ce22bd_hu_8a8aea478772e320.jpg" 
+                <img src="/p/%E9%80%9A%E8%BF%87process%E5%9C%A8unity%E4%B8%AD%E8%B0%83%E7%94%A8python/title.84acae7dc22d91eb7cbb34f831ce22bd_hu_2fd5a28a811e3944.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
@@ -1450,7 +1457,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script><script type="text/javascript" src="/ts/custom.102ea47cf23dadd51f3a78b51d6e82b371a7f945d974d58b73cc22896e2c0503.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1463,11 +1470,23 @@
     }());
 </script>
 <style>
+   
   body {
-    background: url(https://SJTdreams.github.io/background/NaHiDa.jpg) no-repeat center top;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #0d0e15;
+    background-image:
+      linear-gradient(180deg, rgba(10, 11, 20, 0.34) 0%, rgba(10, 11, 20, 0.6) 55%, rgba(10, 11, 20, 0.82) 100%),
+      url(https://SJTdreams.github.io/background/NaHiDa.jpg);
+    background-size: cover, cover;
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
+  }
 
+  :root[data-scheme="light"] body {
+    background-color: #eef0f9;
+    background-image:
+      linear-gradient(180deg, rgba(246, 245, 255, 0.45) 0%, rgba(242, 240, 253, 0.7) 55%, rgba(238, 236, 250, 0.88) 100%),
+      url(https://SJTdreams.github.io/background/NaHiDa.jpg);
   }
 </style>
 <div id="particles-js"></div>

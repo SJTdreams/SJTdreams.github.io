@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>疏间徒泍</copyright>
-        <lastBuildDate>Wed, 11 Feb 2026 10:55:34 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E7%94%9F%E7%89%A9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Nov 2026 21:50:14 +0800</lastBuildDate><atom:link href="https://SJTdreams.github.io/tags/%E7%94%9F%E7%89%A9/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>孟德尔の遗传学模拟程序</title>
         <link>https://SJTdreams.github.io/p/%E5%AD%9F%E5%BE%B7%E5%B0%94%E3%81%AE%E9%81%97%E4%BC%A0%E5%AD%A6%E6%A8%A1%E6%8B%9F%E7%A8%8B%E5%BA%8F/</link>
         <pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate>
@@ -58,45 +58,45 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;基础指令速查&#34;&gt;基础指令速查
 &lt;/h3&gt;&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;指令&lt;/th&gt;
-          &lt;th&gt;功能&lt;/th&gt;
-          &lt;th&gt;示例&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;/help&lt;/td&gt;
-          &lt;td&gt;查看帮助文档&lt;/td&gt;
-          &lt;td&gt;/help&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;/add&lt;/td&gt;
-          &lt;td&gt;添加新基因&lt;/td&gt;
-          &lt;td&gt;/add A a 高茎 矮茎&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;/create&lt;/td&gt;
-          &lt;td&gt;创建新组&lt;/td&gt;
-          &lt;td&gt;/create 豌豆组&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;/random&lt;/td&gt;
-          &lt;td&gt;随机生成个体&lt;/td&gt;
-          &lt;td&gt;/random 豌豆组 10 2&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;/run&lt;/td&gt;
-          &lt;td&gt;执行一代繁殖&lt;/td&gt;
-          &lt;td&gt;/run 豌豆组&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;/show&lt;/td&gt;
-          &lt;td&gt;查看统计数据&lt;/td&gt;
-          &lt;td&gt;/show 豌豆组 -details&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;指令&lt;/th&gt;
+					&lt;th&gt;功能&lt;/th&gt;
+					&lt;th&gt;示例&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;/help&lt;/td&gt;
+					&lt;td&gt;查看帮助文档&lt;/td&gt;
+					&lt;td&gt;/help&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;/add&lt;/td&gt;
+					&lt;td&gt;添加新基因&lt;/td&gt;
+					&lt;td&gt;/add A a 高茎 矮茎&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;/create&lt;/td&gt;
+					&lt;td&gt;创建新组&lt;/td&gt;
+					&lt;td&gt;/create 豌豆组&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;/random&lt;/td&gt;
+					&lt;td&gt;随机生成个体&lt;/td&gt;
+					&lt;td&gt;/random 豌豆组 10 2&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;/run&lt;/td&gt;
+					&lt;td&gt;执行一代繁殖&lt;/td&gt;
+					&lt;td&gt;/run 豌豆组&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;/show&lt;/td&gt;
+					&lt;td&gt;查看统计数据&lt;/td&gt;
+					&lt;td&gt;/show 豌豆组 -details&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;-详细使用指南&#34;&gt;📚 详细使用指南
 &lt;/h2&gt;&lt;h3 id=&#34;第一步定义基因&#34;&gt;第一步：定义基因
